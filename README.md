@@ -1,1 +1,1 @@
-Decompositions of several popular TLA+ protocols.
+Decompositions of several popular TLA+ protocols using Carini and endive.
