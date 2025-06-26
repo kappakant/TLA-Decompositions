@@ -102,7 +102,7 @@ TypeOK ==
 /\ Fluent20_0 \in [RMs -> BOOLEAN]
 /\ Fluent12_0 \in [RMs -> BOOLEAN]
 
-NumRandElems == 4
+NumRandElems == 5
 TypeOKRand ==
 /\ (rmState \in RandomSubset(4, [RMs -> {"working","prepared","committed","aborted"}]))
 /\ (msgs \in RandomSubset(NumRandElems, SUBSET(Message)))
