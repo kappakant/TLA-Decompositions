@@ -1,8 +1,7 @@
 {
     "preds"  :  [
-        "[type |-> \"Prepared\", rm |-> rmi] \\in msgs",
-        "[type |-> \"Prepared\", rm |-> rmj] \\in msgs",
-        "[type |-> \"Prepared\", rm |-> rmk] \\in msgs",
+        "[type |-> \"Prepared\", theRM |-> rmi] \\in msgs",
+        "[type |-> \"Prepared\", theRM |-> rmj] \\in msgs",
         "[type |-> \"Commit\"] \\in msgs",
         "[type |-> \"Abort\"] \\in msgs",
         "tmState = \"init\"",
@@ -11,16 +10,12 @@
         "tmPrepared = RMs",
         "tmPrepared = tmPrepared \\cup {rmi}",
         "tmPrepared = tmPrepared \\cup {rmj}",
-        "tmPrepared = tmPrepared \\cup {rmk}",
         "Fluent6_0[rmi]",
         "Fluent7_0[rmi]",
         "Fluent10_0[rmi]",
         "Fluent6_0[rmj]",
         "Fluent7_0[rmj]",
-        "Fluent10_0[rmj]",
-        "Fluent6_0[rmk]",
-        "Fluent7_0[rmk]",
-        "Fluent10_0[rmk]"
+        "Fluent10_0[rmj]"
     ],
     "preds_alt" : [],
     "safety"  :  "CandSep",
@@ -28,13 +23,14 @@
         "CONSTANTS",
         "RMs={rm1,rm2}",
         "rm1 = rm1",
-        "rm2 = rm2"
+        "rm2 = rm2",
+        "rm3 = rm3"
 
     ],
     "constraint"  :  "",
-    "quant_inv"  :  "\\A rmi \\in RMs : \\E rmj \\in RMs : \\E rmk \\in RMs : ",
+    "quant_inv"  :  "\\A rmi \\in RMs : \\A rmj \\in RMs : ",
     "quant_inv_alt"  :  null,
-    "model_consts"  :  "CONSTANT rm1,rm2",
+    "model_consts"  :  "CONSTANT rm1,rm2,rm3",
     "symmetry" : false,
     "typeok"  :  "TypeOKRand",
     "simulate"  :  true      
