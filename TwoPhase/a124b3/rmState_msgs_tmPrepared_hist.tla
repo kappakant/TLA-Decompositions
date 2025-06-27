@@ -1,79 +1,75 @@
---------------------------- MODULE rmState_msgs_tmState_hist ---------------------------
+--------------------------- MODULE rmState_msgs_tmPrepared_hist ---------------------------
 EXTENDS Randomization
 
 CONSTANTS RMs
 
-VARIABLES Fluent6_0, msgs, tmState, Fluent7_0, rmState
+VARIABLES msgs, Fluent14_0, tmPrepared, rmState, Fluent13_0
 
-vars == <<Fluent6_0, msgs, tmState, Fluent7_0, rmState>>
+vars == <<msgs, Fluent14_0, tmPrepared, rmState, Fluent13_0>>
 
 CandSep ==
-/\ \A var0 \in RMs : \A var1 \in RMs : (Fluent7_0[var0]) => (Fluent6_0[var1])
+/\ \A var0 \in RMs : \A var1 \in RMs : (Fluent13_0[var1]) => (~(Fluent14_0[var0]))
 
 Init ==
-/\ tmState = "init"
+/\ tmPrepared = {}
 /\ rmState = [rm \in RMs |-> "working"]
 /\ msgs = {}
-/\ Fluent6_0 = [ x0 \in RMs |-> FALSE]
-/\ Fluent7_0 = [ x0 \in RMs |-> FALSE]
+/\ Fluent14_0 = [ x0 \in RMs |-> FALSE]
+/\ Fluent13_0 = [ x0 \in RMs |-> FALSE]
 
 SndPrepare(rm) ==
 /\ rmState[rm] = "working"
 /\ rmState' = [rmState EXCEPT![rm] = "prepared"]
 /\ msgs' = (msgs \cup {[type |-> "Prepared",theRM |-> rm]})
-/\ UNCHANGED <<tmState>>
-/\ UNCHANGED<<Fluent6_0, Fluent7_0>>
+/\ UNCHANGED <<tmPrepared>>
+/\ UNCHANGED<<Fluent14_0, Fluent13_0>>
 /\ CandSep'
 
 RcvPrepare(rm) ==
 /\ ([type |-> "Prepared",theRM |-> rm] \in msgs)
-/\ tmState = "init"
+/\ tmPrepared' = (tmPrepared \cup {rm})
 /\ UNCHANGED msgs
 /\ UNCHANGED rmState
-/\ UNCHANGED tmState
-/\ Fluent6_0' = [Fluent6_0 EXCEPT ![rm] = TRUE]
-/\ UNCHANGED<<Fluent7_0>>
+/\ UNCHANGED<<Fluent14_0, Fluent13_0>>
 /\ CandSep'
 
 SndCommit(rm) ==
 /\ msgs' = (msgs \cup {[type |-> "Commit"]})
-/\ (tmState \in {"init","committed"})
-/\ tmState' = "committed"
-/\ UNCHANGED rmState
-/\ Fluent7_0' = [Fluent7_0 EXCEPT ![rm] = TRUE]
-/\ UNCHANGED<<Fluent6_0>>
+/\ tmPrepared = RMs
+/\ UNCHANGED <<rmState,tmPrepared>>
+/\ Fluent13_0' = [Fluent13_0 EXCEPT ![rm] = TRUE]
+/\ UNCHANGED<<Fluent14_0>>
 /\ CandSep'
 
 RcvCommit(rm) ==
 /\ rmState' = [rmState EXCEPT![rm] = "committed"]
 /\ ([type |-> "Commit"] \in msgs)
 /\ UNCHANGED msgs
-/\ UNCHANGED tmState
-/\ UNCHANGED<<Fluent6_0, Fluent7_0>>
+/\ UNCHANGED tmPrepared
+/\ UNCHANGED<<Fluent14_0, Fluent13_0>>
 /\ CandSep'
 
 SndAbort(rm) ==
 /\ msgs' = (msgs \cup {[type |-> "Abort"]})
-/\ UNCHANGED rmState
-/\ (tmState \in {"init","aborted"})
-/\ tmState' = "aborted"
-/\ UNCHANGED<<Fluent6_0, Fluent7_0>>
+/\ UNCHANGED <<rmState,tmPrepared>>
+/\ Fluent14_0' = [Fluent14_0 EXCEPT ![rm] = TRUE]
+/\ UNCHANGED<<Fluent13_0>>
 /\ CandSep'
 
 RcvAbort(rm) ==
 /\ rmState' = [rmState EXCEPT![rm] = "aborted"]
 /\ ([type |-> "Abort"] \in msgs)
 /\ UNCHANGED msgs
-/\ UNCHANGED tmState
-/\ UNCHANGED<<Fluent6_0, Fluent7_0>>
+/\ UNCHANGED tmPrepared
+/\ UNCHANGED<<Fluent14_0, Fluent13_0>>
 /\ CandSep'
 
 SilentAbort(rm) ==
 /\ rmState[rm] = "working"
 /\ rmState' = [rmState EXCEPT![rm] = "aborted"]
 /\ UNCHANGED msgs
-/\ UNCHANGED tmState
-/\ UNCHANGED<<Fluent6_0, Fluent7_0>>
+/\ UNCHANGED tmPrepared
+/\ UNCHANGED<<Fluent14_0, Fluent13_0>>
 /\ CandSep'
 
 NextUnchanged == UNCHANGED vars
@@ -95,19 +91,15 @@ Message == ([type : {"Prepared"},theRM : RMs] \cup [type : {"Commit","Abort"}])
 TypeOK ==
 /\ (rmState \in [RMs -> {"working","prepared","committed","aborted"}])
 /\ (msgs \in SUBSET(Message))
-/\ (tmState \in {"init","committed","aborted"})
+/\ (tmPrepared \in SUBSET(RMs))
 
 NumRandElems == 5
 TypeOKRand ==
-/\ (rmState \in RandomSubset(NumRandElems, [RMs -> {"working","prepared","committed","aborted"}]))
+/\ (rmState \in RandomSubset(4, [RMs -> {"working","prepared","committed","aborted"}]))
 /\ (msgs \in RandomSubset(NumRandElems, SUBSET(Message)))
-/\ (tmState \in RandomSubset(NumRandElems, {"init", "committed", "aborted"}))
-/\ Fluent6_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
-/\ Fluent7_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
+/\ (tmPrepared \in SUBSET(RMs))
+/\ Fluent13_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
+/\ Fluent14_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 
 Consistent == (\A rm1,rm2 \in RMs : ~((rmState[rm1] = "aborted" /\ rmState[rm2] = "committed")))
-
-ConSep ==
-/\ CandSep
-/\ Consistent
 =============================================================================

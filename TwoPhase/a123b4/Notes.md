@@ -4,3 +4,5 @@ java -jar /Users/johnnguyen/Desktop/TLA/carini/bin/assump-synth.jar     none  60
 
 rmState_msgs_tmState: Can't find invariant
 tmPrepared: python3 /Users/johnnguyen/Desktop/TLA/endive/endive.py --seed 20 --ninvs 1500  55.57s user 3.60s system 477% cpu 12.395 total
+
+Interestingly, C1 is the one that cannot find an invariant

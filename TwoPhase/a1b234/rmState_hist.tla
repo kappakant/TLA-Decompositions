@@ -67,6 +67,8 @@ TypeOKRand ==
 /\ Fluent7_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 /\ Fluent10_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 
+Consistent == (\A rm1,rm2 \in RMs : ~((rmState[rm1] = "aborted" /\ rmState[rm2] = "committed")))
+
 \* added by endive
 Inv68_1_0_def == \A rmi \in RMs : \A rmj \in RMs : (Fluent6_0[rmi]) \/ (~(rmState[rmi] = "committed"))
 Inv169_1_1_def == \A rmi \in RMs : \A rmj \in RMs : (rmState[rmi] = "committed") \/ (~(Fluent6_0[rmi]))
@@ -80,6 +82,4 @@ IndAuto ==
 /\ Inv169_1_1_def
 /\ Inv281_1_2_def
 /\ Inv1252_2_3_def
-
-Consistent == (\A rm1,rm2 \in RMs : ~((rmState[rm1] = "aborted" /\ rmState[rm2] = "committed")))
 =============================================================================
