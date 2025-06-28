@@ -104,7 +104,7 @@ TypeOK ==
 
 NumRandElems == 5
 TypeOKRand ==
-/\ (rmState \in RandomSubset(4, [RMs -> {"working","prepared","committed","aborted"}]))
+/\ (rmState \in RandomSubset(NumRandElems, [RMs -> {"working","prepared","committed","aborted"}]))
 /\ (msgs \in RandomSubset(NumRandElems, SUBSET(Message)))
 /\ Fluent5_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 /\ Fluent19_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
@@ -114,19 +114,55 @@ TypeOKRand ==
 
 Consistent == (\A rm1,rm2 \in RMs : ~((rmState[rm1] = "aborted" /\ rmState[rm2] = "committed")))
 
-\* Added from endive
-Inv308_1_0_def == \A rmi \in RMs : \A rmj \in RMs : (Fluent8_0[rmi]) \/ ((Fluent8_0[rmj]))
-Inv0_1_0_def == \A rmi \in RMs : \A rmj \in RMs : (Fluent12_0[rmi]) \/ ((Fluent12_0[rmj]))
+\* Added by endive
+Inv331_1_0_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent8_0[rmi]) \/ (~([type |-> "Commit"] \in msgs))
+Inv335_1_1_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent8_0[rmi]) \/ (~(rmState[rmi] = "committed"))
+Inv325_1_2_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent8_0[rmi]) \/ (~(Fluent20_0[rmi]))
+Inv453_1_0_def == \A rmi \in RMs : \E rmj \in RMs : ([type |-> "Prepared", theRM |-> rmi] \in msgs) \/ (~(Fluent5_0[rmi]))
+Inv431_1_1_def == \A rmi \in RMs : \E rmj \in RMs : ([type |-> "Commit"] \in msgs) \/ (~(rmState[rmi] = "committed"))
+Inv324_1_2_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent8_0[rmi]) \/ (~(Fluent19_0[rmj]))
+Inv71_1_3_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent12_0[rmj]) \/ (~([type |-> "Abort"] \in msgs))
+Inv814_1_4_def == \A rmi \in RMs : \E rmj \in RMs : ~(Fluent5_0[rmi]) \/ (~(rmState[rmi] = "working"))
+Inv421_1_5_def == \A rmi \in RMs : \E rmj \in RMs : ([type |-> "Commit"] \in msgs) \/ (~(Fluent20_0[rmi]))
+Inv386_1_6_def == \A rmi \in RMs : \E rmj \in RMs : ([type |-> "Abort"] \in msgs) \/ (~(Fluent12_0[rmi]))
+Inv146_1_7_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent19_0[rmj]) \/ (~(Fluent5_0[rmi]))
+Inv144_2_8_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent12_0[rmi]) \/ ((Fluent8_0[rmi])) \/ (~(Fluent5_0[rmi]))
+Inv471_2_9_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent12_0[rmi]) \/ (~([type |-> "Abort"] \in msgs)) \/ (~(Fluent19_0[rmi]))
+Inv262_1_0_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent5_0[rmi]) \/ (~([type |-> "Commit"] \in msgs))
+Inv883_1_1_def == \A rmi \in RMs : \E rmj \in RMs : ~([type |-> "Prepared", theRM |-> rmi] \in msgs) \/ (~(rmState[rmi] = "working"))
+Inv112_1_2_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent19_0[rmi]) \/ (~([type |-> "Commit"] \in msgs))
+Inv763_1_3_def == \A rmi \in RMs : \E rmj \in RMs : ~(Fluent19_0[rmj]) \/ (~(rmState[rmi] = "aborted"))
+Inv294_1_4_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent5_0[rmj]) \/ (~(Fluent8_0[rmi]))
+Inv226_1_5_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent20_0[rmj]) \/ (~([type |-> "Commit"] \in msgs))
+Inv1092_2_6_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent12_0[rmj]) \/ (~(rmState[rmi] = "aborted")) \/ (~([type |-> "Prepared", theRM |-> rmi] \in msgs))
+Inv255_1_0_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent5_0[rmi]) \/ (~(Fluent19_0[rmj]))
+Inv932_2_1_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent12_0[rmj]) \/ (~(Fluent19_0[rmi])) \/ ((Fluent5_0[rmi]))
+Inv597_2_2_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent12_0[rmj]) \/ ((Fluent19_0[rmi]) \/ (~(Fluent5_0[rmi])))
 
 \* The inductive invariant candidate.
 IndAuto ==
 /\ Consistent
-/\ Inv308_1_0_def
-/\ Inv0_1_0_def
-
-IndRand ==
-/\ TypeOKRand
-/\ IndAuto
-
-IISpec == IndRand /\ [][Next]_vars
+/\ Inv331_1_0_def
+/\ Inv335_1_1_def
+/\ Inv325_1_2_def
+/\ Inv453_1_0_def
+/\ Inv431_1_1_def
+/\ Inv324_1_2_def
+/\ Inv71_1_3_def
+/\ Inv814_1_4_def
+/\ Inv421_1_5_def
+/\ Inv386_1_6_def
+/\ Inv146_1_7_def
+/\ Inv144_2_8_def
+/\ Inv471_2_9_def
+/\ Inv262_1_0_def
+/\ Inv883_1_1_def
+/\ Inv112_1_2_def
+/\ Inv763_1_3_def
+/\ Inv294_1_4_def
+/\ Inv226_1_5_def
+/\ Inv1092_2_6_def
+/\ Inv255_1_0_def
+/\ Inv932_2_1_def
+/\ Inv597_2_2_def
 =============================================================================

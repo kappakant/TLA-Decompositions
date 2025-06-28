@@ -97,5 +97,24 @@ TypeOKRand ==
 /\ Fluent17_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 /\ Fluent3_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 
+\* added by endive 
+Inv304_1_0_def == \A rmi \in RMs : \E rmj \in RMs: ([type |-> "Commit"] \in msgs) \/ (~(Fluent3_0[rmi]))
+Inv369_1_1_def == \A rmi \in RMs : \E rmj \in RMs: (tmState = "aborted") \/ (~([type |-> "Abort"] \in msgs))
+Inv387_1_0_def == \A rmi \in RMs : \E rmj \in RMs: (tmState = "committed") \/ (~([type |-> "Commit"] \in msgs))
+Inv120_1_1_def == \A rmi \in RMs : \E rmj \in RMs: (Fluent3_0[rmj]) \/ (~(tmState = "committed"))
+Inv409_1_2_def == \A rmi \in RMs : \E rmj \in RMs: ~(Fluent17_0[rmi]) \/ (~(Fluent3_0[rmi]))
+Inv359_1_0_def == \A rmi \in RMs : \E rmj \in RMs: (tmState = "aborted") \/ (~(Fluent17_0[rmi]))
+Inv198_1_1_def == \A rmi \in RMs : \E rmj \in RMs: (Fluent5_0[rmi]) \/ (~([type |-> "Prepared", theRM |-> rmi] \in msgs))
+
+\* The inductive invariant candidate.
+IndAuto ==
+/\ CandSep
+/\ Inv304_1_0_def
+/\ Inv369_1_1_def
+/\ Inv387_1_0_def
+/\ Inv120_1_1_def
+/\ Inv409_1_2_def
+/\ Inv359_1_0_def
+/\ Inv198_1_1_def
 
 =============================================================================
