@@ -3,19 +3,22 @@ EXTENDS Randomization
 
 CONSTANTS RMs
 
-VARIABLES Fluent6_0, msgs, tmPrepared, Fluent7_0, Fluent11_0, Fluent10_0, Fluent24_0, Fluent23_0
+\* Manually pruned 6
+VARIABLES msgs, tmPrepared, Fluent7_0, Fluent20_0, Fluent22_0, Fluent11_0, Fluent21_0, Fluent10_0, Fluent23_0
 
-vars == <<Fluent6_0, msgs, tmPrepared, Fluent7_0, Fluent11_0, Fluent10_0, Fluent24_0, Fluent23_0>>
+vars == <<msgs, tmPrepared, Fluent7_0, Fluent20_0, Fluent22_0, Fluent11_0, Fluent21_0, Fluent10_0, Fluent23_0>>
 
 CandSep ==
-/\ \A var0 \in RMs : \A var1 \in RMs : (Fluent23_0[var1]) => (~(Fluent24_0[var0]))
+/\ \A var0 \in RMs : (Fluent23_0[var0]) => (~(Fluent22_0[var0]))
+/\ \A var0 \in RMs : (Fluent20_0[var0]) => (~(Fluent21_0[var0]))
 
 Init ==
 /\ msgs = {}
 /\ tmPrepared = {}
-/\ Fluent24_0 = [ x0 \in RMs |-> FALSE]
+/\ Fluent20_0 = [ x0 \in RMs |-> FALSE]
+/\ Fluent22_0 = [ x0 \in RMs |-> FALSE]
+/\ Fluent21_0 = [ x0 \in RMs |-> FALSE]
 /\ Fluent23_0 = [ x0 \in RMs |-> FALSE]
-/\ Fluent6_0 = [ x0 \in RMs |-> FALSE]
 /\ Fluent7_0 = [ x0 \in RMs |-> FALSE]
 /\ Fluent11_0 = [ x0 \in RMs |-> FALSE]
 /\ Fluent10_0 = [ x0 \in RMs |-> FALSE]
@@ -23,37 +26,40 @@ Init ==
 SndPrepare(rm) ==
 /\ msgs' = (msgs \cup {[type |-> "Prepared",theRM |-> rm]})
 /\ UNCHANGED <<tmPrepared>>
-/\ UNCHANGED<<Fluent24_0, Fluent23_0>>
+/\ UNCHANGED<<Fluent20_0, Fluent22_0, Fluent21_0, Fluent23_0>>
 /\ CandSep'
 /\ Fluent10_0' = [Fluent10_0 EXCEPT ![rm] = TRUE]
-/\ UNCHANGED<<Fluent6_0, Fluent7_0, Fluent11_0>>
+/\ UNCHANGED<<Fluent7_0, Fluent11_0>>
 /\ CandSep'
 
 RcvPrepare(rm) ==
 /\ ([type |-> "Prepared",theRM |-> rm] \in msgs)
 /\ tmPrepared' = (tmPrepared \cup {rm})
 /\ UNCHANGED <<msgs>>
-/\ UNCHANGED<<Fluent24_0, Fluent23_0>>
+/\ Fluent22_0' = [x0 \in RMs |-> TRUE]
+/\ Fluent21_0' = [Fluent21_0 EXCEPT ![rm] = FALSE]
+/\ UNCHANGED<<Fluent20_0, Fluent23_0>>
 /\ CandSep'
-/\ UNCHANGED<<Fluent6_0, Fluent7_0, Fluent11_0, Fluent10_0>>
+/\ UNCHANGED<<Fluent7_0, Fluent11_0, Fluent10_0>>
 /\ CandSep'
 
 SndCommit(rm) ==
 /\ msgs' = (msgs \cup {[type |-> "Commit"]})
 /\ tmPrepared = RMs
 /\ UNCHANGED <<tmPrepared>>
+/\ Fluent22_0' = [Fluent22_0 EXCEPT ![rm] = FALSE]
+/\ Fluent21_0' = [x0 \in RMs |-> TRUE]
 /\ Fluent23_0' = [Fluent23_0 EXCEPT ![rm] = TRUE]
-/\ UNCHANGED<<Fluent24_0>>
+/\ UNCHANGED<<Fluent20_0>>
 /\ CandSep'
-/\ UNCHANGED<<Fluent6_0, Fluent7_0, Fluent11_0, Fluent10_0>>
+/\ UNCHANGED<<Fluent7_0, Fluent11_0, Fluent10_0>>
 /\ CandSep'
 
 RcvCommit(rm) ==
 /\ ([type |-> "Commit"] \in msgs)
 /\ UNCHANGED <<msgs,tmPrepared>>
-/\ UNCHANGED<<Fluent24_0, Fluent23_0>>
+/\ UNCHANGED<<Fluent20_0, Fluent22_0, Fluent21_0, Fluent23_0>>
 /\ CandSep'
-/\ Fluent6_0' = [Fluent6_0 EXCEPT ![rm] = TRUE]
 /\ Fluent11_0' = [Fluent11_0 EXCEPT ![rm] = TRUE]
 /\ UNCHANGED<<Fluent7_0, Fluent10_0>>
 /\ CandSep'
@@ -61,19 +67,19 @@ RcvCommit(rm) ==
 SndAbort(rm) ==
 /\ msgs' = (msgs \cup {[type |-> "Abort"]})
 /\ UNCHANGED <<tmPrepared>>
-/\ Fluent24_0' = [Fluent24_0 EXCEPT ![rm] = TRUE]
-/\ UNCHANGED<<Fluent23_0>>
+/\ Fluent20_0' = [Fluent20_0 EXCEPT ![rm] = TRUE]
+/\ UNCHANGED<<Fluent22_0, Fluent21_0, Fluent23_0>>
 /\ CandSep'
-/\ UNCHANGED<<Fluent6_0, Fluent7_0, Fluent11_0, Fluent10_0>>
+/\ UNCHANGED<<Fluent7_0, Fluent11_0, Fluent10_0>>
 /\ CandSep'
 
 RcvAbort(rm) ==
 /\ ([type |-> "Abort"] \in msgs)
 /\ UNCHANGED <<msgs,tmPrepared>>
-/\ UNCHANGED<<Fluent24_0, Fluent23_0>>
+/\ UNCHANGED<<Fluent20_0, Fluent22_0, Fluent21_0, Fluent23_0>>
 /\ CandSep'
 /\ Fluent7_0' = [Fluent7_0 EXCEPT ![rm] = TRUE]
-/\ UNCHANGED<<Fluent6_0, Fluent11_0, Fluent10_0>>
+/\ UNCHANGED<<Fluent11_0, Fluent10_0>>
 /\ CandSep'
 
 NextUnchanged == UNCHANGED vars
@@ -94,48 +100,55 @@ Message == ([type : {"Prepared"},theRM : RMs] \cup [type : {"Commit","Abort"}])
 TypeOK ==
 /\ (msgs \in SUBSET(Message))
 /\ (tmPrepared \in SUBSET(RMs))
-/\ Fluent24_0 \in [RMs -> BOOLEAN]
-/\ Fluent23_0 \in [RMs -> BOOLEAN]
-/\ Fluent6_0  \in [RMs -> BOOLEAN]
-/\ Fluent7_0  \in [RMs -> BOOLEAN]
+/\ Fluent7_0  \in [RMs -> BOOLEAN] 
+/\ Fluent20_0 \in [RMs -> BOOLEAN]
+/\ Fluent22_0 \in [RMs -> BOOLEAN]
 /\ Fluent11_0 \in [RMs -> BOOLEAN]
+/\ Fluent21_0 \in [RMs -> BOOLEAN]
 /\ Fluent10_0 \in [RMs -> BOOLEAN]
+/\ Fluent23_0 \in [RMs -> BOOLEAN]
+
+Safety ==
+/\ \A var0 \in RMs : \A var1 \in RMs : (Fluent11_0[var0]) => (Fluent10_0[var1])
+/\ \A var0 \in RMs : \A var1 \in RMs : (Fluent7_0[var1]) => (~(Fluent11_0[var0]))
 
 NumRandElems == 5
 TypeOKRand ==
 /\ (msgs \in RandomSubset(NumRandElems, SUBSET(Message)))
 /\ (tmPrepared \in RandomSubset(NumRandElems, SUBSET(RMs)))
-/\ Fluent24_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
-/\ Fluent23_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
-/\ Fluent6_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
-/\ Fluent7_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
+/\ Fluent7_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN]) 
+/\ Fluent20_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
+/\ Fluent22_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 /\ Fluent11_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
+/\ Fluent21_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 /\ Fluent10_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
-
-Safety ==
-/\ \A var0 \in RMs : \A var1 \in RMs : (Fluent11_0[var0]) => (Fluent10_0[var1])
-/\ \A var0 \in RMs : \A var1 \in RMs : (Fluent7_0[var1]) => (~(Fluent6_0[var0]))
+/\ Fluent23_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 
 \* added by endive
-Inv403_1_0_def == \A rmi \in RMs : \E rmj \in RMs : ([type |-> "Commit"] \in msgs) \/ (~(Fluent6_0[rmi]))
-Inv253_1_1_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent24_0[rmj]) \/ (~([type |-> "Abort"] \in msgs))
-Inv195_1_0_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent23_0[rmj]) \/ (~([type |-> "Commit"] \in msgs))
-Inv30_1_1_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent10_0[rmi]) \/ (~([type |-> "Commit"] \in msgs))
-Inv251_1_0_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent24_0[rmj]) \/ (~(Fluent7_0[rmi]))
-Inv399_1_1_def == \A rmi \in RMs : \E rmj \in RMs : ([type |-> "Commit"] \in msgs) \/ (~(Fluent23_0[rmi]))
-Inv34_1_2_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent10_0[rmi]) \/ (~(tmPrepared = tmPrepared \cup {rmi}))
-Inv31_1_3_def == \A rmi \in RMs : \E rmj \in RMs : (Fluent10_0[rmi]) \/ (~([type |-> "Prepared", theRM |-> rmi] \in msgs))
+Inv1405_1_0_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : ~(Fluent11_0[rmi]) \/ (~([type |-> "Abort"] \in msgs))
+Inv427_1_1_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent20_0[rmj]) \/ (~([type |-> "Abort"] \in msgs))
+Inv527_1_0_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent21_0[rmi]) \/ (~([type |-> "Commit"] \in msgs))
+Inv150_1_1_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent10_0[rmk]) \/ (~(Fluent21_0[rmi]))
+Inv830_1_2_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent23_0[rmj]) \/ (~(Fluent21_0[rmi]))
+Inv511_1_0_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent21_0[rmi]) \/ (~(Fluent11_0[rmk]))
+Inv167_1_1_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent10_0[rmk]) \/ (~(tmPrepared = RMs))
+Inv166_1_2_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent10_0[rmk]) \/ (~([type |-> "Prepared", theRM |-> rmk] \in msgs))
+Inv1113_1_0_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : ([type |-> "Prepared", theRM |-> rmi] \in msgs) \/ (~(tmPrepared = tmPrepared \cup {rmi}))
+Inv424_1_1_def == \A rmi \in RMs : \E rmj \in RMs : \A rmk \in RMs : (Fluent20_0[rmj]) \/ (~(Fluent7_0[rmi]))
 
 \* The inductive invariant candidate.
 IndAuto ==
 /\ Safety
-/\ Inv403_1_0_def
-/\ Inv253_1_1_def
-/\ Inv195_1_0_def
-/\ Inv30_1_1_def
-/\ Inv251_1_0_def
-/\ Inv399_1_1_def
-/\ Inv34_1_2_def
-/\ Inv31_1_3_def
+/\ Inv1405_1_0_def
+/\ Inv427_1_1_def
+/\ Inv527_1_0_def
+/\ Inv150_1_1_def
+/\ Inv830_1_2_def
+/\ Inv511_1_0_def
+/\ Inv167_1_1_def
+/\ Inv166_1_2_def
+/\ Inv1113_1_0_def
+/\ Inv424_1_1_def
 
+IISpec == TypeOK /\ IndAuto /\ [][Next]_vars
 =============================================================================

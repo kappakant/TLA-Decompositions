@@ -3,10 +3,20 @@
         "tmState = \"init\"",
         "tmState = \"committed\"",
         "tmState = \"aborted\"",
-        "Fluent13_0[rmi]",
-        "Fluent14_0[rmi]",
-        "Fluent13_0[rmj]",
-        "Fluent14_0[rmj]"
+        "Fluent7_0[rmi]",
+        "Fluent20_0[rmi]",
+        "Fluent22_0[rmi]",
+        "Fluent11_0[rmi]",
+        "Fluent21_0[rmi]",
+        "Fluent10_0[rmi]",
+        "Fluent23_0[rmi]",
+        "Fluent7_0[rmj]",
+        "Fluent20_0[rmj]",
+        "Fluent22_0[rmj]",
+        "Fluent11_0[rmj]",
+        "Fluent21_0[rmj]",
+        "Fluent10_0[rmj]",
+        "Fluent23_0[rmj]"
     ],
     "preds_alt" : [],
     "safety"  :  "CandSep",
@@ -14,13 +24,14 @@
         "CONSTANTS",
         "RMs={rm1,rm2}",
         "rm1 = rm1",
-        "rm2 = rm2"
+        "rm2 = rm2",
+        "rm3 = rm3"
 
     ],
     "constraint"  :  "",
     "quant_inv"  :  "\\A rmi \\in RMs : \\A rmj \\in RMs : ",
     "quant_inv_alt"  :  null,
-    "model_consts"  :  "CONSTANT rm1,rm2",
+    "model_consts"  :  "CONSTANT rm1,rm2,rm3",
     "symmetry" : false,
     "typeok"  :  "TypeOKRand",
     "simulate"  :  true      
