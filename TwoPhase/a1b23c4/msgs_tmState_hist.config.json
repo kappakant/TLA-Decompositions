@@ -1,0 +1,38 @@
+{
+    "preds"  :  [
+        "[type |-> \"Prepared\", theRM |-> rmi] \\in msgs",
+        "[type |-> \"Prepared\", theRM |-> rmj] \\in msgs",
+        "[type |-> \"Commit\"] \\in msgs",
+        "[type |-> \"Abort\"] \\in msgs",
+        "tmState = \"init\"",
+        "tmState = \"committed\"",
+        "tmState = \"aborted\"",
+        "Fluent17_0[rmi]",
+        "Fluent18_0[rmi]",
+        "Fluent7_0[rmi]",
+        "Fluent11_0[rmi]",
+        "Fluent10_0[rmi]",
+        "Fluent17_0[rmj]",
+        "Fluent18_0[rmj]",
+        "Fluent7_0[rmj]",
+        "Fluent11_0[rmj]",
+        "Fluent10_0[rmj]"
+    ],
+    "preds_alt" : [],
+    "safety"  :  "Safety",
+    "constants"  :  [
+        "CONSTANTS",
+        "RMs={rm1,rm2}",
+        "rm1 = rm1",
+        "rm2 = rm2",
+        "rm3 = rm3"
+
+    ],
+    "constraint"  :  "",
+    "quant_inv"  :  "\\A rmi \\in RMs : \\A rmj \\in RMs : ",
+    "quant_inv_alt"  :  null,
+    "model_consts"  :  "CONSTANT rm1,rm2,rm3",
+    "symmetry" : false,
+    "typeok"  :  "TypeOKRand",
+    "simulate"  :  true      
+}
