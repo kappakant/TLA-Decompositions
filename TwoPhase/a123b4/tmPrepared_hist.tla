@@ -1,5 +1,5 @@
 --------------------------- MODULE tmPrepared_hist ---------------------------
-EXTENDS Randomization
+\* EXTENDS Randomization
 
 CONSTANTS RMs
 
@@ -37,10 +37,17 @@ Spec == (Init /\ [][Next]_vars)
 
 TypeOK == (tmPrepared \in SUBSET(RMs))
 
-NumRandElems == 5
-TypeOKRand ==
-/\ (tmPrepared \in RandomSubset(NumRandElems, SUBSET(RMs)))
-/\ Fluent6_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
-/\ Fluent7_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
+\* NumRandElems == 5
+\* TypeOKRand ==
+\* /\ (tmPrepared \in RandomSubset(NumRandElems, SUBSET(RMs)))
+\* /\ Fluent6_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
+\* /\ Fluent7_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 
+\* Added by endive
+Inv10_1_0_def == \A rmi \in RMs : \A rmj \in RMs : (Fluent6_0[rmi]) \/ (~(tmPrepared = tmPrepared \cup {rmi}))
+
+\* The inductive invariant candidate.
+IndAuto ==
+/\ CandSep
+/\ Inv10_1_0_def
 =============================================================================

@@ -31,7 +31,7 @@
 
     ],
     "constraint"  :  "",
-    "quant_inv"  :  "\\A rmi \\in RMs : \\A rmj \\in RMs : ", 
+    "quant_inv"  :  "\\E rmi \\in RMs : \\A rmj \\in RMs : ", 
     "quant_inv_alt"  :  null,
     "model_consts"  :  "CONSTANT rm1,rm2,rm3",
     "symmetry" : false,
