@@ -35,7 +35,10 @@ Next ==
 
 Spec == (Init /\ [][Next]_vars)
 
-TypeOK == (tmPrepared \in SUBSET(RMs))
+TypeOK ==
+/\ (tmPrepared \in SUBSET(RMs))
+/\ Fluent6_0  \in [RMs -> BOOLEAN]
+/\ Fluent7_0 \in  [RMs -> BOOLEAN]
 
 \* NumRandElems == 5
 \* TypeOKRand ==
@@ -43,11 +46,12 @@ TypeOK == (tmPrepared \in SUBSET(RMs))
 \* /\ Fluent6_0  \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 \* /\ Fluent7_0 \in RandomSubset(NumRandElems, [RMs -> BOOLEAN])
 
-\* Added by endive
-Inv10_1_0_def == \A rmi \in RMs : \A rmj \in RMs : (Fluent6_0[rmi]) \/ (~(tmPrepared = tmPrepared \cup {rmi}))
+\* Added by endive, variable names changed
+Inv1 == \A rmi \in RMs : \A rmj \in RMs : (Fluent6_0[rmi]) \/ (~(tmPrepared = tmPrepared \cup {rmi}))
 
-\* The inductive invariant candidate.
-IndAuto ==
+\* The inductive invariant candidate, added TypeOK
+I1 ==
+/\ TypeOK
 /\ CandSep
-/\ Inv10_1_0_def
+/\ Inv1
 =============================================================================
