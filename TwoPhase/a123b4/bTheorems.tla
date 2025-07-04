@@ -79,12 +79,14 @@ THEOREM I1Induction ==
                 <4>1 Fluent6_0'[rmj] BY <2>a, <3>a DEF RcvPrepare
                 <4>. QED BY <4>1
                 
+            \* ~(tmPrepared = tmPrepared \cup {rmj}) is equivalent to rmj not in tmPrepared.    
             <3>b CASE ~(tmPrepared = tmPrepared \cup {rmj})
                 <4>1 tmPrepared' = (tmPrepared \cup {rmi}) BY <2>a DEF RcvPrepare
-                <4>2 rmj \notin tmPrepared BY <3>b 
-                <4>3 rmi \in tmPrepared' BY <4>1
+                <4>2 rmj \notin tmPrepared BY <3>b
+                <4>3 rmj \notin tmPrepared' BY <2>a, <4>2 DEF RcvPrepare
+                <4>4 rmi \in tmPrepared' BY <4>1
                 <4>. QED
-            
+                
             <3>. QED
         
         <2>b CASE SndCommit(rmi)
@@ -100,5 +102,5 @@ THEOREM I1Safety ==
     I1 => CandSep BY DEF I1, CandSep
 =============================================================================
 \* Modification History
-\* Last modified Wed Jul 02 17:02:49 EDT 2025 by johnnguyen
+\* Last modified Thu Jul 03 10:57:13 EDT 2025 by johnnguyen
 \* Created Tue Jul 01 10:08:21 EDT 2025 by johnnguyen
