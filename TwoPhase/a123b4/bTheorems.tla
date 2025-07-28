@@ -29,7 +29,6 @@ THEOREM I1Initialization ==
      
     <1>. QED BY <1>a, <1>b, <1>c
 
-\* uses different format than I'm used to in order to allow for CASE UNCHANGED to be used 
 THEOREM I1Induction ==
     I1 /\ Next => I1'
     <1>1 SUFFICES ASSUME TypeOK /\ CandSep /\ Inv1, NEW rmi \in RMs, 
@@ -68,39 +67,50 @@ THEOREM I1Induction ==
         <2>. QED BY <1>1, <2>a, <2>b
     
     <1>c \A rm1 \in RMs : Fluent6_0'[rm1] \/ ~(tmPrepared' = tmPrepared' \cup {rm1})
+        \* material implication as a possibility
         <2>1 SUFFICES ASSUME NEW rmj \in RMs
                       PROVE  Fluent6_0'[rmj] \/ ~(tmPrepared' = tmPrepared' \cup {rmj})
                       OBVIOUS
         
         <2>a CASE RcvPrepare(rmi)
-            <3>1 Fluent6_0[rmj] \/ ~(tmPrepared = tmPrepared \cup {rmj}) BY <1>1 DEF Inv1
+            <3>1 SUFFICES ASSUME tmPrepared' = tmPrepared' \cup {rmj}
+                          PROVE Fluent6_0'[rmj]
+                          OBVIOUS
+                          
+            <3>2 rmj \in tmPrepared' BY <3>1
+            <3>3 tmPrepared' = (tmPrepared \cup {rmi}) BY <2>a DEF RcvPrepare
+            <3>4 rmj = rmi \/ rmj # rmi OBVIOUS
             
-            <3>a CASE Fluent6_0[rmj]
-                <4>1 Fluent6_0'[rmj] BY <2>a, <3>a DEF RcvPrepare
-                <4>. QED BY <4>1
+            <3>a CASE rmj = rmi
+                <4>1 Fluent6_0' = [Fluent6_0 EXCEPT ![rmj] = TRUE] BY <2>a, <3>a DEF RcvPrepare
+                <4>2 Fluent6_0'[rmj] BY <1>1, <4>1 DEF TypeOK
                 
-            \* ~(tmPrepared = tmPrepared \cup {rmj}) is equivalent to rmj not in tmPrepared.    
-            <3>b CASE ~(tmPrepared = tmPrepared \cup {rmj})
-                <4>1 tmPrepared' = (tmPrepared \cup {rmi}) BY <2>a DEF RcvPrepare
-                <4>2 rmj \notin tmPrepared BY <3>b
-                <4>3 rmj \notin tmPrepared' BY <2>a, <4>2 DEF RcvPrepare
-                <4>4 rmi \in tmPrepared' BY <4>1
-                <4>. QED
+                <4>. QED BY <4>2
+            
+            <3>b CASE rmj # rmi
+                <4>1 rmj \in tmPrepared BY <3>2, <3>3, <3>b
+                <4>2 (tmPrepared = tmPrepared \cup {rmj}) BY <4>1
+                <4>3 Fluent6_0[rmj] BY <1>1, <4>2 DEF Inv1
+                <4>4 Fluent6_0'[rmj] BY <2>a, <4>3 DEF RcvPrepare
                 
-            <3>. QED
+                <4>. QED BY <4>4
+            
+            <3>. QED BY <3>a, <3>b
         
         <2>b CASE SndCommit(rmi)
-            <3>1 TRUE
-            
-            <3>. QED
+            <3>1 tmPrepared' = tmPrepared' \cup {rmj} BY <2>b DEF SndCommit
+            <3>2 tmPrepared = tmPrepared \cup {rmj} BY <2>b DEF SndCommit
+            <3>3 Fluent6_0[rmj] BY <1>1, <3>2 DEF Inv1
+            <3>4 Fluent6_0'[rmj] BY <2>b, <3>3 DEF SndCommit
+            <3>. QED BY <3>4
         
         <2>. QED BY <1>1, <2>a, <2>b 
     
     <1>. QED BY <1>a, <1>b, <1>c DEF TypeOK, CandSep, Inv1
     
 THEOREM I1Safety ==
-    I1 => CandSep BY DEF I1, CandSep
+    I1 => CandSep BY DEF I1
 =============================================================================
 \* Modification History
-\* Last modified Thu Jul 03 10:57:13 EDT 2025 by johnnguyen
+\* Last modified Tue Jul 08 16:43:11 EDT 2025 by johnnguyen
 \* Created Tue Jul 01 10:08:21 EDT 2025 by johnnguyen

@@ -1,0 +1,41 @@
+{
+    "preds"  :  [
+        "r = None",
+        "<<n, r>> \\in left_rnd",
+        "<<n, m>> \\in left_rnd",
+        "<<r, v>> \\in proposal",
+        "<<m, v>> \\in proposal",
+        "maxr = None",
+        "n \\in q",
+        "(r > m)",
+        "(m > r)",
+        "<<n, r, val>> \\in vote",
+        "<<n, m, val>> \\in vote",
+        "r <= maxr",
+        "m <= maxr",
+        "<<n, r>> \\in one_b",
+        "<<n, m>> \\in one_b",
+        "r \\in one_a",
+        "m \\in one_a",
+        "one_a = one_a \\cup {r}",
+        "decision = decision \\cup {<<n, r, val>>}",
+        "vote = vote \\cup {<<n, r, val>>}",
+        "proposal = proposal \\cup {<<r, val>>}"
+    ],
+    "preds_alt" : [],
+    "safety"  :  "Safety",
+    "constants"  : [  
+        "CONSTANTS",
+        "Node = {a1, a2, a3}",
+        "Value = {v1, v2}",
+        "Quorum = {{a1, a2}, {a1, a3}, {a2, a3}}",
+        "Round = {0, 1}"
+    ],
+    "constraint"  :  "",
+    "quant_inv"  :  "\\A r \\in Round : \\A n \\in Nodes : \\A val \\in Value : \\A q \\in Quorum : \\A m \\in Round : ",
+    "quant_inv_alt"  :  null,
+    "model_consts"  :  "CONSTANT a1,a2,a3,v1,v2, 0, 1",
+    "symmetry" : true,
+    "typeok"  :  "TypeOKRandom",
+    "simulate"  :  true      
+}

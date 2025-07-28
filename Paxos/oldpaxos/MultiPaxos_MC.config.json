@@ -1,0 +1,33 @@
+{
+    "preds"  :  [
+        "terminated",
+        "ReqPosOfCmd(c)",
+        "AckPosOfCmd(c)",
+        "ResultOfCmd(c)",
+        "OrderIdxOfCmd(order, c)",
+        "LastWriteBefore(order, j)",
+        "IsLinearOrder(order)",
+        "ObeysRealTime(order)"
+    ],
+    "preds_alt" : [],
+    "safety"  :  "Linearizability",
+    "constants"  :  [
+        "CONSTANTS",
+        "Replicas={s1, s2, s3}",
+        "s1 = s1",
+        "s2 = s2",
+        "s3 = s3",
+        "Writes={w1}",
+        "Reads={r1}",
+        "MaxBallot <- ConstMaxBallot",
+        "CommitNoticeOn <- FALSE",
+        "NodeFailuresOn <- FALSE"],
+    "constraint"  :  "",
+    "quant_inv"  :  "\\A cm1 \\in Writes \\cup Reads : \\E cm2 \\in Writes \\cup Reads : \\A cm3 \\in Writes \\cup Reads : ",
+    "quant_inv_alt"  :  null,
+    "quant_vars": ["VALI", "VALJ"],
+    "model_consts"  :  "CONSTANT s1, s2, s3, w1, r1",
+    "symmetry" : true,
+    "typeok"  :  "TypeOKRandom",
+    "simulate"  :  true      
+}
