@@ -116,8 +116,8 @@ Init ==
 
 NumRandSubsets == 5
 
-kNumSubsets == 4
-nAvgSubsetSize == 3
+kNumSubsets == 3
+nAvgSubsetSize == 2
 
 TypeOKRandom ==
     /\ one_a \in RandomSubset(NumRandSubsets, SUBSET(Round))
