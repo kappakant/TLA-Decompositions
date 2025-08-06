@@ -1,0 +1,331 @@
+TLC2 Version 2.20 of Day Month 20?? (rev: db191cc)
+Warning: Please run the Java VM, which executes TLC with a throughput optimized garbage collector, by passing the "-XX:+UseParallelGC" property.
+(Use the -nowarning option to disable this warning.)
+Running breadth-first search Model-Checking with fp 77 and seed -7114931421172409896 with 8 workers on 8 cores with 4096MB heap and 64MB offheap memory [pid: 43798] (Mac OS X 15.5 aarch64, Oracle Corporation 22.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/johnnguyen/Desktop/TLA/endive/GermanCache/best/cachechaninfo_hist.tla
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/Naturals.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/Integers.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/Sequences.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/FiniteSets.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/TLC.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/Randomization.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Randomization.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/_TLCTrace.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-5427751717119664970/TLCExt.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Randomization
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module cachechaninfo_hist
+Starting... (2025-07-29 23:52:43)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2025-07-29 23:52:43.
+Error: Invariant Inv is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ Fluent58_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent75_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<FALSE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent67_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent80_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent86_0 = <<FALSE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent74_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent91_0 = <<FALSE, FALSE, FALSE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"I", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<FALSE, FALSE, FALSE>>
+
+State 2: <SendReqS(1) line 76, col 1 to line 81, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent75_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<FALSE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent67_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent80_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent86_0 = <<FALSE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent74_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent91_0 = <<FALSE, FALSE, FALSE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"ReqS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"I", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<FALSE, FALSE, FALSE>>
+
+State 3: <RecvReqS(1) line 100, col 1 to line 108, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent75_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<FALSE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent67_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent80_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent86_0 = <<FALSE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent91_0 = <<FALSE, FALSE, FALSE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"I", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<FALSE, FALSE, FALSE>>
+
+State 4: <SendGntS(1) line 184, col 1 to line 194, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent75_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<FALSE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent67_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent80_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent86_0 = <<FALSE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent91_0 = <<FALSE, FALSE, FALSE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"GntS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"I", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, FALSE, FALSE>>
+
+State 5: <RecvGntS(1) line 211, col 1 to line 216, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent75_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<FALSE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent67_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent80_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent86_0 = <<FALSE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent91_0 = <<FALSE, FALSE, FALSE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, FALSE, FALSE>>
+
+State 6: <SendReqEA(2) line 84, col 1 to line 89, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent75_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<FALSE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent67_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent80_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent86_0 = <<FALSE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent91_0 = <<FALSE, FALSE, FALSE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"ReqE", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, FALSE, FALSE>>
+
+State 7: <RecvReqE(2) line 111, col 1 to line 121, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent75_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<FALSE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, FALSE, TRUE>>
+/\ Fluent67_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent80_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent86_0 = <<FALSE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent91_0 = <<TRUE, TRUE, TRUE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, TRUE, FALSE>>
+
+State 8: <SendInvA(1) line 124, col 1 to line 131, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent75_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<TRUE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, FALSE, TRUE>>
+/\ Fluent67_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent80_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent86_0 = <<TRUE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent91_0 = <<TRUE, TRUE, TRUE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Inv", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, TRUE, FALSE>>
+
+State 9: <SendInvAckB(1) line 154, col 1 to line 161, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent75_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<TRUE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, FALSE, TRUE>>
+/\ Fluent67_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent80_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent86_0 = <<TRUE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent91_0 = <<TRUE, TRUE, TRUE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"InvAck", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, TRUE, FALSE>>
+
+State 10: <RecvInvAckB(1) line 175, col 1 to line 181, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent75_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<TRUE, FALSE, FALSE>>
+/\ ExGntd = FALSE
+/\ Fluent48_0 = <<TRUE, FALSE, TRUE>>
+/\ Fluent67_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent80_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent11_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent86_0 = <<TRUE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent74_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent91_0 = <<TRUE, TRUE, TRUE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, FALSE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, TRUE, FALSE>>
+
+State 11: <SendGntE(2) line 197, col 1 to line 208, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent75_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<TRUE, FALSE, FALSE>>
+/\ ExGntd = TRUE
+/\ Fluent48_0 = <<TRUE, FALSE, TRUE>>
+/\ Fluent67_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent80_0 = <<TRUE, TRUE, FALSE>>
+/\ Fluent11_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent86_0 = <<TRUE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, TRUE, FALSE>>
+/\ Fluent74_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent91_0 = <<TRUE, TRUE, TRUE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"GntE", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, TRUE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"I", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, TRUE, FALSE>>
+
+State 12: <RecvGntE(2) line 219, col 1 to line 224, col 11 of module cachechaninfo_hist>
+/\ Fluent58_0 = <<TRUE, FALSE, FALSE>>
+/\ Fluent75_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent79_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent92_0 = <<TRUE, FALSE, FALSE>>
+/\ ExGntd = TRUE
+/\ Fluent48_0 = <<TRUE, FALSE, TRUE>>
+/\ Fluent67_0 = <<TRUE, TRUE, TRUE>>
+/\ Fluent80_0 = <<TRUE, TRUE, FALSE>>
+/\ Fluent11_0 = <<FALSE, TRUE, FALSE>>
+/\ Fluent86_0 = <<TRUE, FALSE, FALSE>>
+/\ AuxData = 1
+/\ Fluent57_0 = <<TRUE, TRUE, FALSE>>
+/\ Fluent74_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent91_0 = <<TRUE, TRUE, TRUE>>
+/\ MemData = 1
+/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan2 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Chan3 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ Fluent49_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent66_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent10_0 = <<FALSE, TRUE, FALSE>>
+/\ Cache = <<<<"S", 1>>, <<"E", 1>>, <<"I", 1>>>>
+/\ Fluent87_0 = <<TRUE, TRUE, FALSE>>
+
+151987 states generated, 41329 distinct states found, 17941 states left on queue.
+The depth of the complete state graph search is 12.
+Finished in 01s at (2025-07-29 23:52:44)
+Trace exploration spec path: ./cachechaninfo_hist_TTrace_1753847562.tla

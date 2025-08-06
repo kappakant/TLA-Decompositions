@@ -3,45 +3,58 @@ EXTENDS Naturals, Integers, Sequences, FiniteSets, TLC, Randomization
 
 CONSTANTS DATA, NODE, NUM2, NUM3, NUM1
 
-VARIABLES CurCmd, CurPtr, ShrSet, InvSet, Fluent1_0, cexTraceIdx, Chan1
+VARIABLES CurCmd, Fluent38_0, Fluent39_0, CurPtr, ShrSet, InvSet, cexTraceIdx, Chan1
 
-vars == <<CurCmd, CurPtr, ShrSet, InvSet, Fluent1_0, cexTraceIdx, Chan1>>
+vars == <<CurCmd, Fluent38_0, Fluent39_0, CurPtr, ShrSet, InvSet, cexTraceIdx, Chan1>>
 
 TraceConstraint ==
 /\ cexTraceIdx = 0 =>
+  /\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
   /\ CurCmd = "Empty"
   /\ CurPtr = 1
   /\ InvSet = <<FALSE, FALSE, FALSE>>
+  /\ Fluent38_0 = <<FALSE, FALSE, FALSE>>
   /\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-  /\ Fluent1_0 = <<FALSE, FALSE, FALSE>>
   /\ ShrSet = <<FALSE, FALSE, FALSE>>
 
 /\ cexTraceIdx = 1 =>
+  /\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
   /\ CurCmd = "Empty"
   /\ CurPtr = 1
   /\ InvSet = <<FALSE, FALSE, FALSE>>
-  /\ Chan1 = <<<<"ReqS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-  /\ Fluent1_0 = <<FALSE, FALSE, FALSE>>
+  /\ Fluent38_0 = <<FALSE, TRUE, FALSE>>
+  /\ Chan1 = <<<<"Empty", 1>>, <<"ReqS", 1>>, <<"Empty", 1>>>>
   /\ ShrSet = <<FALSE, FALSE, FALSE>>
 
 /\ cexTraceIdx = 2 =>
-  /\ CurCmd = "ReqS"
-  /\ CurPtr = 1
-  /\ InvSet = <<FALSE, FALSE, FALSE>>
-  /\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-  /\ Fluent1_0 = <<FALSE, FALSE, FALSE>>
-  /\ ShrSet = <<FALSE, FALSE, FALSE>>
-
-/\ cexTraceIdx = 3 =>
+  /\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
   /\ CurCmd = "Empty"
   /\ CurPtr = 1
   /\ InvSet = <<FALSE, FALSE, FALSE>>
-  /\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-  /\ Fluent1_0 = <<TRUE, FALSE, FALSE>>
-  /\ ShrSet = <<TRUE, FALSE, FALSE>>
+  /\ Fluent38_0 = <<TRUE, TRUE, FALSE>>
+  /\ Chan1 = <<<<"ReqS", 1>>, <<"ReqS", 1>>, <<"Empty", 1>>>>
+  /\ ShrSet = <<FALSE, FALSE, FALSE>>
+
+/\ cexTraceIdx = 3 =>
+  /\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
+  /\ CurCmd = "ReqS"
+  /\ CurPtr = 2
+  /\ InvSet = <<FALSE, FALSE, FALSE>>
+  /\ Fluent38_0 = <<TRUE, TRUE, FALSE>>
+  /\ Chan1 = <<<<"ReqS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+  /\ ShrSet = <<FALSE, FALSE, FALSE>>
+
+/\ cexTraceIdx = 4 =>
+  /\ Fluent39_0 = <<TRUE, FALSE, TRUE>>
+  /\ CurCmd = "Empty"
+  /\ CurPtr = 2
+  /\ InvSet = <<FALSE, FALSE, FALSE>>
+  /\ Fluent38_0 = <<TRUE, TRUE, FALSE>>
+  /\ Chan1 = <<<<"ReqS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+  /\ ShrSet = <<FALSE, TRUE, FALSE>>
 
 
-CandSep == (\A var0 \in DATA : (\A var1 \in DATA : (Fluent1_0[var1] => ~(var1 <= var0))))
+CandSep == (\A var0 \in NODE : (\A var1 \in DATA : (Fluent38_0[var0] => (Fluent39_0[var0] => var1 <= var0))))
 
 CACHE_STATE == {"I","S","E"}
 
@@ -57,7 +70,8 @@ Init ==
 /\ ShrSet = [i \in NODE |-> FALSE]
 /\ CurCmd = "Empty"
 /\ CurPtr = 1
-/\ Fluent1_0 = [x0 \in NODE |-> FALSE]
+/\ Fluent38_0 = [x0 \in NODE |-> FALSE]
+/\ Fluent39_0 = [x0 \in NODE |-> FALSE]
 /\ cexTraceIdx = 0
 /\ TraceConstraint
 
@@ -83,7 +97,8 @@ SendReqS(i) ==
 /\ Chan1[i][1] = "Empty"
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"ReqS",Chan1[i][2]>>]
 /\ UNCHANGED <<InvSet,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ Fluent38_0' = [Fluent38_0 EXCEPT![i] = TRUE]
+/\ UNCHANGED <<Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -96,7 +111,7 @@ SendReqEA(i) ==
 /\ Chan1[i][1] = "Empty"
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"ReqE",Chan1[i][2]>>]
 /\ UNCHANGED <<InvSet,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -104,7 +119,7 @@ SendReqEB(i) ==
 /\ Chan1[i][1] = "Empty"
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"ReqE",Chan1[i][2]>>]
 /\ UNCHANGED <<InvSet,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -116,7 +131,7 @@ RecvReqS(i) ==
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"Empty",Chan1[i][2]>>]
 /\ InvSet' = [j \in NODE |-> ShrSet[j]]
 /\ UNCHANGED <<ShrSet>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -128,7 +143,7 @@ RecvReqE(i) ==
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"Empty",Chan1[i][2]>>]
 /\ InvSet' = [j \in NODE |-> ShrSet[j]]
 /\ UNCHANGED <<ShrSet>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -137,7 +152,7 @@ SendInvA(i) ==
 /\ CurCmd = "ReqE"
 /\ InvSet' = [InvSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -146,7 +161,7 @@ SendInvB(i) ==
 /\ CurCmd = "ReqS"
 /\ InvSet' = [InvSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -154,7 +169,7 @@ RecvInvAckA(i) ==
 /\ CurCmd /= "Empty"
 /\ ShrSet' = [ShrSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,InvSet,CurCmd,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -162,7 +177,7 @@ RecvInvAckB(i) ==
 /\ CurCmd /= "Empty"
 /\ ShrSet' = [ShrSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,InvSet,CurCmd,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -172,8 +187,8 @@ SendGntS(i) ==
 /\ ShrSet' = [ShrSet EXCEPT![i] = TRUE]
 /\ CurCmd' = "Empty"
 /\ UNCHANGED <<Chan1,InvSet,CurPtr>>
-/\ Fluent1_0' = [Fluent1_0 EXCEPT![i] = TRUE]
-/\ UNCHANGED <<>>
+/\ Fluent39_0' = [[x0 \in NODE |-> TRUE] EXCEPT![i] = FALSE]
+/\ UNCHANGED <<Fluent38_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 
@@ -184,7 +199,7 @@ SendGntE(i) ==
 /\ ShrSet' = [ShrSet EXCEPT![i] = TRUE]
 /\ CurCmd' = "Empty"
 /\ UNCHANGED <<Chan1,InvSet,CurPtr>>
-/\ UNCHANGED <<Fluent1_0>>
+/\ UNCHANGED <<Fluent38_0,Fluent39_0>>
 /\ cexTraceIdx' = cexTraceIdx + 1
 /\ TraceConstraint'
 

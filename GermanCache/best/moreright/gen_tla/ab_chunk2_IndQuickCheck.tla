@@ -1,0 +1,4023 @@
+---- MODULE ab_chunk2_IndQuickCheck ----
+EXTENDS ab,Naturals,TLC
+
+
+VARIABLE Inv0_val
+VARIABLE Inv1_val
+VARIABLE Inv10_val
+VARIABLE Inv100_val
+VARIABLE Inv1000_val
+VARIABLE Inv1001_val
+VARIABLE Inv1002_val
+VARIABLE Inv1003_val
+VARIABLE Inv1004_val
+VARIABLE Inv1005_val
+VARIABLE Inv1006_val
+VARIABLE Inv1007_val
+VARIABLE Inv1008_val
+VARIABLE Inv1009_val
+VARIABLE Inv101_val
+VARIABLE Inv1010_val
+VARIABLE Inv1011_val
+VARIABLE Inv1012_val
+VARIABLE Inv1013_val
+VARIABLE Inv1014_val
+VARIABLE Inv1015_val
+VARIABLE Inv1016_val
+VARIABLE Inv1017_val
+VARIABLE Inv1018_val
+VARIABLE Inv1019_val
+VARIABLE Inv102_val
+VARIABLE Inv1020_val
+VARIABLE Inv1021_val
+VARIABLE Inv1022_val
+VARIABLE Inv1023_val
+VARIABLE Inv1024_val
+VARIABLE Inv1025_val
+VARIABLE Inv1026_val
+VARIABLE Inv1027_val
+VARIABLE Inv1028_val
+VARIABLE Inv1029_val
+VARIABLE Inv103_val
+VARIABLE Inv1030_val
+VARIABLE Inv1031_val
+VARIABLE Inv1032_val
+VARIABLE Inv1033_val
+VARIABLE Inv1034_val
+VARIABLE Inv1035_val
+VARIABLE Inv1036_val
+VARIABLE Inv1037_val
+VARIABLE Inv1038_val
+VARIABLE Inv1039_val
+VARIABLE Inv104_val
+VARIABLE Inv1040_val
+VARIABLE Inv1041_val
+VARIABLE Inv1042_val
+VARIABLE Inv1043_val
+VARIABLE Inv1044_val
+VARIABLE Inv1045_val
+VARIABLE Inv1046_val
+VARIABLE Inv1047_val
+VARIABLE Inv1048_val
+VARIABLE Inv1049_val
+VARIABLE Inv105_val
+VARIABLE Inv1050_val
+VARIABLE Inv1051_val
+VARIABLE Inv1052_val
+VARIABLE Inv1053_val
+VARIABLE Inv1054_val
+VARIABLE Inv1055_val
+VARIABLE Inv1056_val
+VARIABLE Inv1057_val
+VARIABLE Inv1058_val
+VARIABLE Inv1059_val
+VARIABLE Inv106_val
+VARIABLE Inv1060_val
+VARIABLE Inv1061_val
+VARIABLE Inv1062_val
+VARIABLE Inv1063_val
+VARIABLE Inv1064_val
+VARIABLE Inv1065_val
+VARIABLE Inv1066_val
+VARIABLE Inv1067_val
+VARIABLE Inv1068_val
+VARIABLE Inv1069_val
+VARIABLE Inv107_val
+VARIABLE Inv1070_val
+VARIABLE Inv1071_val
+VARIABLE Inv1072_val
+VARIABLE Inv1073_val
+VARIABLE Inv1074_val
+VARIABLE Inv1075_val
+VARIABLE Inv1076_val
+VARIABLE Inv1077_val
+VARIABLE Inv1078_val
+VARIABLE Inv1079_val
+VARIABLE Inv108_val
+VARIABLE Inv1080_val
+VARIABLE Inv1081_val
+VARIABLE Inv1082_val
+VARIABLE Inv1083_val
+VARIABLE Inv1084_val
+VARIABLE Inv1085_val
+VARIABLE Inv1086_val
+VARIABLE Inv1087_val
+VARIABLE Inv1088_val
+VARIABLE Inv1089_val
+VARIABLE Inv109_val
+VARIABLE Inv1090_val
+VARIABLE Inv1091_val
+VARIABLE Inv1092_val
+VARIABLE Inv1093_val
+VARIABLE Inv1094_val
+VARIABLE Inv1095_val
+VARIABLE Inv1096_val
+VARIABLE Inv1097_val
+VARIABLE Inv1098_val
+VARIABLE Inv1099_val
+VARIABLE Inv11_val
+VARIABLE Inv110_val
+VARIABLE Inv1100_val
+VARIABLE Inv1101_val
+VARIABLE Inv1102_val
+VARIABLE Inv1103_val
+VARIABLE Inv1104_val
+VARIABLE Inv1105_val
+VARIABLE Inv1106_val
+VARIABLE Inv1107_val
+VARIABLE Inv1108_val
+VARIABLE Inv1109_val
+VARIABLE Inv111_val
+VARIABLE Inv1110_val
+VARIABLE Inv1111_val
+VARIABLE Inv1112_val
+VARIABLE Inv1113_val
+VARIABLE Inv1114_val
+VARIABLE Inv1115_val
+VARIABLE Inv1116_val
+VARIABLE Inv1117_val
+VARIABLE Inv1118_val
+VARIABLE Inv1119_val
+VARIABLE Inv112_val
+VARIABLE Inv1120_val
+VARIABLE Inv1121_val
+VARIABLE Inv1122_val
+VARIABLE Inv1123_val
+VARIABLE Inv1124_val
+VARIABLE Inv1125_val
+VARIABLE Inv1126_val
+VARIABLE Inv1127_val
+VARIABLE Inv1128_val
+VARIABLE Inv1129_val
+VARIABLE Inv113_val
+VARIABLE Inv1130_val
+VARIABLE Inv1131_val
+VARIABLE Inv1132_val
+VARIABLE Inv1133_val
+VARIABLE Inv1134_val
+VARIABLE Inv1135_val
+VARIABLE Inv1136_val
+VARIABLE Inv1137_val
+VARIABLE Inv1138_val
+VARIABLE Inv1139_val
+VARIABLE Inv114_val
+VARIABLE Inv1140_val
+VARIABLE Inv1141_val
+VARIABLE Inv1142_val
+VARIABLE Inv1143_val
+VARIABLE Inv1144_val
+VARIABLE Inv1145_val
+VARIABLE Inv1146_val
+VARIABLE Inv1147_val
+VARIABLE Inv1148_val
+VARIABLE Inv1149_val
+VARIABLE Inv115_val
+VARIABLE Inv1150_val
+VARIABLE Inv1151_val
+VARIABLE Inv1152_val
+VARIABLE Inv1153_val
+VARIABLE Inv1154_val
+VARIABLE Inv1155_val
+VARIABLE Inv1156_val
+VARIABLE Inv1157_val
+VARIABLE Inv1158_val
+VARIABLE Inv1159_val
+VARIABLE Inv116_val
+VARIABLE Inv1160_val
+VARIABLE Inv1161_val
+VARIABLE Inv1162_val
+VARIABLE Inv1163_val
+VARIABLE Inv1164_val
+VARIABLE Inv1165_val
+VARIABLE Inv1166_val
+VARIABLE Inv1167_val
+VARIABLE Inv1168_val
+VARIABLE Inv1169_val
+VARIABLE Inv117_val
+VARIABLE Inv1170_val
+VARIABLE Inv1171_val
+VARIABLE Inv1172_val
+VARIABLE Inv1173_val
+VARIABLE Inv1174_val
+VARIABLE Inv1175_val
+VARIABLE Inv1176_val
+VARIABLE Inv1177_val
+VARIABLE Inv1178_val
+VARIABLE Inv1179_val
+VARIABLE Inv118_val
+VARIABLE Inv1180_val
+VARIABLE Inv1181_val
+VARIABLE Inv1182_val
+VARIABLE Inv1183_val
+VARIABLE Inv1184_val
+VARIABLE Inv1185_val
+VARIABLE Inv1186_val
+VARIABLE Inv1187_val
+VARIABLE Inv1188_val
+VARIABLE Inv1189_val
+VARIABLE Inv119_val
+VARIABLE Inv1190_val
+VARIABLE Inv1191_val
+VARIABLE Inv1192_val
+VARIABLE Inv1193_val
+VARIABLE Inv1194_val
+VARIABLE Inv1195_val
+VARIABLE Inv1196_val
+VARIABLE Inv1197_val
+VARIABLE Inv1198_val
+VARIABLE Inv1199_val
+VARIABLE Inv12_val
+VARIABLE Inv120_val
+VARIABLE Inv1200_val
+VARIABLE Inv1201_val
+VARIABLE Inv1202_val
+VARIABLE Inv1203_val
+VARIABLE Inv1204_val
+VARIABLE Inv1205_val
+VARIABLE Inv1206_val
+VARIABLE Inv1207_val
+VARIABLE Inv1208_val
+VARIABLE Inv1209_val
+VARIABLE Inv121_val
+VARIABLE Inv1210_val
+VARIABLE Inv1211_val
+VARIABLE Inv1212_val
+VARIABLE Inv1213_val
+VARIABLE Inv1214_val
+VARIABLE Inv1215_val
+VARIABLE Inv1216_val
+VARIABLE Inv1217_val
+VARIABLE Inv1218_val
+VARIABLE Inv1219_val
+VARIABLE Inv122_val
+VARIABLE Inv1220_val
+VARIABLE Inv1221_val
+VARIABLE Inv1222_val
+VARIABLE Inv1223_val
+VARIABLE Inv1224_val
+VARIABLE Inv1225_val
+VARIABLE Inv1226_val
+VARIABLE Inv1227_val
+VARIABLE Inv1228_val
+VARIABLE Inv1229_val
+VARIABLE Inv123_val
+VARIABLE Inv1230_val
+VARIABLE Inv1231_val
+VARIABLE Inv1232_val
+VARIABLE Inv1233_val
+VARIABLE Inv1234_val
+VARIABLE Inv1235_val
+VARIABLE Inv1236_val
+VARIABLE Inv1237_val
+VARIABLE Inv1238_val
+VARIABLE Inv1239_val
+VARIABLE Inv124_val
+VARIABLE Inv1240_val
+VARIABLE Inv1241_val
+VARIABLE Inv1242_val
+VARIABLE Inv1243_val
+VARIABLE Inv1244_val
+VARIABLE Inv1245_val
+VARIABLE Inv1246_val
+VARIABLE Inv1247_val
+VARIABLE Inv1248_val
+VARIABLE Inv1249_val
+VARIABLE Inv125_val
+VARIABLE Inv1250_val
+VARIABLE Inv1251_val
+VARIABLE Inv1252_val
+VARIABLE Inv1253_val
+VARIABLE Inv1254_val
+VARIABLE Inv1255_val
+VARIABLE Inv1256_val
+VARIABLE Inv1257_val
+VARIABLE Inv1258_val
+VARIABLE Inv1259_val
+VARIABLE Inv126_val
+VARIABLE Inv1260_val
+VARIABLE Inv1261_val
+VARIABLE Inv1262_val
+VARIABLE Inv1263_val
+VARIABLE Inv1264_val
+VARIABLE Inv1265_val
+VARIABLE Inv1266_val
+VARIABLE Inv1267_val
+VARIABLE Inv1268_val
+VARIABLE Inv1269_val
+VARIABLE Inv127_val
+VARIABLE Inv1270_val
+VARIABLE Inv1271_val
+VARIABLE Inv1272_val
+VARIABLE Inv1273_val
+VARIABLE Inv1274_val
+VARIABLE Inv1275_val
+VARIABLE Inv1276_val
+VARIABLE Inv1277_val
+VARIABLE Inv1278_val
+VARIABLE Inv1279_val
+VARIABLE Inv128_val
+VARIABLE Inv1280_val
+VARIABLE Inv1281_val
+VARIABLE Inv1282_val
+VARIABLE Inv1283_val
+VARIABLE Inv1284_val
+VARIABLE Inv1285_val
+VARIABLE Inv1286_val
+VARIABLE Inv1287_val
+VARIABLE Inv1288_val
+VARIABLE Inv1289_val
+VARIABLE Inv129_val
+VARIABLE Inv1290_val
+VARIABLE Inv1291_val
+VARIABLE Inv1292_val
+VARIABLE Inv1293_val
+VARIABLE Inv1294_val
+VARIABLE Inv1295_val
+VARIABLE Inv1296_val
+VARIABLE Inv1297_val
+VARIABLE Inv1298_val
+VARIABLE Inv1299_val
+VARIABLE Inv13_val
+VARIABLE Inv130_val
+VARIABLE Inv1300_val
+VARIABLE Inv1301_val
+VARIABLE Inv1302_val
+VARIABLE Inv1303_val
+VARIABLE Inv1304_val
+VARIABLE Inv1305_val
+VARIABLE Inv1306_val
+VARIABLE Inv1307_val
+VARIABLE Inv1308_val
+VARIABLE Inv1309_val
+VARIABLE Inv131_val
+VARIABLE Inv1310_val
+VARIABLE Inv1311_val
+VARIABLE Inv1312_val
+VARIABLE Inv1313_val
+VARIABLE Inv1314_val
+VARIABLE Inv1315_val
+VARIABLE Inv1316_val
+VARIABLE Inv1317_val
+VARIABLE Inv1318_val
+VARIABLE Inv1319_val
+VARIABLE Inv132_val
+VARIABLE Inv1320_val
+VARIABLE Inv1321_val
+VARIABLE Inv1322_val
+VARIABLE Inv1323_val
+VARIABLE Inv1324_val
+VARIABLE Inv1325_val
+VARIABLE Inv1326_val
+VARIABLE Inv1327_val
+VARIABLE Inv1328_val
+VARIABLE Inv1329_val
+VARIABLE Inv133_val
+VARIABLE Inv1330_val
+VARIABLE Inv1331_val
+VARIABLE Inv1332_val
+VARIABLE Inv1333_val
+VARIABLE Inv1334_val
+VARIABLE Inv1335_val
+VARIABLE Inv1336_val
+VARIABLE Inv1337_val
+VARIABLE Inv1338_val
+VARIABLE Inv1339_val
+VARIABLE Inv134_val
+VARIABLE Inv1340_val
+VARIABLE Inv1341_val
+VARIABLE Inv1342_val
+VARIABLE Inv1343_val
+VARIABLE Inv1344_val
+VARIABLE Inv1345_val
+VARIABLE Inv1346_val
+VARIABLE Inv1347_val
+VARIABLE Inv1348_val
+VARIABLE Inv1349_val
+VARIABLE Inv135_val
+VARIABLE Inv1350_val
+VARIABLE Inv1351_val
+VARIABLE Inv1352_val
+VARIABLE Inv1353_val
+VARIABLE Inv1354_val
+VARIABLE Inv1355_val
+VARIABLE Inv1356_val
+VARIABLE Inv1357_val
+VARIABLE Inv1358_val
+VARIABLE Inv1359_val
+VARIABLE Inv136_val
+VARIABLE Inv1360_val
+VARIABLE Inv1361_val
+VARIABLE Inv1362_val
+VARIABLE Inv1363_val
+VARIABLE Inv1364_val
+VARIABLE Inv1365_val
+VARIABLE Inv1366_val
+VARIABLE Inv1367_val
+VARIABLE Inv1368_val
+VARIABLE Inv1369_val
+VARIABLE Inv137_val
+VARIABLE Inv1370_val
+VARIABLE Inv1371_val
+VARIABLE Inv1372_val
+VARIABLE Inv1373_val
+VARIABLE Inv1374_val
+VARIABLE Inv1375_val
+VARIABLE Inv1376_val
+VARIABLE Inv1377_val
+VARIABLE Inv1378_val
+VARIABLE Inv1379_val
+VARIABLE Inv138_val
+VARIABLE Inv1380_val
+VARIABLE Inv1381_val
+VARIABLE Inv1382_val
+VARIABLE Inv1383_val
+VARIABLE Inv1384_val
+VARIABLE Inv1385_val
+VARIABLE Inv1386_val
+VARIABLE Inv1387_val
+VARIABLE Inv1388_val
+VARIABLE Inv1389_val
+VARIABLE Inv139_val
+VARIABLE Inv1390_val
+VARIABLE Inv1391_val
+VARIABLE Inv1392_val
+VARIABLE Inv1393_val
+VARIABLE Inv1394_val
+VARIABLE Inv1395_val
+VARIABLE Inv1396_val
+VARIABLE Inv1397_val
+VARIABLE Inv1398_val
+VARIABLE Inv1399_val
+VARIABLE Inv14_val
+VARIABLE Inv140_val
+VARIABLE Inv1400_val
+VARIABLE Inv1401_val
+VARIABLE Inv1402_val
+VARIABLE Inv1403_val
+VARIABLE Inv1404_val
+VARIABLE Inv1405_val
+VARIABLE Inv1406_val
+VARIABLE Inv1407_val
+VARIABLE Inv1408_val
+VARIABLE Inv1409_val
+VARIABLE Inv141_val
+VARIABLE Inv1410_val
+VARIABLE Inv1411_val
+VARIABLE Inv1412_val
+VARIABLE Inv1413_val
+VARIABLE Inv1414_val
+VARIABLE Inv1415_val
+VARIABLE Inv1416_val
+VARIABLE Inv1417_val
+VARIABLE Inv1418_val
+VARIABLE Inv1419_val
+VARIABLE Inv142_val
+VARIABLE Inv1420_val
+VARIABLE Inv1421_val
+VARIABLE Inv1422_val
+VARIABLE Inv1423_val
+VARIABLE Inv1424_val
+VARIABLE Inv1425_val
+VARIABLE Inv1426_val
+VARIABLE Inv1427_val
+VARIABLE Inv1428_val
+VARIABLE Inv1429_val
+VARIABLE Inv143_val
+VARIABLE Inv1430_val
+VARIABLE Inv1431_val
+VARIABLE Inv1432_val
+VARIABLE Inv1433_val
+VARIABLE Inv1434_val
+VARIABLE Inv1435_val
+VARIABLE Inv1436_val
+VARIABLE Inv1437_val
+VARIABLE Inv1438_val
+VARIABLE Inv1439_val
+VARIABLE Inv144_val
+VARIABLE Inv1440_val
+VARIABLE Inv1441_val
+VARIABLE Inv1442_val
+VARIABLE Inv1443_val
+VARIABLE Inv1444_val
+VARIABLE Inv1445_val
+VARIABLE Inv1446_val
+VARIABLE Inv1447_val
+VARIABLE Inv1448_val
+VARIABLE Inv1449_val
+VARIABLE Inv145_val
+VARIABLE Inv1450_val
+VARIABLE Inv1451_val
+VARIABLE Inv1452_val
+VARIABLE Inv1453_val
+VARIABLE Inv1454_val
+VARIABLE Inv1455_val
+VARIABLE Inv1456_val
+VARIABLE Inv1457_val
+VARIABLE Inv1458_val
+VARIABLE Inv1459_val
+VARIABLE Inv146_val
+VARIABLE Inv1460_val
+VARIABLE Inv1461_val
+VARIABLE Inv1462_val
+VARIABLE Inv1463_val
+VARIABLE Inv1464_val
+VARIABLE Inv1465_val
+VARIABLE Inv1466_val
+VARIABLE Inv1467_val
+VARIABLE Inv1468_val
+VARIABLE Inv1469_val
+VARIABLE Inv147_val
+VARIABLE Inv1470_val
+VARIABLE Inv1471_val
+VARIABLE Inv1472_val
+VARIABLE Inv1473_val
+VARIABLE Inv1474_val
+VARIABLE Inv1475_val
+VARIABLE Inv1476_val
+VARIABLE Inv1477_val
+VARIABLE Inv1478_val
+VARIABLE Inv1479_val
+VARIABLE Inv148_val
+VARIABLE Inv1480_val
+VARIABLE Inv1481_val
+VARIABLE Inv1482_val
+VARIABLE Inv1483_val
+VARIABLE Inv1484_val
+VARIABLE Inv1485_val
+VARIABLE Inv1486_val
+VARIABLE Inv1487_val
+VARIABLE Inv1488_val
+VARIABLE Inv1489_val
+VARIABLE Inv149_val
+VARIABLE Inv1490_val
+VARIABLE Inv1491_val
+VARIABLE Inv1492_val
+VARIABLE Inv1493_val
+VARIABLE Inv1494_val
+VARIABLE Inv1495_val
+VARIABLE Inv1496_val
+VARIABLE Inv1497_val
+VARIABLE Inv1498_val
+VARIABLE Inv1499_val
+VARIABLE Inv15_val
+VARIABLE Inv150_val
+VARIABLE Inv1500_val
+VARIABLE Inv1501_val
+VARIABLE Inv1502_val
+VARIABLE Inv1503_val
+VARIABLE Inv1504_val
+VARIABLE Inv1505_val
+VARIABLE Inv1506_val
+VARIABLE Inv1507_val
+VARIABLE Inv1508_val
+VARIABLE Inv1509_val
+VARIABLE Inv151_val
+VARIABLE Inv1510_val
+VARIABLE Inv1511_val
+VARIABLE Inv1512_val
+VARIABLE Inv1513_val
+VARIABLE Inv1514_val
+VARIABLE Inv1515_val
+VARIABLE Inv1516_val
+VARIABLE Inv1517_val
+VARIABLE Inv1518_val
+VARIABLE Inv1519_val
+VARIABLE Inv152_val
+VARIABLE Inv1520_val
+VARIABLE Inv1521_val
+VARIABLE Inv1522_val
+VARIABLE Inv1523_val
+VARIABLE Inv1524_val
+VARIABLE Inv1525_val
+VARIABLE Inv1526_val
+VARIABLE Inv1527_val
+VARIABLE Inv1528_val
+VARIABLE Inv1529_val
+VARIABLE Inv153_val
+VARIABLE Inv1530_val
+VARIABLE Inv1531_val
+VARIABLE Inv1532_val
+VARIABLE Inv1533_val
+VARIABLE Inv1534_val
+VARIABLE Inv1535_val
+VARIABLE Inv1536_val
+VARIABLE Inv1537_val
+VARIABLE Inv1538_val
+VARIABLE Inv1539_val
+VARIABLE Inv154_val
+VARIABLE Inv1540_val
+VARIABLE Inv1541_val
+VARIABLE Inv1542_val
+VARIABLE Inv1543_val
+VARIABLE Inv1544_val
+VARIABLE Inv1545_val
+VARIABLE Inv1546_val
+VARIABLE Inv1547_val
+VARIABLE Inv1548_val
+VARIABLE Inv1549_val
+VARIABLE Inv155_val
+VARIABLE Inv1550_val
+VARIABLE Inv1551_val
+VARIABLE Inv1552_val
+VARIABLE Inv1553_val
+VARIABLE Inv1554_val
+VARIABLE Inv1555_val
+VARIABLE Inv1556_val
+VARIABLE Inv1557_val
+VARIABLE Inv1558_val
+VARIABLE Inv1559_val
+VARIABLE Inv156_val
+VARIABLE Inv1560_val
+VARIABLE Inv1561_val
+VARIABLE Inv1562_val
+VARIABLE Inv1563_val
+VARIABLE Inv1564_val
+VARIABLE Inv1565_val
+VARIABLE Inv1566_val
+VARIABLE Inv1567_val
+VARIABLE Inv1568_val
+VARIABLE Inv1569_val
+VARIABLE Inv157_val
+VARIABLE Inv1570_val
+VARIABLE Inv1571_val
+VARIABLE Inv1572_val
+VARIABLE Inv1573_val
+VARIABLE Inv1574_val
+VARIABLE Inv1575_val
+VARIABLE Inv1576_val
+VARIABLE Inv1577_val
+VARIABLE Inv1578_val
+VARIABLE Inv1579_val
+VARIABLE Inv158_val
+VARIABLE Inv1580_val
+VARIABLE Inv1581_val
+VARIABLE Inv1582_val
+VARIABLE Inv1583_val
+VARIABLE Inv1584_val
+VARIABLE Inv1585_val
+VARIABLE Inv1586_val
+VARIABLE Inv1587_val
+VARIABLE Inv1588_val
+VARIABLE Inv1589_val
+VARIABLE Inv159_val
+VARIABLE Inv1590_val
+VARIABLE Inv1591_val
+VARIABLE Inv1592_val
+VARIABLE Inv1593_val
+VARIABLE Inv1594_val
+VARIABLE Inv1595_val
+VARIABLE Inv1596_val
+VARIABLE Inv1597_val
+VARIABLE Inv1598_val
+VARIABLE Inv1599_val
+VARIABLE Inv16_val
+VARIABLE Inv160_val
+VARIABLE Inv1600_val
+VARIABLE Inv1601_val
+VARIABLE Inv1602_val
+VARIABLE Inv1603_val
+VARIABLE Inv1604_val
+VARIABLE Inv1605_val
+VARIABLE Inv1606_val
+VARIABLE Inv1607_val
+VARIABLE Inv1608_val
+VARIABLE Inv1609_val
+VARIABLE Inv161_val
+VARIABLE Inv1610_val
+VARIABLE Inv1611_val
+VARIABLE Inv1612_val
+VARIABLE Inv1613_val
+VARIABLE Inv1614_val
+VARIABLE Inv1615_val
+VARIABLE Inv1616_val
+VARIABLE Inv1617_val
+VARIABLE Inv1618_val
+VARIABLE Inv1619_val
+VARIABLE Inv162_val
+VARIABLE Inv1620_val
+VARIABLE Inv1621_val
+VARIABLE Inv1622_val
+VARIABLE Inv1623_val
+VARIABLE Inv1624_val
+VARIABLE Inv1625_val
+VARIABLE Inv1626_val
+VARIABLE Inv1627_val
+VARIABLE Inv1628_val
+VARIABLE Inv1629_val
+VARIABLE Inv163_val
+VARIABLE Inv1630_val
+VARIABLE Inv1631_val
+VARIABLE Inv1632_val
+VARIABLE Inv1633_val
+VARIABLE Inv1634_val
+VARIABLE Inv1635_val
+VARIABLE Inv1636_val
+VARIABLE Inv1637_val
+VARIABLE Inv1638_val
+VARIABLE Inv1639_val
+VARIABLE Inv164_val
+VARIABLE Inv1640_val
+VARIABLE Inv1641_val
+VARIABLE Inv1642_val
+VARIABLE Inv1643_val
+VARIABLE Inv1644_val
+VARIABLE Inv1645_val
+VARIABLE Inv1646_val
+VARIABLE Inv1647_val
+VARIABLE Inv1648_val
+VARIABLE Inv1649_val
+VARIABLE Inv165_val
+VARIABLE Inv1650_val
+VARIABLE Inv1651_val
+VARIABLE Inv1652_val
+VARIABLE Inv1653_val
+VARIABLE Inv1654_val
+VARIABLE Inv1655_val
+VARIABLE Inv1656_val
+VARIABLE Inv1657_val
+VARIABLE Inv1658_val
+VARIABLE Inv1659_val
+VARIABLE Inv166_val
+VARIABLE Inv1660_val
+VARIABLE Inv1661_val
+VARIABLE Inv1662_val
+VARIABLE Inv1663_val
+VARIABLE Inv1664_val
+VARIABLE Inv1665_val
+VARIABLE Inv1666_val
+VARIABLE Inv1667_val
+VARIABLE Inv1668_val
+VARIABLE Inv1669_val
+VARIABLE Inv167_val
+VARIABLE Inv1670_val
+VARIABLE Inv1671_val
+VARIABLE Inv1672_val
+VARIABLE Inv1673_val
+VARIABLE Inv1674_val
+VARIABLE Inv1675_val
+VARIABLE Inv1676_val
+VARIABLE Inv1677_val
+VARIABLE Inv1678_val
+VARIABLE Inv1679_val
+VARIABLE Inv168_val
+VARIABLE Inv1680_val
+VARIABLE Inv1681_val
+VARIABLE Inv1682_val
+VARIABLE Inv1683_val
+VARIABLE Inv1684_val
+VARIABLE Inv1685_val
+VARIABLE Inv1686_val
+VARIABLE Inv1687_val
+VARIABLE Inv1688_val
+VARIABLE Inv1689_val
+VARIABLE Inv169_val
+VARIABLE Inv1690_val
+VARIABLE Inv1691_val
+VARIABLE Inv1692_val
+VARIABLE Inv1693_val
+VARIABLE Inv1694_val
+VARIABLE Inv1695_val
+VARIABLE Inv1696_val
+VARIABLE Inv1697_val
+VARIABLE Inv1698_val
+VARIABLE Inv1699_val
+VARIABLE Inv17_val
+VARIABLE Inv170_val
+VARIABLE Inv1700_val
+VARIABLE Inv1701_val
+VARIABLE Inv1702_val
+VARIABLE Inv1703_val
+VARIABLE Inv1704_val
+VARIABLE Inv1705_val
+VARIABLE Inv1706_val
+VARIABLE Inv1707_val
+VARIABLE Inv1708_val
+VARIABLE Inv1709_val
+VARIABLE Inv171_val
+VARIABLE Inv1710_val
+VARIABLE Inv1711_val
+VARIABLE Inv1712_val
+VARIABLE Inv1713_val
+VARIABLE Inv1714_val
+VARIABLE Inv1715_val
+VARIABLE Inv1716_val
+VARIABLE Inv1717_val
+VARIABLE Inv1718_val
+VARIABLE Inv1719_val
+VARIABLE Inv172_val
+VARIABLE Inv1720_val
+VARIABLE Inv1721_val
+VARIABLE Inv1722_val
+VARIABLE Inv1723_val
+VARIABLE Inv1724_val
+VARIABLE Inv1725_val
+VARIABLE Inv1726_val
+VARIABLE Inv1727_val
+VARIABLE Inv1728_val
+VARIABLE Inv1729_val
+VARIABLE Inv173_val
+VARIABLE Inv1730_val
+VARIABLE Inv1731_val
+VARIABLE Inv1732_val
+VARIABLE Inv1733_val
+VARIABLE Inv1734_val
+VARIABLE Inv1735_val
+VARIABLE Inv1736_val
+VARIABLE Inv1737_val
+VARIABLE Inv1738_val
+VARIABLE Inv1739_val
+VARIABLE Inv174_val
+VARIABLE Inv1740_val
+VARIABLE Inv1741_val
+VARIABLE Inv1742_val
+VARIABLE Inv1743_val
+VARIABLE Inv1744_val
+VARIABLE Inv1745_val
+VARIABLE Inv1746_val
+VARIABLE Inv1747_val
+VARIABLE Inv1748_val
+VARIABLE Inv1749_val
+VARIABLE Inv175_val
+VARIABLE Inv1750_val
+VARIABLE Inv1751_val
+VARIABLE Inv1752_val
+VARIABLE Inv1753_val
+VARIABLE Inv1754_val
+VARIABLE Inv1755_val
+VARIABLE Inv1756_val
+VARIABLE Inv1757_val
+VARIABLE Inv1758_val
+VARIABLE Inv1759_val
+VARIABLE Inv176_val
+VARIABLE Inv1760_val
+VARIABLE Inv1761_val
+VARIABLE Inv1762_val
+VARIABLE Inv1763_val
+VARIABLE Inv1764_val
+VARIABLE Inv1765_val
+VARIABLE Inv1766_val
+VARIABLE Inv1767_val
+VARIABLE Inv1768_val
+VARIABLE Inv1769_val
+VARIABLE Inv177_val
+VARIABLE Inv1770_val
+VARIABLE Inv1771_val
+VARIABLE Inv1772_val
+VARIABLE Inv1773_val
+VARIABLE Inv1774_val
+VARIABLE Inv1775_val
+VARIABLE Inv1776_val
+VARIABLE Inv1777_val
+VARIABLE Inv1778_val
+VARIABLE Inv1779_val
+VARIABLE Inv178_val
+VARIABLE Inv1780_val
+VARIABLE Inv1781_val
+VARIABLE Inv1782_val
+VARIABLE Inv1783_val
+VARIABLE Inv1784_val
+VARIABLE Inv1785_val
+VARIABLE Inv1786_val
+VARIABLE Inv1787_val
+VARIABLE Inv1788_val
+VARIABLE Inv1789_val
+VARIABLE Inv179_val
+VARIABLE Inv1790_val
+VARIABLE Inv1791_val
+VARIABLE Inv1792_val
+VARIABLE Inv1793_val
+VARIABLE Inv1794_val
+VARIABLE Inv1795_val
+VARIABLE Inv1796_val
+VARIABLE Inv1797_val
+VARIABLE Inv1798_val
+VARIABLE Inv1799_val
+VARIABLE Inv18_val
+VARIABLE Inv180_val
+VARIABLE Inv1800_val
+VARIABLE Inv1801_val
+VARIABLE Inv1802_val
+VARIABLE Inv1803_val
+VARIABLE Inv1804_val
+VARIABLE Inv1805_val
+VARIABLE Inv1806_val
+VARIABLE Inv1807_val
+VARIABLE Inv1808_val
+VARIABLE Inv1809_val
+VARIABLE Inv181_val
+VARIABLE Inv1810_val
+VARIABLE Inv1811_val
+VARIABLE Inv1812_val
+VARIABLE Inv1813_val
+VARIABLE Inv1814_val
+VARIABLE Inv1815_val
+VARIABLE Inv1816_val
+VARIABLE Inv1817_val
+VARIABLE Inv1818_val
+VARIABLE Inv1819_val
+VARIABLE Inv182_val
+VARIABLE Inv1820_val
+VARIABLE Inv1821_val
+VARIABLE Inv1822_val
+VARIABLE Inv1823_val
+VARIABLE Inv1824_val
+VARIABLE Inv1825_val
+VARIABLE Inv1826_val
+VARIABLE Inv1827_val
+VARIABLE Inv1828_val
+VARIABLE Inv1829_val
+VARIABLE Inv183_val
+VARIABLE Inv1830_val
+VARIABLE Inv1831_val
+VARIABLE Inv1832_val
+VARIABLE Inv1833_val
+VARIABLE Inv1834_val
+VARIABLE Inv1835_val
+VARIABLE Inv1836_val
+VARIABLE Inv1837_val
+VARIABLE Inv1838_val
+VARIABLE Inv1839_val
+VARIABLE Inv184_val
+VARIABLE Inv1840_val
+VARIABLE Inv1841_val
+VARIABLE Inv1842_val
+VARIABLE Inv1843_val
+VARIABLE Inv1844_val
+VARIABLE Inv1845_val
+VARIABLE Inv1846_val
+VARIABLE Inv1847_val
+VARIABLE Inv1848_val
+VARIABLE Inv1849_val
+VARIABLE Inv185_val
+VARIABLE Inv1850_val
+VARIABLE Inv1851_val
+VARIABLE Inv1852_val
+VARIABLE Inv1853_val
+VARIABLE Inv1854_val
+VARIABLE Inv1855_val
+VARIABLE Inv1856_val
+VARIABLE Inv1857_val
+VARIABLE Inv1858_val
+VARIABLE Inv1859_val
+VARIABLE Inv186_val
+VARIABLE Inv1860_val
+VARIABLE Inv1861_val
+VARIABLE Inv1862_val
+VARIABLE Inv1863_val
+VARIABLE Inv1864_val
+VARIABLE Inv1865_val
+VARIABLE Inv1866_val
+VARIABLE Inv1867_val
+VARIABLE Inv1868_val
+VARIABLE Inv1869_val
+VARIABLE Inv187_val
+VARIABLE Inv1870_val
+VARIABLE Inv1871_val
+VARIABLE Inv1872_val
+VARIABLE Inv1873_val
+VARIABLE Inv1874_val
+VARIABLE Inv1875_val
+VARIABLE Inv1876_val
+VARIABLE Inv1877_val
+VARIABLE Inv1878_val
+VARIABLE Inv1879_val
+VARIABLE Inv188_val
+VARIABLE Inv1880_val
+VARIABLE Inv1881_val
+VARIABLE Inv1882_val
+VARIABLE Inv1883_val
+VARIABLE Inv1884_val
+VARIABLE Inv1885_val
+VARIABLE Inv1886_val
+VARIABLE Inv1887_val
+VARIABLE Inv1888_val
+VARIABLE Inv1889_val
+VARIABLE Inv189_val
+VARIABLE Inv1890_val
+VARIABLE Inv1891_val
+VARIABLE Inv1892_val
+VARIABLE Inv1893_val
+VARIABLE Inv1894_val
+VARIABLE Inv1895_val
+VARIABLE Inv1896_val
+VARIABLE Inv1897_val
+VARIABLE Inv1898_val
+VARIABLE ctiId
+
+Inv0 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Cache[VARI][1] = "I"))
+Inv1 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Cache[VARI][1] = "S"))
+Inv10 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan1[VARJ][1] = "ReqS"))
+Inv100 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((CurPtr = VARI))
+Inv1000 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan2[VARI][2] = MemData))
+Inv1001 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan2[VARJ][1] = "Empty"))
+Inv1002 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan2[VARJ][1] = "GntE"))
+Inv1003 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan2[VARJ][1] = "GntS"))
+Inv1004 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan2[VARJ][1] = "Inv"))
+Inv1005 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan3[VARI][1] = "Empty"))
+Inv1006 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1007 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan3[VARI][2] = MemData))
+Inv1008 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1009 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv101 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((CurPtr = VARJ))
+Inv1010 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((CurCmd = "ReqE"))
+Inv1011 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((CurCmd = "ReqS"))
+Inv1012 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((CurPtr = VARI))
+Inv1013 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((CurPtr = VARJ))
+Inv1014 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((ExGntd))
+Inv1015 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1016 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1017 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((InvSet[VARI]))
+Inv1018 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((InvSet[VARJ]))
+Inv1019 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((ShrSet[VARI]))
+Inv102 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((ExGntd))
+Inv1020 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((ShrSet[VARJ]))
+Inv1021 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ ((VARI # VARJ))
+Inv1022 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Cache[VARI][1] = "E"))
+Inv1023 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Cache[VARI][1] = "I"))
+Inv1024 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Cache[VARI][1] = "S"))
+Inv1025 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Cache[VARJ][1] = "E"))
+Inv1026 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Cache[VARJ][1] = "I"))
+Inv1027 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Cache[VARJ][1] = "S"))
+Inv1028 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1029 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv103 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1030 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1031 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1032 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1033 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1034 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1035 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1036 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1037 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARI][2] = MemData))
+Inv1038 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1039 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv104 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1040 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1041 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1042 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1043 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1044 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan3[VARI][2] = MemData))
+Inv1045 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1046 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1047 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(CurCmd = "ReqE"))
+Inv1048 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(CurCmd = "ReqS"))
+Inv1049 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(CurPtr = VARI))
+Inv105 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((InvSet[VARI]))
+Inv1050 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(CurPtr = VARJ))
+Inv1051 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(ExGntd))
+Inv1052 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1053 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1054 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(InvSet[VARI]))
+Inv1055 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(InvSet[VARJ]))
+Inv1056 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(ShrSet[VARI]))
+Inv1057 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(ShrSet[VARJ]))
+Inv1058 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][1] = "Inv") \/ (~(VARI # VARJ))
+Inv1059 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan2[VARJ][1] = "Empty"))
+Inv106 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((InvSet[VARJ]))
+Inv1060 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan2[VARJ][1] = "GntE"))
+Inv1061 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan2[VARJ][1] = "GntS"))
+Inv1062 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan2[VARJ][1] = "Inv"))
+Inv1063 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan3[VARI][1] = "Empty"))
+Inv1064 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1065 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan3[VARI][2] = MemData))
+Inv1066 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1067 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1068 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((CurCmd = "ReqE"))
+Inv1069 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((CurCmd = "ReqS"))
+Inv107 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((ShrSet[VARI]))
+Inv1070 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((CurPtr = VARI))
+Inv1071 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((CurPtr = VARJ))
+Inv1072 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((ExGntd))
+Inv1073 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1074 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1075 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((InvSet[VARI]))
+Inv1076 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((InvSet[VARJ]))
+Inv1077 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((ShrSet[VARI]))
+Inv1078 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((ShrSet[VARJ]))
+Inv1079 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ ((VARI # VARJ))
+Inv108 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((ShrSet[VARJ]))
+Inv1080 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Cache[VARI][1] = "E"))
+Inv1081 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Cache[VARI][1] = "I"))
+Inv1082 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Cache[VARI][1] = "S"))
+Inv1083 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Cache[VARJ][1] = "E"))
+Inv1084 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Cache[VARJ][1] = "I"))
+Inv1085 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Cache[VARJ][1] = "S"))
+Inv1086 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1087 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1088 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1089 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv109 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ ((VARI # VARJ))
+Inv1090 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1091 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1092 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1093 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1094 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1095 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1096 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1097 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1098 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1099 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv11 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARI][1] = "Empty"))
+Inv110 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Cache[VARI][1] = "E"))
+Inv1100 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1101 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1102 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan3[VARI][2] = MemData))
+Inv1103 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1104 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(CurCmd = "ReqE"))
+Inv1105 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(CurCmd = "ReqS"))
+Inv1106 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(CurPtr = VARI))
+Inv1107 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(CurPtr = VARJ))
+Inv1108 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(ExGntd))
+Inv1109 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv111 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Cache[VARI][1] = "S"))
+Inv1110 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1111 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(InvSet[VARI]))
+Inv1112 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(InvSet[VARJ]))
+Inv1113 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(ShrSet[VARI]))
+Inv1114 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(ShrSet[VARJ]))
+Inv1115 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARI][2] = MemData) \/ (~(VARI # VARJ))
+Inv1116 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan2[VARJ][1] = "GntE"))
+Inv1117 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan2[VARJ][1] = "GntS"))
+Inv1118 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan2[VARJ][1] = "Inv"))
+Inv1119 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan3[VARI][1] = "Empty"))
+Inv112 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Cache[VARJ][1] = "E"))
+Inv1120 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1121 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan3[VARI][2] = MemData))
+Inv1122 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1123 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1124 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((CurCmd = "ReqE"))
+Inv1125 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((CurCmd = "ReqS"))
+Inv1126 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((CurPtr = VARI))
+Inv1127 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((CurPtr = VARJ))
+Inv1128 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((ExGntd))
+Inv1129 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv113 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Cache[VARJ][1] = "I"))
+Inv1130 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1131 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((InvSet[VARI]))
+Inv1132 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((InvSet[VARJ]))
+Inv1133 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((ShrSet[VARI]))
+Inv1134 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((ShrSet[VARJ]))
+Inv1135 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ ((VARI # VARJ))
+Inv1136 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Cache[VARI][1] = "E"))
+Inv1137 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Cache[VARI][1] = "I"))
+Inv1138 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Cache[VARI][1] = "S"))
+Inv1139 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Cache[VARJ][1] = "E"))
+Inv114 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Cache[VARJ][1] = "S"))
+Inv1140 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Cache[VARJ][1] = "I"))
+Inv1141 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Cache[VARJ][1] = "S"))
+Inv1142 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1143 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1144 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1145 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1146 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1147 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1148 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1149 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv115 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1150 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1151 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1152 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARI][2] = MemData))
+Inv1153 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1154 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1155 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1156 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1157 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1158 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan3[VARI][2] = MemData))
+Inv1159 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv116 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1160 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1161 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(CurCmd = "ReqE"))
+Inv1162 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(CurCmd = "ReqS"))
+Inv1163 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(CurPtr = VARI))
+Inv1164 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(CurPtr = VARJ))
+Inv1165 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(ExGntd))
+Inv1166 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1167 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(InvSet[VARI]))
+Inv1168 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(InvSet[VARJ]))
+Inv1169 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(ShrSet[VARI]))
+Inv117 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1170 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(ShrSet[VARJ]))
+Inv1171 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Empty") \/ (~(VARI # VARJ))
+Inv1172 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((Chan2[VARJ][1] = "GntS"))
+Inv1173 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((Chan2[VARJ][1] = "Inv"))
+Inv1174 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((Chan3[VARI][1] = "Empty"))
+Inv1175 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1176 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((Chan3[VARI][2] = MemData))
+Inv1177 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1178 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1179 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((CurCmd = "ReqE"))
+Inv118 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1180 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((CurCmd = "ReqS"))
+Inv1181 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((CurPtr = VARI))
+Inv1182 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((CurPtr = VARJ))
+Inv1183 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((ExGntd))
+Inv1184 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1185 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1186 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((InvSet[VARI]))
+Inv1187 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((InvSet[VARJ]))
+Inv1188 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((ShrSet[VARI]))
+Inv1189 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((ShrSet[VARJ]))
+Inv119 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1190 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ ((VARI # VARJ))
+Inv1191 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Cache[VARI][1] = "E"))
+Inv1192 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Cache[VARI][1] = "I"))
+Inv1193 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Cache[VARI][1] = "S"))
+Inv1194 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Cache[VARJ][1] = "E"))
+Inv1195 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Cache[VARJ][1] = "I"))
+Inv1196 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Cache[VARJ][1] = "S"))
+Inv1197 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1198 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1199 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv12 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARI][1] = "GntE"))
+Inv120 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1200 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1201 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1202 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1203 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1204 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1205 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1206 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1207 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARI][2] = MemData))
+Inv1208 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1209 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv121 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1210 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1211 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1212 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1213 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan3[VARI][2] = MemData))
+Inv1214 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1215 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1216 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(CurCmd = "ReqE"))
+Inv1217 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(CurCmd = "ReqS"))
+Inv1218 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(CurPtr = VARI))
+Inv1219 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(CurPtr = VARJ))
+Inv122 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1220 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(ExGntd))
+Inv1221 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1222 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1223 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(InvSet[VARI]))
+Inv1224 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(InvSet[VARJ]))
+Inv1225 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(ShrSet[VARI]))
+Inv1226 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(ShrSet[VARJ]))
+Inv1227 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntE") \/ (~(VARI # VARJ))
+Inv1228 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((Chan2[VARJ][1] = "Inv"))
+Inv1229 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((Chan3[VARI][1] = "Empty"))
+Inv123 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1230 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1231 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((Chan3[VARI][2] = MemData))
+Inv1232 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1233 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1234 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((CurCmd = "ReqE"))
+Inv1235 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((CurCmd = "ReqS"))
+Inv1236 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((CurPtr = VARI))
+Inv1237 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((CurPtr = VARJ))
+Inv1238 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((ExGntd))
+Inv1239 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv124 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARI][2] = MemData))
+Inv1240 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1241 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((InvSet[VARI]))
+Inv1242 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((InvSet[VARJ]))
+Inv1243 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((ShrSet[VARI]))
+Inv1244 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((ShrSet[VARJ]))
+Inv1245 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ ((VARI # VARJ))
+Inv1246 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Cache[VARI][1] = "E"))
+Inv1247 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Cache[VARI][1] = "I"))
+Inv1248 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Cache[VARI][1] = "S"))
+Inv1249 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Cache[VARJ][1] = "E"))
+Inv125 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1250 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Cache[VARJ][1] = "I"))
+Inv1251 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Cache[VARJ][1] = "S"))
+Inv1252 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1253 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1254 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1255 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1256 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1257 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1258 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1259 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv126 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1260 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1261 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1262 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARI][2] = MemData))
+Inv1263 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1264 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1265 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1266 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1267 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1268 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan3[VARI][2] = MemData))
+Inv1269 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv127 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1270 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1271 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(CurCmd = "ReqE"))
+Inv1272 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(CurCmd = "ReqS"))
+Inv1273 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(CurPtr = VARI))
+Inv1274 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(CurPtr = VARJ))
+Inv1275 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(ExGntd))
+Inv1276 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1277 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1278 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(InvSet[VARI]))
+Inv1279 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(InvSet[VARJ]))
+Inv128 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1280 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(ShrSet[VARI]))
+Inv1281 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(ShrSet[VARJ]))
+Inv1282 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "GntS") \/ (~(VARI # VARJ))
+Inv1283 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((Chan3[VARI][1] = "Empty"))
+Inv1284 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1285 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((Chan3[VARI][2] = MemData))
+Inv1286 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1287 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1288 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((CurCmd = "ReqE"))
+Inv1289 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((CurCmd = "ReqS"))
+Inv129 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1290 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((CurPtr = VARI))
+Inv1291 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((CurPtr = VARJ))
+Inv1292 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((ExGntd))
+Inv1293 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1294 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1295 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((InvSet[VARI]))
+Inv1296 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((InvSet[VARJ]))
+Inv1297 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((ShrSet[VARI]))
+Inv1298 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((ShrSet[VARJ]))
+Inv1299 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ ((VARI # VARJ))
+Inv13 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARI][1] = "GntS"))
+Inv130 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1300 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Cache[VARI][1] = "E"))
+Inv1301 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Cache[VARI][1] = "I"))
+Inv1302 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Cache[VARI][1] = "S"))
+Inv1303 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Cache[VARJ][1] = "E"))
+Inv1304 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Cache[VARJ][1] = "I"))
+Inv1305 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Cache[VARJ][1] = "S"))
+Inv1306 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1307 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1308 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1309 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv131 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan3[VARI][2] = MemData))
+Inv1310 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1311 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1312 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1313 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1314 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1315 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1316 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARI][2] = MemData))
+Inv1317 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1318 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1319 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv132 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1320 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1321 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1322 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan3[VARI][2] = MemData))
+Inv1323 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1324 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1325 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(CurCmd = "ReqE"))
+Inv1326 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(CurCmd = "ReqS"))
+Inv1327 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(CurPtr = VARI))
+Inv1328 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(CurPtr = VARJ))
+Inv1329 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(ExGntd))
+Inv133 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1330 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1331 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1332 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(InvSet[VARI]))
+Inv1333 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(InvSet[VARJ]))
+Inv1334 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(ShrSet[VARI]))
+Inv1335 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(ShrSet[VARJ]))
+Inv1336 == \A VARI \in NODE : \E VARJ \in NODE : (Chan2[VARJ][1] = "Inv") \/ (~(VARI # VARJ))
+Inv1337 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1338 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((Chan3[VARI][2] = MemData))
+Inv1339 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv134 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(CurCmd = "ReqE"))
+Inv1340 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1341 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((CurCmd = "ReqE"))
+Inv1342 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((CurCmd = "ReqS"))
+Inv1343 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((CurPtr = VARI))
+Inv1344 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((CurPtr = VARJ))
+Inv1345 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((ExGntd))
+Inv1346 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1347 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1348 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((InvSet[VARI]))
+Inv1349 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((InvSet[VARJ]))
+Inv135 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(CurCmd = "ReqS"))
+Inv1350 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((ShrSet[VARI]))
+Inv1351 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((ShrSet[VARJ]))
+Inv1352 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ ((VARI # VARJ))
+Inv1353 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Cache[VARI][1] = "E"))
+Inv1354 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Cache[VARI][1] = "I"))
+Inv1355 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Cache[VARI][1] = "S"))
+Inv1356 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Cache[VARJ][1] = "E"))
+Inv1357 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Cache[VARJ][1] = "I"))
+Inv1358 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Cache[VARJ][1] = "S"))
+Inv1359 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv136 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(CurPtr = VARI))
+Inv1360 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1361 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1362 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1363 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1364 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1365 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1366 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1367 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1368 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1369 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARI][2] = MemData))
+Inv137 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(CurPtr = VARJ))
+Inv1370 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1371 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1372 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1373 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1374 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1375 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan3[VARI][2] = MemData))
+Inv1376 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1377 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1378 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(CurCmd = "ReqE"))
+Inv1379 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(CurCmd = "ReqS"))
+Inv138 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(ExGntd))
+Inv1380 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(CurPtr = VARI))
+Inv1381 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(CurPtr = VARJ))
+Inv1382 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(ExGntd))
+Inv1383 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1384 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1385 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(InvSet[VARI]))
+Inv1386 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(InvSet[VARJ]))
+Inv1387 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(ShrSet[VARI]))
+Inv1388 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(ShrSet[VARJ]))
+Inv1389 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "Empty") \/ (~(VARI # VARJ))
+Inv139 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1390 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((Chan3[VARI][2] = MemData))
+Inv1391 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1392 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1393 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((CurCmd = "ReqE"))
+Inv1394 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((CurCmd = "ReqS"))
+Inv1395 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((CurPtr = VARI))
+Inv1396 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((CurPtr = VARJ))
+Inv1397 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((ExGntd))
+Inv1398 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1399 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv14 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARI][1] = "Inv"))
+Inv140 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1400 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((InvSet[VARI]))
+Inv1401 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((InvSet[VARJ]))
+Inv1402 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((ShrSet[VARI]))
+Inv1403 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((ShrSet[VARJ]))
+Inv1404 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ ((VARI # VARJ))
+Inv1405 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Cache[VARI][1] = "E"))
+Inv1406 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Cache[VARI][1] = "I"))
+Inv1407 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Cache[VARI][1] = "S"))
+Inv1408 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Cache[VARJ][1] = "E"))
+Inv1409 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Cache[VARJ][1] = "I"))
+Inv141 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(InvSet[VARI]))
+Inv1410 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Cache[VARJ][1] = "S"))
+Inv1411 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1412 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1413 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1414 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1415 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1416 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1417 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1418 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1419 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv142 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(InvSet[VARJ]))
+Inv1420 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1421 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARI][2] = MemData))
+Inv1422 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1423 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1424 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1425 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1426 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1427 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan3[VARI][2] = MemData))
+Inv1428 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1429 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv143 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(ShrSet[VARI]))
+Inv1430 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(CurCmd = "ReqE"))
+Inv1431 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(CurCmd = "ReqS"))
+Inv1432 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(CurPtr = VARI))
+Inv1433 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(CurPtr = VARJ))
+Inv1434 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(ExGntd))
+Inv1435 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1436 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1437 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(InvSet[VARI]))
+Inv1438 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(InvSet[VARJ]))
+Inv1439 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(ShrSet[VARI]))
+Inv144 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(ShrSet[VARJ]))
+Inv1440 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(ShrSet[VARJ]))
+Inv1441 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][1] = "InvAck") \/ (~(VARI # VARJ))
+Inv1442 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1443 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1444 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((CurCmd = "ReqE"))
+Inv1445 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((CurCmd = "ReqS"))
+Inv1446 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((CurPtr = VARI))
+Inv1447 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((CurPtr = VARJ))
+Inv1448 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((ExGntd))
+Inv1449 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv145 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "I") \/ (~(VARI # VARJ))
+Inv1450 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1451 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((InvSet[VARI]))
+Inv1452 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((InvSet[VARJ]))
+Inv1453 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((ShrSet[VARI]))
+Inv1454 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((ShrSet[VARJ]))
+Inv1455 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ ((VARI # VARJ))
+Inv1456 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Cache[VARI][1] = "E"))
+Inv1457 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Cache[VARI][1] = "I"))
+Inv1458 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Cache[VARI][1] = "S"))
+Inv1459 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Cache[VARJ][1] = "E"))
+Inv146 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Cache[VARJ][1] = "E"))
+Inv1460 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Cache[VARJ][1] = "I"))
+Inv1461 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Cache[VARJ][1] = "S"))
+Inv1462 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1463 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1464 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1465 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1466 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1467 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1468 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1469 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "GntE"))
+Inv147 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Cache[VARJ][1] = "I"))
+Inv1470 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1471 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1472 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARI][2] = MemData))
+Inv1473 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1474 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1475 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1476 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1477 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1478 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1479 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv148 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Cache[VARJ][1] = "S"))
+Inv1480 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1481 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(CurCmd = "ReqE"))
+Inv1482 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(CurCmd = "ReqS"))
+Inv1483 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(CurPtr = VARI))
+Inv1484 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(CurPtr = VARJ))
+Inv1485 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(ExGntd))
+Inv1486 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1487 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1488 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(InvSet[VARI]))
+Inv1489 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(InvSet[VARJ]))
+Inv149 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan1[VARI][1] = "Empty"))
+Inv1490 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(ShrSet[VARI]))
+Inv1491 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(ShrSet[VARJ]))
+Inv1492 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARI][2] = MemData) \/ (~(VARI # VARJ))
+Inv1493 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1494 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((CurCmd = "ReqE"))
+Inv1495 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((CurCmd = "ReqS"))
+Inv1496 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((CurPtr = VARI))
+Inv1497 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((CurPtr = VARJ))
+Inv1498 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((ExGntd))
+Inv1499 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv15 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARI][2] = MemData))
+Inv150 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan1[VARI][1] = "ReqE"))
+Inv1500 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1501 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((InvSet[VARI]))
+Inv1502 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((InvSet[VARJ]))
+Inv1503 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((ShrSet[VARI]))
+Inv1504 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((ShrSet[VARJ]))
+Inv1505 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ ((VARI # VARJ))
+Inv1506 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Cache[VARI][1] = "E"))
+Inv1507 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Cache[VARI][1] = "I"))
+Inv1508 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Cache[VARI][1] = "S"))
+Inv1509 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Cache[VARJ][1] = "E"))
+Inv151 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan1[VARI][1] = "ReqS"))
+Inv1510 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Cache[VARJ][1] = "I"))
+Inv1511 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Cache[VARJ][1] = "S"))
+Inv1512 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1513 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1514 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1515 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1516 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1517 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1518 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1519 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv152 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan1[VARJ][1] = "Empty"))
+Inv1520 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1521 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1522 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARI][2] = MemData))
+Inv1523 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1524 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1525 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1526 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1527 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1528 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1529 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan3[VARI][2] = MemData))
+Inv153 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan1[VARJ][1] = "ReqE"))
+Inv1530 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1531 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(CurCmd = "ReqE"))
+Inv1532 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(CurCmd = "ReqS"))
+Inv1533 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(CurPtr = VARI))
+Inv1534 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(CurPtr = VARJ))
+Inv1535 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(ExGntd))
+Inv1536 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1537 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1538 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(InvSet[VARI]))
+Inv1539 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(InvSet[VARJ]))
+Inv154 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan1[VARJ][1] = "ReqS"))
+Inv1540 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(ShrSet[VARI]))
+Inv1541 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(ShrSet[VARJ]))
+Inv1542 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "Empty") \/ (~(VARI # VARJ))
+Inv1543 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((CurCmd = "ReqE"))
+Inv1544 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((CurCmd = "ReqS"))
+Inv1545 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((CurPtr = VARI))
+Inv1546 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((CurPtr = VARJ))
+Inv1547 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((ExGntd))
+Inv1548 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1549 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv155 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARI][1] = "Empty"))
+Inv1550 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((InvSet[VARI]))
+Inv1551 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((InvSet[VARJ]))
+Inv1552 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((ShrSet[VARI]))
+Inv1553 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((ShrSet[VARJ]))
+Inv1554 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ ((VARI # VARJ))
+Inv1555 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Cache[VARI][1] = "E"))
+Inv1556 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Cache[VARI][1] = "I"))
+Inv1557 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Cache[VARI][1] = "S"))
+Inv1558 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Cache[VARJ][1] = "E"))
+Inv1559 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Cache[VARJ][1] = "I"))
+Inv156 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARI][1] = "GntE"))
+Inv1560 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Cache[VARJ][1] = "S"))
+Inv1561 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1562 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1563 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1564 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1565 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1566 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1567 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1568 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1569 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv157 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARI][1] = "GntS"))
+Inv1570 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARI][2] = MemData))
+Inv1571 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1572 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1573 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1574 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1575 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1576 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1577 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan3[VARI][2] = MemData))
+Inv1578 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1579 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(CurCmd = "ReqE"))
+Inv158 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARI][1] = "Inv"))
+Inv1580 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(CurCmd = "ReqS"))
+Inv1581 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(CurPtr = VARI))
+Inv1582 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(CurPtr = VARJ))
+Inv1583 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(ExGntd))
+Inv1584 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1585 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1586 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(InvSet[VARI]))
+Inv1587 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(InvSet[VARJ]))
+Inv1588 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(ShrSet[VARI]))
+Inv1589 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(ShrSet[VARJ]))
+Inv159 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARI][2] = MemData))
+Inv1590 == \A VARI \in NODE : \E VARJ \in NODE : (Chan3[VARJ][1] = "InvAck") \/ (~(VARI # VARJ))
+Inv1591 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((CurCmd = "ReqS"))
+Inv1592 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((CurPtr = VARI))
+Inv1593 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((CurPtr = VARJ))
+Inv1594 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((ExGntd))
+Inv1595 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1596 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1597 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((InvSet[VARI]))
+Inv1598 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((InvSet[VARJ]))
+Inv1599 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((ShrSet[VARI]))
+Inv16 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARJ][1] = "Empty"))
+Inv160 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARJ][1] = "Empty"))
+Inv1600 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((ShrSet[VARJ]))
+Inv1601 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ ((VARI # VARJ))
+Inv1602 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Cache[VARI][1] = "E"))
+Inv1603 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Cache[VARI][1] = "I"))
+Inv1604 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Cache[VARI][1] = "S"))
+Inv1605 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Cache[VARJ][1] = "E"))
+Inv1606 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Cache[VARJ][1] = "I"))
+Inv1607 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Cache[VARJ][1] = "S"))
+Inv1608 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1609 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv161 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARJ][1] = "GntE"))
+Inv1610 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1611 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1612 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1613 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1614 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1615 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1616 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1617 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1618 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARI][2] = MemData))
+Inv1619 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv162 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARJ][1] = "GntS"))
+Inv1620 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1621 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1622 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1623 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1624 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1625 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan3[VARI][2] = MemData))
+Inv1626 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1627 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1628 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(CurCmd = "ReqS"))
+Inv1629 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(CurPtr = VARI))
+Inv163 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan2[VARJ][1] = "Inv"))
+Inv1630 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(CurPtr = VARJ))
+Inv1631 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(ExGntd))
+Inv1632 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1633 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1634 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(InvSet[VARI]))
+Inv1635 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(InvSet[VARJ]))
+Inv1636 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(ShrSet[VARI]))
+Inv1637 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(ShrSet[VARJ]))
+Inv1638 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqE") \/ (~(VARI # VARJ))
+Inv1639 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((CurPtr = VARI))
+Inv164 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan3[VARI][1] = "Empty"))
+Inv1640 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((CurPtr = VARJ))
+Inv1641 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((ExGntd))
+Inv1642 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1643 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1644 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((InvSet[VARI]))
+Inv1645 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((InvSet[VARJ]))
+Inv1646 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((ShrSet[VARI]))
+Inv1647 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((ShrSet[VARJ]))
+Inv1648 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ ((VARI # VARJ))
+Inv1649 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Cache[VARI][1] = "E"))
+Inv165 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan3[VARI][1] = "InvAck"))
+Inv1650 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Cache[VARI][1] = "I"))
+Inv1651 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Cache[VARI][1] = "S"))
+Inv1652 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Cache[VARJ][1] = "E"))
+Inv1653 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Cache[VARJ][1] = "I"))
+Inv1654 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Cache[VARJ][1] = "S"))
+Inv1655 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1656 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1657 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1658 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1659 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv166 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan3[VARI][2] = MemData))
+Inv1660 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1661 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1662 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1663 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1664 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1665 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARI][2] = MemData))
+Inv1666 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1667 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1668 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1669 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv167 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan3[VARJ][1] = "Empty"))
+Inv1670 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1671 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1672 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan3[VARI][2] = MemData))
+Inv1673 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1674 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1675 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(CurCmd = "ReqE"))
+Inv1676 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(CurPtr = VARI))
+Inv1677 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(CurPtr = VARJ))
+Inv1678 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(ExGntd))
+Inv1679 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv168 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((Chan3[VARJ][1] = "InvAck"))
+Inv1680 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1681 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(InvSet[VARI]))
+Inv1682 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(InvSet[VARJ]))
+Inv1683 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(ShrSet[VARI]))
+Inv1684 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(ShrSet[VARJ]))
+Inv1685 == \A VARI \in NODE : \E VARJ \in NODE : (CurCmd = "ReqS") \/ (~(VARI # VARJ))
+Inv1686 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((CurPtr = VARJ))
+Inv1687 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((ExGntd))
+Inv1688 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1689 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv169 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((CurCmd = "ReqE"))
+Inv1690 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((InvSet[VARI]))
+Inv1691 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((InvSet[VARJ]))
+Inv1692 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((ShrSet[VARI]))
+Inv1693 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((ShrSet[VARJ]))
+Inv1694 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ ((VARI # VARJ))
+Inv1695 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Cache[VARI][1] = "E"))
+Inv1696 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Cache[VARI][1] = "I"))
+Inv1697 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Cache[VARI][1] = "S"))
+Inv1698 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Cache[VARJ][1] = "E"))
+Inv1699 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Cache[VARJ][1] = "I"))
+Inv17 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARJ][1] = "GntE"))
+Inv170 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((CurCmd = "ReqS"))
+Inv1700 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Cache[VARJ][1] = "S"))
+Inv1701 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1702 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1703 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1704 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1705 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1706 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1707 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1708 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1709 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARI][1] = "GntS"))
+Inv171 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((CurPtr = VARI))
+Inv1710 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1711 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARI][2] = MemData))
+Inv1712 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1713 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1714 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1715 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1716 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1717 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1718 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan3[VARI][2] = MemData))
+Inv1719 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv172 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((CurPtr = VARJ))
+Inv1720 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1721 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(CurCmd = "ReqE"))
+Inv1722 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(CurCmd = "ReqS"))
+Inv1723 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(CurPtr = VARJ))
+Inv1724 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(ExGntd))
+Inv1725 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1726 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1727 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(InvSet[VARI]))
+Inv1728 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(InvSet[VARJ]))
+Inv1729 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(ShrSet[VARI]))
+Inv173 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((ExGntd))
+Inv1730 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(ShrSet[VARJ]))
+Inv1731 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARI) \/ (~(VARI # VARJ))
+Inv1732 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((ExGntd))
+Inv1733 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1734 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1735 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((InvSet[VARI]))
+Inv1736 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((InvSet[VARJ]))
+Inv1737 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((ShrSet[VARI]))
+Inv1738 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((ShrSet[VARJ]))
+Inv1739 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ ((VARI # VARJ))
+Inv174 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1740 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Cache[VARI][1] = "E"))
+Inv1741 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Cache[VARI][1] = "I"))
+Inv1742 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Cache[VARI][1] = "S"))
+Inv1743 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Cache[VARJ][1] = "E"))
+Inv1744 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Cache[VARJ][1] = "I"))
+Inv1745 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Cache[VARJ][1] = "S"))
+Inv1746 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1747 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1748 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1749 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv175 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1750 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1751 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1752 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1753 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1754 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1755 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1756 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARI][2] = MemData))
+Inv1757 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1758 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1759 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv176 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((InvSet[VARI]))
+Inv1760 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1761 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1762 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1763 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan3[VARI][2] = MemData))
+Inv1764 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1765 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(CurCmd = "ReqE"))
+Inv1766 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(CurCmd = "ReqS"))
+Inv1767 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(CurPtr = VARI))
+Inv1768 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(ExGntd))
+Inv1769 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv177 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((InvSet[VARJ]))
+Inv1770 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1771 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(InvSet[VARI]))
+Inv1772 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(InvSet[VARJ]))
+Inv1773 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(ShrSet[VARI]))
+Inv1774 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(ShrSet[VARJ]))
+Inv1775 == \A VARI \in NODE : \E VARJ \in NODE : (CurPtr = VARJ) \/ (~(VARI # VARJ))
+Inv1776 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ ((InvSet[VARI] = ShrSet[VARI]))
+Inv1777 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1778 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ ((InvSet[VARI]))
+Inv1779 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ ((InvSet[VARJ]))
+Inv178 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((ShrSet[VARI]))
+Inv1780 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ ((ShrSet[VARI]))
+Inv1781 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ ((ShrSet[VARJ]))
+Inv1782 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ ((VARI # VARJ))
+Inv1783 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Cache[VARI][1] = "E"))
+Inv1784 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Cache[VARI][1] = "I"))
+Inv1785 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Cache[VARI][1] = "S"))
+Inv1786 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Cache[VARJ][1] = "E"))
+Inv1787 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Cache[VARJ][1] = "I"))
+Inv1788 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Cache[VARJ][1] = "S"))
+Inv1789 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan1[VARI][1] = "Empty"))
+Inv179 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((ShrSet[VARJ]))
+Inv1790 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1791 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1792 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1793 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1794 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1795 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1796 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1797 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1798 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1799 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARI][2] = MemData))
+Inv18 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "E") \/ ((Chan2[VARJ][1] = "GntS"))
+Inv180 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ ((VARI # VARJ))
+Inv1800 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1801 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1802 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1803 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1804 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1805 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1806 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan3[VARI][2] = MemData))
+Inv1807 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1808 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1809 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(CurCmd = "ReqE"))
+Inv181 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Cache[VARI][1] = "E"))
+Inv1810 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(CurCmd = "ReqS"))
+Inv1811 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(CurPtr = VARI))
+Inv1812 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(CurPtr = VARJ))
+Inv1813 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(InvSet[VARI] = ShrSet[VARI]))
+Inv1814 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1815 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(InvSet[VARI]))
+Inv1816 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(InvSet[VARJ]))
+Inv1817 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(ShrSet[VARI]))
+Inv1818 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(ShrSet[VARJ]))
+Inv1819 == \A VARI \in NODE : \E VARJ \in NODE : (ExGntd) \/ (~(VARI # VARJ))
+Inv182 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Cache[VARI][1] = "I"))
+Inv1820 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ ((InvSet[VARI] = ShrSet[VARJ]))
+Inv1821 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ ((InvSet[VARI]))
+Inv1822 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ ((InvSet[VARJ]))
+Inv1823 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ ((ShrSet[VARI]))
+Inv1824 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ ((ShrSet[VARJ]))
+Inv1825 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ ((VARI # VARJ))
+Inv1826 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Cache[VARI][1] = "E"))
+Inv1827 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Cache[VARI][1] = "I"))
+Inv1828 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Cache[VARI][1] = "S"))
+Inv1829 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Cache[VARJ][1] = "E"))
+Inv183 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Cache[VARJ][1] = "E"))
+Inv1830 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Cache[VARJ][1] = "I"))
+Inv1831 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Cache[VARJ][1] = "S"))
+Inv1832 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1833 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1834 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1835 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1836 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1837 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv1838 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1839 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARI][1] = "GntE"))
+Inv184 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Cache[VARJ][1] = "I"))
+Inv1840 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1841 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1842 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARI][2] = MemData))
+Inv1843 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1844 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1845 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1846 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1847 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan3[VARI][1] = "Empty"))
+Inv1848 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1849 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan3[VARI][2] = MemData))
+Inv185 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Cache[VARJ][1] = "S"))
+Inv1850 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1851 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1852 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(CurCmd = "ReqE"))
+Inv1853 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(CurCmd = "ReqS"))
+Inv1854 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(CurPtr = VARI))
+Inv1855 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(CurPtr = VARJ))
+Inv1856 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(ExGntd))
+Inv1857 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(InvSet[VARI] = ShrSet[VARJ]))
+Inv1858 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(InvSet[VARI]))
+Inv1859 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(InvSet[VARJ]))
+Inv186 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1860 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(ShrSet[VARI]))
+Inv1861 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(ShrSet[VARJ]))
+Inv1862 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARI]) \/ (~(VARI # VARJ))
+Inv1863 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ ((InvSet[VARI]))
+Inv1864 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ ((InvSet[VARJ]))
+Inv1865 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ ((ShrSet[VARI]))
+Inv1866 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ ((ShrSet[VARJ]))
+Inv1867 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ ((VARI # VARJ))
+Inv1868 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Cache[VARI][1] = "E"))
+Inv1869 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Cache[VARI][1] = "I"))
+Inv187 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1870 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Cache[VARI][1] = "S"))
+Inv1871 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Cache[VARJ][1] = "E"))
+Inv1872 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Cache[VARJ][1] = "I"))
+Inv1873 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Cache[VARJ][1] = "S"))
+Inv1874 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan1[VARI][1] = "Empty"))
+Inv1875 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan1[VARI][1] = "ReqE"))
+Inv1876 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1877 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1878 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan1[VARJ][1] = "ReqE"))
+Inv1879 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan1[VARJ][1] = "ReqS"))
+Inv188 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Chan1[VARI][1] = "ReqS"))
+Inv1880 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARI][1] = "Empty"))
+Inv1881 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARI][1] = "GntE"))
+Inv1882 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARI][1] = "GntS"))
+Inv1883 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARI][1] = "Inv"))
+Inv1884 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARI][2] = MemData))
+Inv1885 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARJ][1] = "Empty"))
+Inv1886 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARJ][1] = "GntE"))
+Inv1887 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARJ][1] = "GntS"))
+Inv1888 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan2[VARJ][1] = "Inv"))
+Inv1889 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan3[VARI][1] = "Empty"))
+Inv189 == \A VARI \in NODE : \E VARJ \in NODE : (Cache[VARI][1] = "S") \/ (~(Chan1[VARJ][1] = "Empty"))
+Inv1890 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan3[VARI][1] = "InvAck"))
+Inv1891 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan3[VARI][2] = MemData))
+Inv1892 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan3[VARJ][1] = "Empty"))
+Inv1893 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(Chan3[VARJ][1] = "InvAck"))
+Inv1894 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(CurCmd = "ReqE"))
+Inv1895 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(CurCmd = "ReqS"))
+Inv1896 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(CurPtr = VARI))
+Inv1897 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(CurPtr = VARJ))
+Inv1898 == \A VARI \in NODE : \E VARJ \in NODE : (InvSet[VARI] = ShrSet[VARJ]) \/ (~(ExGntd))
+
+kCTIs == 
+	\/ /\ CurCmd = "InvAck" /\ ExGntd = FALSE /\ CurPtr = 2 /\ InvSet = <<TRUE, FALSE, TRUE>> /\ AuxData = 2 /\ MemData = 2 /\ Chan1 = <<<<"InvAck", 2>>, <<"Inv", 2>>, <<"ReqS", 2>>>> /\ Chan2 = <<<<"Empty", 2>>, <<"InvAck", 2>>, <<"ReqE", 2>>>> /\ Chan3 = <<<<"Empty", 1>>, <<"GntE", 2>>, <<"InvAck", 1>>>> /\ Cache = <<<<"I", 1>>, <<"I", 1>>, <<"I", 1>>>> /\ ShrSet = <<FALSE, TRUE, TRUE>>
+	   /\ ctiId = "-2712641596692808715"
+
+
+InvVals ==
+	    /\ TRUE
+	   /\ Inv0_val = Inv0
+	   /\ Inv1_val = Inv1
+	   /\ Inv10_val = Inv10
+	   /\ Inv100_val = Inv100
+	   /\ Inv1000_val = Inv1000
+	   /\ Inv1001_val = Inv1001
+	   /\ Inv1002_val = Inv1002
+	   /\ Inv1003_val = Inv1003
+	   /\ Inv1004_val = Inv1004
+	   /\ Inv1005_val = Inv1005
+	   /\ Inv1006_val = Inv1006
+	   /\ Inv1007_val = Inv1007
+	   /\ Inv1008_val = Inv1008
+	   /\ Inv1009_val = Inv1009
+	   /\ Inv101_val = Inv101
+	   /\ Inv1010_val = Inv1010
+	   /\ Inv1011_val = Inv1011
+	   /\ Inv1012_val = Inv1012
+	   /\ Inv1013_val = Inv1013
+	   /\ Inv1014_val = Inv1014
+	   /\ Inv1015_val = Inv1015
+	   /\ Inv1016_val = Inv1016
+	   /\ Inv1017_val = Inv1017
+	   /\ Inv1018_val = Inv1018
+	   /\ Inv1019_val = Inv1019
+	   /\ Inv102_val = Inv102
+	   /\ Inv1020_val = Inv1020
+	   /\ Inv1021_val = Inv1021
+	   /\ Inv1022_val = Inv1022
+	   /\ Inv1023_val = Inv1023
+	   /\ Inv1024_val = Inv1024
+	   /\ Inv1025_val = Inv1025
+	   /\ Inv1026_val = Inv1026
+	   /\ Inv1027_val = Inv1027
+	   /\ Inv1028_val = Inv1028
+	   /\ Inv1029_val = Inv1029
+	   /\ Inv103_val = Inv103
+	   /\ Inv1030_val = Inv1030
+	   /\ Inv1031_val = Inv1031
+	   /\ Inv1032_val = Inv1032
+	   /\ Inv1033_val = Inv1033
+	   /\ Inv1034_val = Inv1034
+	   /\ Inv1035_val = Inv1035
+	   /\ Inv1036_val = Inv1036
+	   /\ Inv1037_val = Inv1037
+	   /\ Inv1038_val = Inv1038
+	   /\ Inv1039_val = Inv1039
+	   /\ Inv104_val = Inv104
+	   /\ Inv1040_val = Inv1040
+	   /\ Inv1041_val = Inv1041
+	   /\ Inv1042_val = Inv1042
+	   /\ Inv1043_val = Inv1043
+	   /\ Inv1044_val = Inv1044
+	   /\ Inv1045_val = Inv1045
+	   /\ Inv1046_val = Inv1046
+	   /\ Inv1047_val = Inv1047
+	   /\ Inv1048_val = Inv1048
+	   /\ Inv1049_val = Inv1049
+	   /\ Inv105_val = Inv105
+	   /\ Inv1050_val = Inv1050
+	   /\ Inv1051_val = Inv1051
+	   /\ Inv1052_val = Inv1052
+	   /\ Inv1053_val = Inv1053
+	   /\ Inv1054_val = Inv1054
+	   /\ Inv1055_val = Inv1055
+	   /\ Inv1056_val = Inv1056
+	   /\ Inv1057_val = Inv1057
+	   /\ Inv1058_val = Inv1058
+	   /\ Inv1059_val = Inv1059
+	   /\ Inv106_val = Inv106
+	   /\ Inv1060_val = Inv1060
+	   /\ Inv1061_val = Inv1061
+	   /\ Inv1062_val = Inv1062
+	   /\ Inv1063_val = Inv1063
+	   /\ Inv1064_val = Inv1064
+	   /\ Inv1065_val = Inv1065
+	   /\ Inv1066_val = Inv1066
+	   /\ Inv1067_val = Inv1067
+	   /\ Inv1068_val = Inv1068
+	   /\ Inv1069_val = Inv1069
+	   /\ Inv107_val = Inv107
+	   /\ Inv1070_val = Inv1070
+	   /\ Inv1071_val = Inv1071
+	   /\ Inv1072_val = Inv1072
+	   /\ Inv1073_val = Inv1073
+	   /\ Inv1074_val = Inv1074
+	   /\ Inv1075_val = Inv1075
+	   /\ Inv1076_val = Inv1076
+	   /\ Inv1077_val = Inv1077
+	   /\ Inv1078_val = Inv1078
+	   /\ Inv1079_val = Inv1079
+	   /\ Inv108_val = Inv108
+	   /\ Inv1080_val = Inv1080
+	   /\ Inv1081_val = Inv1081
+	   /\ Inv1082_val = Inv1082
+	   /\ Inv1083_val = Inv1083
+	   /\ Inv1084_val = Inv1084
+	   /\ Inv1085_val = Inv1085
+	   /\ Inv1086_val = Inv1086
+	   /\ Inv1087_val = Inv1087
+	   /\ Inv1088_val = Inv1088
+	   /\ Inv1089_val = Inv1089
+	   /\ Inv109_val = Inv109
+	   /\ Inv1090_val = Inv1090
+	   /\ Inv1091_val = Inv1091
+	   /\ Inv1092_val = Inv1092
+	   /\ Inv1093_val = Inv1093
+	   /\ Inv1094_val = Inv1094
+	   /\ Inv1095_val = Inv1095
+	   /\ Inv1096_val = Inv1096
+	   /\ Inv1097_val = Inv1097
+	   /\ Inv1098_val = Inv1098
+	   /\ Inv1099_val = Inv1099
+	   /\ Inv11_val = Inv11
+	   /\ Inv110_val = Inv110
+	   /\ Inv1100_val = Inv1100
+	   /\ Inv1101_val = Inv1101
+	   /\ Inv1102_val = Inv1102
+	   /\ Inv1103_val = Inv1103
+	   /\ Inv1104_val = Inv1104
+	   /\ Inv1105_val = Inv1105
+	   /\ Inv1106_val = Inv1106
+	   /\ Inv1107_val = Inv1107
+	   /\ Inv1108_val = Inv1108
+	   /\ Inv1109_val = Inv1109
+	   /\ Inv111_val = Inv111
+	   /\ Inv1110_val = Inv1110
+	   /\ Inv1111_val = Inv1111
+	   /\ Inv1112_val = Inv1112
+	   /\ Inv1113_val = Inv1113
+	   /\ Inv1114_val = Inv1114
+	   /\ Inv1115_val = Inv1115
+	   /\ Inv1116_val = Inv1116
+	   /\ Inv1117_val = Inv1117
+	   /\ Inv1118_val = Inv1118
+	   /\ Inv1119_val = Inv1119
+	   /\ Inv112_val = Inv112
+	   /\ Inv1120_val = Inv1120
+	   /\ Inv1121_val = Inv1121
+	   /\ Inv1122_val = Inv1122
+	   /\ Inv1123_val = Inv1123
+	   /\ Inv1124_val = Inv1124
+	   /\ Inv1125_val = Inv1125
+	   /\ Inv1126_val = Inv1126
+	   /\ Inv1127_val = Inv1127
+	   /\ Inv1128_val = Inv1128
+	   /\ Inv1129_val = Inv1129
+	   /\ Inv113_val = Inv113
+	   /\ Inv1130_val = Inv1130
+	   /\ Inv1131_val = Inv1131
+	   /\ Inv1132_val = Inv1132
+	   /\ Inv1133_val = Inv1133
+	   /\ Inv1134_val = Inv1134
+	   /\ Inv1135_val = Inv1135
+	   /\ Inv1136_val = Inv1136
+	   /\ Inv1137_val = Inv1137
+	   /\ Inv1138_val = Inv1138
+	   /\ Inv1139_val = Inv1139
+	   /\ Inv114_val = Inv114
+	   /\ Inv1140_val = Inv1140
+	   /\ Inv1141_val = Inv1141
+	   /\ Inv1142_val = Inv1142
+	   /\ Inv1143_val = Inv1143
+	   /\ Inv1144_val = Inv1144
+	   /\ Inv1145_val = Inv1145
+	   /\ Inv1146_val = Inv1146
+	   /\ Inv1147_val = Inv1147
+	   /\ Inv1148_val = Inv1148
+	   /\ Inv1149_val = Inv1149
+	   /\ Inv115_val = Inv115
+	   /\ Inv1150_val = Inv1150
+	   /\ Inv1151_val = Inv1151
+	   /\ Inv1152_val = Inv1152
+	   /\ Inv1153_val = Inv1153
+	   /\ Inv1154_val = Inv1154
+	   /\ Inv1155_val = Inv1155
+	   /\ Inv1156_val = Inv1156
+	   /\ Inv1157_val = Inv1157
+	   /\ Inv1158_val = Inv1158
+	   /\ Inv1159_val = Inv1159
+	   /\ Inv116_val = Inv116
+	   /\ Inv1160_val = Inv1160
+	   /\ Inv1161_val = Inv1161
+	   /\ Inv1162_val = Inv1162
+	   /\ Inv1163_val = Inv1163
+	   /\ Inv1164_val = Inv1164
+	   /\ Inv1165_val = Inv1165
+	   /\ Inv1166_val = Inv1166
+	   /\ Inv1167_val = Inv1167
+	   /\ Inv1168_val = Inv1168
+	   /\ Inv1169_val = Inv1169
+	   /\ Inv117_val = Inv117
+	   /\ Inv1170_val = Inv1170
+	   /\ Inv1171_val = Inv1171
+	   /\ Inv1172_val = Inv1172
+	   /\ Inv1173_val = Inv1173
+	   /\ Inv1174_val = Inv1174
+	   /\ Inv1175_val = Inv1175
+	   /\ Inv1176_val = Inv1176
+	   /\ Inv1177_val = Inv1177
+	   /\ Inv1178_val = Inv1178
+	   /\ Inv1179_val = Inv1179
+	   /\ Inv118_val = Inv118
+	   /\ Inv1180_val = Inv1180
+	   /\ Inv1181_val = Inv1181
+	   /\ Inv1182_val = Inv1182
+	   /\ Inv1183_val = Inv1183
+	   /\ Inv1184_val = Inv1184
+	   /\ Inv1185_val = Inv1185
+	   /\ Inv1186_val = Inv1186
+	   /\ Inv1187_val = Inv1187
+	   /\ Inv1188_val = Inv1188
+	   /\ Inv1189_val = Inv1189
+	   /\ Inv119_val = Inv119
+	   /\ Inv1190_val = Inv1190
+	   /\ Inv1191_val = Inv1191
+	   /\ Inv1192_val = Inv1192
+	   /\ Inv1193_val = Inv1193
+	   /\ Inv1194_val = Inv1194
+	   /\ Inv1195_val = Inv1195
+	   /\ Inv1196_val = Inv1196
+	   /\ Inv1197_val = Inv1197
+	   /\ Inv1198_val = Inv1198
+	   /\ Inv1199_val = Inv1199
+	   /\ Inv12_val = Inv12
+	   /\ Inv120_val = Inv120
+	   /\ Inv1200_val = Inv1200
+	   /\ Inv1201_val = Inv1201
+	   /\ Inv1202_val = Inv1202
+	   /\ Inv1203_val = Inv1203
+	   /\ Inv1204_val = Inv1204
+	   /\ Inv1205_val = Inv1205
+	   /\ Inv1206_val = Inv1206
+	   /\ Inv1207_val = Inv1207
+	   /\ Inv1208_val = Inv1208
+	   /\ Inv1209_val = Inv1209
+	   /\ Inv121_val = Inv121
+	   /\ Inv1210_val = Inv1210
+	   /\ Inv1211_val = Inv1211
+	   /\ Inv1212_val = Inv1212
+	   /\ Inv1213_val = Inv1213
+	   /\ Inv1214_val = Inv1214
+	   /\ Inv1215_val = Inv1215
+	   /\ Inv1216_val = Inv1216
+	   /\ Inv1217_val = Inv1217
+	   /\ Inv1218_val = Inv1218
+	   /\ Inv1219_val = Inv1219
+	   /\ Inv122_val = Inv122
+	   /\ Inv1220_val = Inv1220
+	   /\ Inv1221_val = Inv1221
+	   /\ Inv1222_val = Inv1222
+	   /\ Inv1223_val = Inv1223
+	   /\ Inv1224_val = Inv1224
+	   /\ Inv1225_val = Inv1225
+	   /\ Inv1226_val = Inv1226
+	   /\ Inv1227_val = Inv1227
+	   /\ Inv1228_val = Inv1228
+	   /\ Inv1229_val = Inv1229
+	   /\ Inv123_val = Inv123
+	   /\ Inv1230_val = Inv1230
+	   /\ Inv1231_val = Inv1231
+	   /\ Inv1232_val = Inv1232
+	   /\ Inv1233_val = Inv1233
+	   /\ Inv1234_val = Inv1234
+	   /\ Inv1235_val = Inv1235
+	   /\ Inv1236_val = Inv1236
+	   /\ Inv1237_val = Inv1237
+	   /\ Inv1238_val = Inv1238
+	   /\ Inv1239_val = Inv1239
+	   /\ Inv124_val = Inv124
+	   /\ Inv1240_val = Inv1240
+	   /\ Inv1241_val = Inv1241
+	   /\ Inv1242_val = Inv1242
+	   /\ Inv1243_val = Inv1243
+	   /\ Inv1244_val = Inv1244
+	   /\ Inv1245_val = Inv1245
+	   /\ Inv1246_val = Inv1246
+	   /\ Inv1247_val = Inv1247
+	   /\ Inv1248_val = Inv1248
+	   /\ Inv1249_val = Inv1249
+	   /\ Inv125_val = Inv125
+	   /\ Inv1250_val = Inv1250
+	   /\ Inv1251_val = Inv1251
+	   /\ Inv1252_val = Inv1252
+	   /\ Inv1253_val = Inv1253
+	   /\ Inv1254_val = Inv1254
+	   /\ Inv1255_val = Inv1255
+	   /\ Inv1256_val = Inv1256
+	   /\ Inv1257_val = Inv1257
+	   /\ Inv1258_val = Inv1258
+	   /\ Inv1259_val = Inv1259
+	   /\ Inv126_val = Inv126
+	   /\ Inv1260_val = Inv1260
+	   /\ Inv1261_val = Inv1261
+	   /\ Inv1262_val = Inv1262
+	   /\ Inv1263_val = Inv1263
+	   /\ Inv1264_val = Inv1264
+	   /\ Inv1265_val = Inv1265
+	   /\ Inv1266_val = Inv1266
+	   /\ Inv1267_val = Inv1267
+	   /\ Inv1268_val = Inv1268
+	   /\ Inv1269_val = Inv1269
+	   /\ Inv127_val = Inv127
+	   /\ Inv1270_val = Inv1270
+	   /\ Inv1271_val = Inv1271
+	   /\ Inv1272_val = Inv1272
+	   /\ Inv1273_val = Inv1273
+	   /\ Inv1274_val = Inv1274
+	   /\ Inv1275_val = Inv1275
+	   /\ Inv1276_val = Inv1276
+	   /\ Inv1277_val = Inv1277
+	   /\ Inv1278_val = Inv1278
+	   /\ Inv1279_val = Inv1279
+	   /\ Inv128_val = Inv128
+	   /\ Inv1280_val = Inv1280
+	   /\ Inv1281_val = Inv1281
+	   /\ Inv1282_val = Inv1282
+	   /\ Inv1283_val = Inv1283
+	   /\ Inv1284_val = Inv1284
+	   /\ Inv1285_val = Inv1285
+	   /\ Inv1286_val = Inv1286
+	   /\ Inv1287_val = Inv1287
+	   /\ Inv1288_val = Inv1288
+	   /\ Inv1289_val = Inv1289
+	   /\ Inv129_val = Inv129
+	   /\ Inv1290_val = Inv1290
+	   /\ Inv1291_val = Inv1291
+	   /\ Inv1292_val = Inv1292
+	   /\ Inv1293_val = Inv1293
+	   /\ Inv1294_val = Inv1294
+	   /\ Inv1295_val = Inv1295
+	   /\ Inv1296_val = Inv1296
+	   /\ Inv1297_val = Inv1297
+	   /\ Inv1298_val = Inv1298
+	   /\ Inv1299_val = Inv1299
+	   /\ Inv13_val = Inv13
+	   /\ Inv130_val = Inv130
+	   /\ Inv1300_val = Inv1300
+	   /\ Inv1301_val = Inv1301
+	   /\ Inv1302_val = Inv1302
+	   /\ Inv1303_val = Inv1303
+	   /\ Inv1304_val = Inv1304
+	   /\ Inv1305_val = Inv1305
+	   /\ Inv1306_val = Inv1306
+	   /\ Inv1307_val = Inv1307
+	   /\ Inv1308_val = Inv1308
+	   /\ Inv1309_val = Inv1309
+	   /\ Inv131_val = Inv131
+	   /\ Inv1310_val = Inv1310
+	   /\ Inv1311_val = Inv1311
+	   /\ Inv1312_val = Inv1312
+	   /\ Inv1313_val = Inv1313
+	   /\ Inv1314_val = Inv1314
+	   /\ Inv1315_val = Inv1315
+	   /\ Inv1316_val = Inv1316
+	   /\ Inv1317_val = Inv1317
+	   /\ Inv1318_val = Inv1318
+	   /\ Inv1319_val = Inv1319
+	   /\ Inv132_val = Inv132
+	   /\ Inv1320_val = Inv1320
+	   /\ Inv1321_val = Inv1321
+	   /\ Inv1322_val = Inv1322
+	   /\ Inv1323_val = Inv1323
+	   /\ Inv1324_val = Inv1324
+	   /\ Inv1325_val = Inv1325
+	   /\ Inv1326_val = Inv1326
+	   /\ Inv1327_val = Inv1327
+	   /\ Inv1328_val = Inv1328
+	   /\ Inv1329_val = Inv1329
+	   /\ Inv133_val = Inv133
+	   /\ Inv1330_val = Inv1330
+	   /\ Inv1331_val = Inv1331
+	   /\ Inv1332_val = Inv1332
+	   /\ Inv1333_val = Inv1333
+	   /\ Inv1334_val = Inv1334
+	   /\ Inv1335_val = Inv1335
+	   /\ Inv1336_val = Inv1336
+	   /\ Inv1337_val = Inv1337
+	   /\ Inv1338_val = Inv1338
+	   /\ Inv1339_val = Inv1339
+	   /\ Inv134_val = Inv134
+	   /\ Inv1340_val = Inv1340
+	   /\ Inv1341_val = Inv1341
+	   /\ Inv1342_val = Inv1342
+	   /\ Inv1343_val = Inv1343
+	   /\ Inv1344_val = Inv1344
+	   /\ Inv1345_val = Inv1345
+	   /\ Inv1346_val = Inv1346
+	   /\ Inv1347_val = Inv1347
+	   /\ Inv1348_val = Inv1348
+	   /\ Inv1349_val = Inv1349
+	   /\ Inv135_val = Inv135
+	   /\ Inv1350_val = Inv1350
+	   /\ Inv1351_val = Inv1351
+	   /\ Inv1352_val = Inv1352
+	   /\ Inv1353_val = Inv1353
+	   /\ Inv1354_val = Inv1354
+	   /\ Inv1355_val = Inv1355
+	   /\ Inv1356_val = Inv1356
+	   /\ Inv1357_val = Inv1357
+	   /\ Inv1358_val = Inv1358
+	   /\ Inv1359_val = Inv1359
+	   /\ Inv136_val = Inv136
+	   /\ Inv1360_val = Inv1360
+	   /\ Inv1361_val = Inv1361
+	   /\ Inv1362_val = Inv1362
+	   /\ Inv1363_val = Inv1363
+	   /\ Inv1364_val = Inv1364
+	   /\ Inv1365_val = Inv1365
+	   /\ Inv1366_val = Inv1366
+	   /\ Inv1367_val = Inv1367
+	   /\ Inv1368_val = Inv1368
+	   /\ Inv1369_val = Inv1369
+	   /\ Inv137_val = Inv137
+	   /\ Inv1370_val = Inv1370
+	   /\ Inv1371_val = Inv1371
+	   /\ Inv1372_val = Inv1372
+	   /\ Inv1373_val = Inv1373
+	   /\ Inv1374_val = Inv1374
+	   /\ Inv1375_val = Inv1375
+	   /\ Inv1376_val = Inv1376
+	   /\ Inv1377_val = Inv1377
+	   /\ Inv1378_val = Inv1378
+	   /\ Inv1379_val = Inv1379
+	   /\ Inv138_val = Inv138
+	   /\ Inv1380_val = Inv1380
+	   /\ Inv1381_val = Inv1381
+	   /\ Inv1382_val = Inv1382
+	   /\ Inv1383_val = Inv1383
+	   /\ Inv1384_val = Inv1384
+	   /\ Inv1385_val = Inv1385
+	   /\ Inv1386_val = Inv1386
+	   /\ Inv1387_val = Inv1387
+	   /\ Inv1388_val = Inv1388
+	   /\ Inv1389_val = Inv1389
+	   /\ Inv139_val = Inv139
+	   /\ Inv1390_val = Inv1390
+	   /\ Inv1391_val = Inv1391
+	   /\ Inv1392_val = Inv1392
+	   /\ Inv1393_val = Inv1393
+	   /\ Inv1394_val = Inv1394
+	   /\ Inv1395_val = Inv1395
+	   /\ Inv1396_val = Inv1396
+	   /\ Inv1397_val = Inv1397
+	   /\ Inv1398_val = Inv1398
+	   /\ Inv1399_val = Inv1399
+	   /\ Inv14_val = Inv14
+	   /\ Inv140_val = Inv140
+	   /\ Inv1400_val = Inv1400
+	   /\ Inv1401_val = Inv1401
+	   /\ Inv1402_val = Inv1402
+	   /\ Inv1403_val = Inv1403
+	   /\ Inv1404_val = Inv1404
+	   /\ Inv1405_val = Inv1405
+	   /\ Inv1406_val = Inv1406
+	   /\ Inv1407_val = Inv1407
+	   /\ Inv1408_val = Inv1408
+	   /\ Inv1409_val = Inv1409
+	   /\ Inv141_val = Inv141
+	   /\ Inv1410_val = Inv1410
+	   /\ Inv1411_val = Inv1411
+	   /\ Inv1412_val = Inv1412
+	   /\ Inv1413_val = Inv1413
+	   /\ Inv1414_val = Inv1414
+	   /\ Inv1415_val = Inv1415
+	   /\ Inv1416_val = Inv1416
+	   /\ Inv1417_val = Inv1417
+	   /\ Inv1418_val = Inv1418
+	   /\ Inv1419_val = Inv1419
+	   /\ Inv142_val = Inv142
+	   /\ Inv1420_val = Inv1420
+	   /\ Inv1421_val = Inv1421
+	   /\ Inv1422_val = Inv1422
+	   /\ Inv1423_val = Inv1423
+	   /\ Inv1424_val = Inv1424
+	   /\ Inv1425_val = Inv1425
+	   /\ Inv1426_val = Inv1426
+	   /\ Inv1427_val = Inv1427
+	   /\ Inv1428_val = Inv1428
+	   /\ Inv1429_val = Inv1429
+	   /\ Inv143_val = Inv143
+	   /\ Inv1430_val = Inv1430
+	   /\ Inv1431_val = Inv1431
+	   /\ Inv1432_val = Inv1432
+	   /\ Inv1433_val = Inv1433
+	   /\ Inv1434_val = Inv1434
+	   /\ Inv1435_val = Inv1435
+	   /\ Inv1436_val = Inv1436
+	   /\ Inv1437_val = Inv1437
+	   /\ Inv1438_val = Inv1438
+	   /\ Inv1439_val = Inv1439
+	   /\ Inv144_val = Inv144
+	   /\ Inv1440_val = Inv1440
+	   /\ Inv1441_val = Inv1441
+	   /\ Inv1442_val = Inv1442
+	   /\ Inv1443_val = Inv1443
+	   /\ Inv1444_val = Inv1444
+	   /\ Inv1445_val = Inv1445
+	   /\ Inv1446_val = Inv1446
+	   /\ Inv1447_val = Inv1447
+	   /\ Inv1448_val = Inv1448
+	   /\ Inv1449_val = Inv1449
+	   /\ Inv145_val = Inv145
+	   /\ Inv1450_val = Inv1450
+	   /\ Inv1451_val = Inv1451
+	   /\ Inv1452_val = Inv1452
+	   /\ Inv1453_val = Inv1453
+	   /\ Inv1454_val = Inv1454
+	   /\ Inv1455_val = Inv1455
+	   /\ Inv1456_val = Inv1456
+	   /\ Inv1457_val = Inv1457
+	   /\ Inv1458_val = Inv1458
+	   /\ Inv1459_val = Inv1459
+	   /\ Inv146_val = Inv146
+	   /\ Inv1460_val = Inv1460
+	   /\ Inv1461_val = Inv1461
+	   /\ Inv1462_val = Inv1462
+	   /\ Inv1463_val = Inv1463
+	   /\ Inv1464_val = Inv1464
+	   /\ Inv1465_val = Inv1465
+	   /\ Inv1466_val = Inv1466
+	   /\ Inv1467_val = Inv1467
+	   /\ Inv1468_val = Inv1468
+	   /\ Inv1469_val = Inv1469
+	   /\ Inv147_val = Inv147
+	   /\ Inv1470_val = Inv1470
+	   /\ Inv1471_val = Inv1471
+	   /\ Inv1472_val = Inv1472
+	   /\ Inv1473_val = Inv1473
+	   /\ Inv1474_val = Inv1474
+	   /\ Inv1475_val = Inv1475
+	   /\ Inv1476_val = Inv1476
+	   /\ Inv1477_val = Inv1477
+	   /\ Inv1478_val = Inv1478
+	   /\ Inv1479_val = Inv1479
+	   /\ Inv148_val = Inv148
+	   /\ Inv1480_val = Inv1480
+	   /\ Inv1481_val = Inv1481
+	   /\ Inv1482_val = Inv1482
+	   /\ Inv1483_val = Inv1483
+	   /\ Inv1484_val = Inv1484
+	   /\ Inv1485_val = Inv1485
+	   /\ Inv1486_val = Inv1486
+	   /\ Inv1487_val = Inv1487
+	   /\ Inv1488_val = Inv1488
+	   /\ Inv1489_val = Inv1489
+	   /\ Inv149_val = Inv149
+	   /\ Inv1490_val = Inv1490
+	   /\ Inv1491_val = Inv1491
+	   /\ Inv1492_val = Inv1492
+	   /\ Inv1493_val = Inv1493
+	   /\ Inv1494_val = Inv1494
+	   /\ Inv1495_val = Inv1495
+	   /\ Inv1496_val = Inv1496
+	   /\ Inv1497_val = Inv1497
+	   /\ Inv1498_val = Inv1498
+	   /\ Inv1499_val = Inv1499
+	   /\ Inv15_val = Inv15
+	   /\ Inv150_val = Inv150
+	   /\ Inv1500_val = Inv1500
+	   /\ Inv1501_val = Inv1501
+	   /\ Inv1502_val = Inv1502
+	   /\ Inv1503_val = Inv1503
+	   /\ Inv1504_val = Inv1504
+	   /\ Inv1505_val = Inv1505
+	   /\ Inv1506_val = Inv1506
+	   /\ Inv1507_val = Inv1507
+	   /\ Inv1508_val = Inv1508
+	   /\ Inv1509_val = Inv1509
+	   /\ Inv151_val = Inv151
+	   /\ Inv1510_val = Inv1510
+	   /\ Inv1511_val = Inv1511
+	   /\ Inv1512_val = Inv1512
+	   /\ Inv1513_val = Inv1513
+	   /\ Inv1514_val = Inv1514
+	   /\ Inv1515_val = Inv1515
+	   /\ Inv1516_val = Inv1516
+	   /\ Inv1517_val = Inv1517
+	   /\ Inv1518_val = Inv1518
+	   /\ Inv1519_val = Inv1519
+	   /\ Inv152_val = Inv152
+	   /\ Inv1520_val = Inv1520
+	   /\ Inv1521_val = Inv1521
+	   /\ Inv1522_val = Inv1522
+	   /\ Inv1523_val = Inv1523
+	   /\ Inv1524_val = Inv1524
+	   /\ Inv1525_val = Inv1525
+	   /\ Inv1526_val = Inv1526
+	   /\ Inv1527_val = Inv1527
+	   /\ Inv1528_val = Inv1528
+	   /\ Inv1529_val = Inv1529
+	   /\ Inv153_val = Inv153
+	   /\ Inv1530_val = Inv1530
+	   /\ Inv1531_val = Inv1531
+	   /\ Inv1532_val = Inv1532
+	   /\ Inv1533_val = Inv1533
+	   /\ Inv1534_val = Inv1534
+	   /\ Inv1535_val = Inv1535
+	   /\ Inv1536_val = Inv1536
+	   /\ Inv1537_val = Inv1537
+	   /\ Inv1538_val = Inv1538
+	   /\ Inv1539_val = Inv1539
+	   /\ Inv154_val = Inv154
+	   /\ Inv1540_val = Inv1540
+	   /\ Inv1541_val = Inv1541
+	   /\ Inv1542_val = Inv1542
+	   /\ Inv1543_val = Inv1543
+	   /\ Inv1544_val = Inv1544
+	   /\ Inv1545_val = Inv1545
+	   /\ Inv1546_val = Inv1546
+	   /\ Inv1547_val = Inv1547
+	   /\ Inv1548_val = Inv1548
+	   /\ Inv1549_val = Inv1549
+	   /\ Inv155_val = Inv155
+	   /\ Inv1550_val = Inv1550
+	   /\ Inv1551_val = Inv1551
+	   /\ Inv1552_val = Inv1552
+	   /\ Inv1553_val = Inv1553
+	   /\ Inv1554_val = Inv1554
+	   /\ Inv1555_val = Inv1555
+	   /\ Inv1556_val = Inv1556
+	   /\ Inv1557_val = Inv1557
+	   /\ Inv1558_val = Inv1558
+	   /\ Inv1559_val = Inv1559
+	   /\ Inv156_val = Inv156
+	   /\ Inv1560_val = Inv1560
+	   /\ Inv1561_val = Inv1561
+	   /\ Inv1562_val = Inv1562
+	   /\ Inv1563_val = Inv1563
+	   /\ Inv1564_val = Inv1564
+	   /\ Inv1565_val = Inv1565
+	   /\ Inv1566_val = Inv1566
+	   /\ Inv1567_val = Inv1567
+	   /\ Inv1568_val = Inv1568
+	   /\ Inv1569_val = Inv1569
+	   /\ Inv157_val = Inv157
+	   /\ Inv1570_val = Inv1570
+	   /\ Inv1571_val = Inv1571
+	   /\ Inv1572_val = Inv1572
+	   /\ Inv1573_val = Inv1573
+	   /\ Inv1574_val = Inv1574
+	   /\ Inv1575_val = Inv1575
+	   /\ Inv1576_val = Inv1576
+	   /\ Inv1577_val = Inv1577
+	   /\ Inv1578_val = Inv1578
+	   /\ Inv1579_val = Inv1579
+	   /\ Inv158_val = Inv158
+	   /\ Inv1580_val = Inv1580
+	   /\ Inv1581_val = Inv1581
+	   /\ Inv1582_val = Inv1582
+	   /\ Inv1583_val = Inv1583
+	   /\ Inv1584_val = Inv1584
+	   /\ Inv1585_val = Inv1585
+	   /\ Inv1586_val = Inv1586
+	   /\ Inv1587_val = Inv1587
+	   /\ Inv1588_val = Inv1588
+	   /\ Inv1589_val = Inv1589
+	   /\ Inv159_val = Inv159
+	   /\ Inv1590_val = Inv1590
+	   /\ Inv1591_val = Inv1591
+	   /\ Inv1592_val = Inv1592
+	   /\ Inv1593_val = Inv1593
+	   /\ Inv1594_val = Inv1594
+	   /\ Inv1595_val = Inv1595
+	   /\ Inv1596_val = Inv1596
+	   /\ Inv1597_val = Inv1597
+	   /\ Inv1598_val = Inv1598
+	   /\ Inv1599_val = Inv1599
+	   /\ Inv16_val = Inv16
+	   /\ Inv160_val = Inv160
+	   /\ Inv1600_val = Inv1600
+	   /\ Inv1601_val = Inv1601
+	   /\ Inv1602_val = Inv1602
+	   /\ Inv1603_val = Inv1603
+	   /\ Inv1604_val = Inv1604
+	   /\ Inv1605_val = Inv1605
+	   /\ Inv1606_val = Inv1606
+	   /\ Inv1607_val = Inv1607
+	   /\ Inv1608_val = Inv1608
+	   /\ Inv1609_val = Inv1609
+	   /\ Inv161_val = Inv161
+	   /\ Inv1610_val = Inv1610
+	   /\ Inv1611_val = Inv1611
+	   /\ Inv1612_val = Inv1612
+	   /\ Inv1613_val = Inv1613
+	   /\ Inv1614_val = Inv1614
+	   /\ Inv1615_val = Inv1615
+	   /\ Inv1616_val = Inv1616
+	   /\ Inv1617_val = Inv1617
+	   /\ Inv1618_val = Inv1618
+	   /\ Inv1619_val = Inv1619
+	   /\ Inv162_val = Inv162
+	   /\ Inv1620_val = Inv1620
+	   /\ Inv1621_val = Inv1621
+	   /\ Inv1622_val = Inv1622
+	   /\ Inv1623_val = Inv1623
+	   /\ Inv1624_val = Inv1624
+	   /\ Inv1625_val = Inv1625
+	   /\ Inv1626_val = Inv1626
+	   /\ Inv1627_val = Inv1627
+	   /\ Inv1628_val = Inv1628
+	   /\ Inv1629_val = Inv1629
+	   /\ Inv163_val = Inv163
+	   /\ Inv1630_val = Inv1630
+	   /\ Inv1631_val = Inv1631
+	   /\ Inv1632_val = Inv1632
+	   /\ Inv1633_val = Inv1633
+	   /\ Inv1634_val = Inv1634
+	   /\ Inv1635_val = Inv1635
+	   /\ Inv1636_val = Inv1636
+	   /\ Inv1637_val = Inv1637
+	   /\ Inv1638_val = Inv1638
+	   /\ Inv1639_val = Inv1639
+	   /\ Inv164_val = Inv164
+	   /\ Inv1640_val = Inv1640
+	   /\ Inv1641_val = Inv1641
+	   /\ Inv1642_val = Inv1642
+	   /\ Inv1643_val = Inv1643
+	   /\ Inv1644_val = Inv1644
+	   /\ Inv1645_val = Inv1645
+	   /\ Inv1646_val = Inv1646
+	   /\ Inv1647_val = Inv1647
+	   /\ Inv1648_val = Inv1648
+	   /\ Inv1649_val = Inv1649
+	   /\ Inv165_val = Inv165
+	   /\ Inv1650_val = Inv1650
+	   /\ Inv1651_val = Inv1651
+	   /\ Inv1652_val = Inv1652
+	   /\ Inv1653_val = Inv1653
+	   /\ Inv1654_val = Inv1654
+	   /\ Inv1655_val = Inv1655
+	   /\ Inv1656_val = Inv1656
+	   /\ Inv1657_val = Inv1657
+	   /\ Inv1658_val = Inv1658
+	   /\ Inv1659_val = Inv1659
+	   /\ Inv166_val = Inv166
+	   /\ Inv1660_val = Inv1660
+	   /\ Inv1661_val = Inv1661
+	   /\ Inv1662_val = Inv1662
+	   /\ Inv1663_val = Inv1663
+	   /\ Inv1664_val = Inv1664
+	   /\ Inv1665_val = Inv1665
+	   /\ Inv1666_val = Inv1666
+	   /\ Inv1667_val = Inv1667
+	   /\ Inv1668_val = Inv1668
+	   /\ Inv1669_val = Inv1669
+	   /\ Inv167_val = Inv167
+	   /\ Inv1670_val = Inv1670
+	   /\ Inv1671_val = Inv1671
+	   /\ Inv1672_val = Inv1672
+	   /\ Inv1673_val = Inv1673
+	   /\ Inv1674_val = Inv1674
+	   /\ Inv1675_val = Inv1675
+	   /\ Inv1676_val = Inv1676
+	   /\ Inv1677_val = Inv1677
+	   /\ Inv1678_val = Inv1678
+	   /\ Inv1679_val = Inv1679
+	   /\ Inv168_val = Inv168
+	   /\ Inv1680_val = Inv1680
+	   /\ Inv1681_val = Inv1681
+	   /\ Inv1682_val = Inv1682
+	   /\ Inv1683_val = Inv1683
+	   /\ Inv1684_val = Inv1684
+	   /\ Inv1685_val = Inv1685
+	   /\ Inv1686_val = Inv1686
+	   /\ Inv1687_val = Inv1687
+	   /\ Inv1688_val = Inv1688
+	   /\ Inv1689_val = Inv1689
+	   /\ Inv169_val = Inv169
+	   /\ Inv1690_val = Inv1690
+	   /\ Inv1691_val = Inv1691
+	   /\ Inv1692_val = Inv1692
+	   /\ Inv1693_val = Inv1693
+	   /\ Inv1694_val = Inv1694
+	   /\ Inv1695_val = Inv1695
+	   /\ Inv1696_val = Inv1696
+	   /\ Inv1697_val = Inv1697
+	   /\ Inv1698_val = Inv1698
+	   /\ Inv1699_val = Inv1699
+	   /\ Inv17_val = Inv17
+	   /\ Inv170_val = Inv170
+	   /\ Inv1700_val = Inv1700
+	   /\ Inv1701_val = Inv1701
+	   /\ Inv1702_val = Inv1702
+	   /\ Inv1703_val = Inv1703
+	   /\ Inv1704_val = Inv1704
+	   /\ Inv1705_val = Inv1705
+	   /\ Inv1706_val = Inv1706
+	   /\ Inv1707_val = Inv1707
+	   /\ Inv1708_val = Inv1708
+	   /\ Inv1709_val = Inv1709
+	   /\ Inv171_val = Inv171
+	   /\ Inv1710_val = Inv1710
+	   /\ Inv1711_val = Inv1711
+	   /\ Inv1712_val = Inv1712
+	   /\ Inv1713_val = Inv1713
+	   /\ Inv1714_val = Inv1714
+	   /\ Inv1715_val = Inv1715
+	   /\ Inv1716_val = Inv1716
+	   /\ Inv1717_val = Inv1717
+	   /\ Inv1718_val = Inv1718
+	   /\ Inv1719_val = Inv1719
+	   /\ Inv172_val = Inv172
+	   /\ Inv1720_val = Inv1720
+	   /\ Inv1721_val = Inv1721
+	   /\ Inv1722_val = Inv1722
+	   /\ Inv1723_val = Inv1723
+	   /\ Inv1724_val = Inv1724
+	   /\ Inv1725_val = Inv1725
+	   /\ Inv1726_val = Inv1726
+	   /\ Inv1727_val = Inv1727
+	   /\ Inv1728_val = Inv1728
+	   /\ Inv1729_val = Inv1729
+	   /\ Inv173_val = Inv173
+	   /\ Inv1730_val = Inv1730
+	   /\ Inv1731_val = Inv1731
+	   /\ Inv1732_val = Inv1732
+	   /\ Inv1733_val = Inv1733
+	   /\ Inv1734_val = Inv1734
+	   /\ Inv1735_val = Inv1735
+	   /\ Inv1736_val = Inv1736
+	   /\ Inv1737_val = Inv1737
+	   /\ Inv1738_val = Inv1738
+	   /\ Inv1739_val = Inv1739
+	   /\ Inv174_val = Inv174
+	   /\ Inv1740_val = Inv1740
+	   /\ Inv1741_val = Inv1741
+	   /\ Inv1742_val = Inv1742
+	   /\ Inv1743_val = Inv1743
+	   /\ Inv1744_val = Inv1744
+	   /\ Inv1745_val = Inv1745
+	   /\ Inv1746_val = Inv1746
+	   /\ Inv1747_val = Inv1747
+	   /\ Inv1748_val = Inv1748
+	   /\ Inv1749_val = Inv1749
+	   /\ Inv175_val = Inv175
+	   /\ Inv1750_val = Inv1750
+	   /\ Inv1751_val = Inv1751
+	   /\ Inv1752_val = Inv1752
+	   /\ Inv1753_val = Inv1753
+	   /\ Inv1754_val = Inv1754
+	   /\ Inv1755_val = Inv1755
+	   /\ Inv1756_val = Inv1756
+	   /\ Inv1757_val = Inv1757
+	   /\ Inv1758_val = Inv1758
+	   /\ Inv1759_val = Inv1759
+	   /\ Inv176_val = Inv176
+	   /\ Inv1760_val = Inv1760
+	   /\ Inv1761_val = Inv1761
+	   /\ Inv1762_val = Inv1762
+	   /\ Inv1763_val = Inv1763
+	   /\ Inv1764_val = Inv1764
+	   /\ Inv1765_val = Inv1765
+	   /\ Inv1766_val = Inv1766
+	   /\ Inv1767_val = Inv1767
+	   /\ Inv1768_val = Inv1768
+	   /\ Inv1769_val = Inv1769
+	   /\ Inv177_val = Inv177
+	   /\ Inv1770_val = Inv1770
+	   /\ Inv1771_val = Inv1771
+	   /\ Inv1772_val = Inv1772
+	   /\ Inv1773_val = Inv1773
+	   /\ Inv1774_val = Inv1774
+	   /\ Inv1775_val = Inv1775
+	   /\ Inv1776_val = Inv1776
+	   /\ Inv1777_val = Inv1777
+	   /\ Inv1778_val = Inv1778
+	   /\ Inv1779_val = Inv1779
+	   /\ Inv178_val = Inv178
+	   /\ Inv1780_val = Inv1780
+	   /\ Inv1781_val = Inv1781
+	   /\ Inv1782_val = Inv1782
+	   /\ Inv1783_val = Inv1783
+	   /\ Inv1784_val = Inv1784
+	   /\ Inv1785_val = Inv1785
+	   /\ Inv1786_val = Inv1786
+	   /\ Inv1787_val = Inv1787
+	   /\ Inv1788_val = Inv1788
+	   /\ Inv1789_val = Inv1789
+	   /\ Inv179_val = Inv179
+	   /\ Inv1790_val = Inv1790
+	   /\ Inv1791_val = Inv1791
+	   /\ Inv1792_val = Inv1792
+	   /\ Inv1793_val = Inv1793
+	   /\ Inv1794_val = Inv1794
+	   /\ Inv1795_val = Inv1795
+	   /\ Inv1796_val = Inv1796
+	   /\ Inv1797_val = Inv1797
+	   /\ Inv1798_val = Inv1798
+	   /\ Inv1799_val = Inv1799
+	   /\ Inv18_val = Inv18
+	   /\ Inv180_val = Inv180
+	   /\ Inv1800_val = Inv1800
+	   /\ Inv1801_val = Inv1801
+	   /\ Inv1802_val = Inv1802
+	   /\ Inv1803_val = Inv1803
+	   /\ Inv1804_val = Inv1804
+	   /\ Inv1805_val = Inv1805
+	   /\ Inv1806_val = Inv1806
+	   /\ Inv1807_val = Inv1807
+	   /\ Inv1808_val = Inv1808
+	   /\ Inv1809_val = Inv1809
+	   /\ Inv181_val = Inv181
+	   /\ Inv1810_val = Inv1810
+	   /\ Inv1811_val = Inv1811
+	   /\ Inv1812_val = Inv1812
+	   /\ Inv1813_val = Inv1813
+	   /\ Inv1814_val = Inv1814
+	   /\ Inv1815_val = Inv1815
+	   /\ Inv1816_val = Inv1816
+	   /\ Inv1817_val = Inv1817
+	   /\ Inv1818_val = Inv1818
+	   /\ Inv1819_val = Inv1819
+	   /\ Inv182_val = Inv182
+	   /\ Inv1820_val = Inv1820
+	   /\ Inv1821_val = Inv1821
+	   /\ Inv1822_val = Inv1822
+	   /\ Inv1823_val = Inv1823
+	   /\ Inv1824_val = Inv1824
+	   /\ Inv1825_val = Inv1825
+	   /\ Inv1826_val = Inv1826
+	   /\ Inv1827_val = Inv1827
+	   /\ Inv1828_val = Inv1828
+	   /\ Inv1829_val = Inv1829
+	   /\ Inv183_val = Inv183
+	   /\ Inv1830_val = Inv1830
+	   /\ Inv1831_val = Inv1831
+	   /\ Inv1832_val = Inv1832
+	   /\ Inv1833_val = Inv1833
+	   /\ Inv1834_val = Inv1834
+	   /\ Inv1835_val = Inv1835
+	   /\ Inv1836_val = Inv1836
+	   /\ Inv1837_val = Inv1837
+	   /\ Inv1838_val = Inv1838
+	   /\ Inv1839_val = Inv1839
+	   /\ Inv184_val = Inv184
+	   /\ Inv1840_val = Inv1840
+	   /\ Inv1841_val = Inv1841
+	   /\ Inv1842_val = Inv1842
+	   /\ Inv1843_val = Inv1843
+	   /\ Inv1844_val = Inv1844
+	   /\ Inv1845_val = Inv1845
+	   /\ Inv1846_val = Inv1846
+	   /\ Inv1847_val = Inv1847
+	   /\ Inv1848_val = Inv1848
+	   /\ Inv1849_val = Inv1849
+	   /\ Inv185_val = Inv185
+	   /\ Inv1850_val = Inv1850
+	   /\ Inv1851_val = Inv1851
+	   /\ Inv1852_val = Inv1852
+	   /\ Inv1853_val = Inv1853
+	   /\ Inv1854_val = Inv1854
+	   /\ Inv1855_val = Inv1855
+	   /\ Inv1856_val = Inv1856
+	   /\ Inv1857_val = Inv1857
+	   /\ Inv1858_val = Inv1858
+	   /\ Inv1859_val = Inv1859
+	   /\ Inv186_val = Inv186
+	   /\ Inv1860_val = Inv1860
+	   /\ Inv1861_val = Inv1861
+	   /\ Inv1862_val = Inv1862
+	   /\ Inv1863_val = Inv1863
+	   /\ Inv1864_val = Inv1864
+	   /\ Inv1865_val = Inv1865
+	   /\ Inv1866_val = Inv1866
+	   /\ Inv1867_val = Inv1867
+	   /\ Inv1868_val = Inv1868
+	   /\ Inv1869_val = Inv1869
+	   /\ Inv187_val = Inv187
+	   /\ Inv1870_val = Inv1870
+	   /\ Inv1871_val = Inv1871
+	   /\ Inv1872_val = Inv1872
+	   /\ Inv1873_val = Inv1873
+	   /\ Inv1874_val = Inv1874
+	   /\ Inv1875_val = Inv1875
+	   /\ Inv1876_val = Inv1876
+	   /\ Inv1877_val = Inv1877
+	   /\ Inv1878_val = Inv1878
+	   /\ Inv1879_val = Inv1879
+	   /\ Inv188_val = Inv188
+	   /\ Inv1880_val = Inv1880
+	   /\ Inv1881_val = Inv1881
+	   /\ Inv1882_val = Inv1882
+	   /\ Inv1883_val = Inv1883
+	   /\ Inv1884_val = Inv1884
+	   /\ Inv1885_val = Inv1885
+	   /\ Inv1886_val = Inv1886
+	   /\ Inv1887_val = Inv1887
+	   /\ Inv1888_val = Inv1888
+	   /\ Inv1889_val = Inv1889
+	   /\ Inv189_val = Inv189
+	   /\ Inv1890_val = Inv1890
+	   /\ Inv1891_val = Inv1891
+	   /\ Inv1892_val = Inv1892
+	   /\ Inv1893_val = Inv1893
+	   /\ Inv1894_val = Inv1894
+	   /\ Inv1895_val = Inv1895
+	   /\ Inv1896_val = Inv1896
+	   /\ Inv1897_val = Inv1897
+	   /\ Inv1898_val = Inv1898
+
+CTICheckInit ==
+    /\ kCTIs
+    /\ InvVals
+
+CTICheckNext ==
+    /\ NextUnchanged
+    /\ UNCHANGED ctiId
+    /\ UNCHANGED Inv0_val
+    /\ UNCHANGED Inv1_val
+    /\ UNCHANGED Inv10_val
+    /\ UNCHANGED Inv100_val
+    /\ UNCHANGED Inv1000_val
+    /\ UNCHANGED Inv1001_val
+    /\ UNCHANGED Inv1002_val
+    /\ UNCHANGED Inv1003_val
+    /\ UNCHANGED Inv1004_val
+    /\ UNCHANGED Inv1005_val
+    /\ UNCHANGED Inv1006_val
+    /\ UNCHANGED Inv1007_val
+    /\ UNCHANGED Inv1008_val
+    /\ UNCHANGED Inv1009_val
+    /\ UNCHANGED Inv101_val
+    /\ UNCHANGED Inv1010_val
+    /\ UNCHANGED Inv1011_val
+    /\ UNCHANGED Inv1012_val
+    /\ UNCHANGED Inv1013_val
+    /\ UNCHANGED Inv1014_val
+    /\ UNCHANGED Inv1015_val
+    /\ UNCHANGED Inv1016_val
+    /\ UNCHANGED Inv1017_val
+    /\ UNCHANGED Inv1018_val
+    /\ UNCHANGED Inv1019_val
+    /\ UNCHANGED Inv102_val
+    /\ UNCHANGED Inv1020_val
+    /\ UNCHANGED Inv1021_val
+    /\ UNCHANGED Inv1022_val
+    /\ UNCHANGED Inv1023_val
+    /\ UNCHANGED Inv1024_val
+    /\ UNCHANGED Inv1025_val
+    /\ UNCHANGED Inv1026_val
+    /\ UNCHANGED Inv1027_val
+    /\ UNCHANGED Inv1028_val
+    /\ UNCHANGED Inv1029_val
+    /\ UNCHANGED Inv103_val
+    /\ UNCHANGED Inv1030_val
+    /\ UNCHANGED Inv1031_val
+    /\ UNCHANGED Inv1032_val
+    /\ UNCHANGED Inv1033_val
+    /\ UNCHANGED Inv1034_val
+    /\ UNCHANGED Inv1035_val
+    /\ UNCHANGED Inv1036_val
+    /\ UNCHANGED Inv1037_val
+    /\ UNCHANGED Inv1038_val
+    /\ UNCHANGED Inv1039_val
+    /\ UNCHANGED Inv104_val
+    /\ UNCHANGED Inv1040_val
+    /\ UNCHANGED Inv1041_val
+    /\ UNCHANGED Inv1042_val
+    /\ UNCHANGED Inv1043_val
+    /\ UNCHANGED Inv1044_val
+    /\ UNCHANGED Inv1045_val
+    /\ UNCHANGED Inv1046_val
+    /\ UNCHANGED Inv1047_val
+    /\ UNCHANGED Inv1048_val
+    /\ UNCHANGED Inv1049_val
+    /\ UNCHANGED Inv105_val
+    /\ UNCHANGED Inv1050_val
+    /\ UNCHANGED Inv1051_val
+    /\ UNCHANGED Inv1052_val
+    /\ UNCHANGED Inv1053_val
+    /\ UNCHANGED Inv1054_val
+    /\ UNCHANGED Inv1055_val
+    /\ UNCHANGED Inv1056_val
+    /\ UNCHANGED Inv1057_val
+    /\ UNCHANGED Inv1058_val
+    /\ UNCHANGED Inv1059_val
+    /\ UNCHANGED Inv106_val
+    /\ UNCHANGED Inv1060_val
+    /\ UNCHANGED Inv1061_val
+    /\ UNCHANGED Inv1062_val
+    /\ UNCHANGED Inv1063_val
+    /\ UNCHANGED Inv1064_val
+    /\ UNCHANGED Inv1065_val
+    /\ UNCHANGED Inv1066_val
+    /\ UNCHANGED Inv1067_val
+    /\ UNCHANGED Inv1068_val
+    /\ UNCHANGED Inv1069_val
+    /\ UNCHANGED Inv107_val
+    /\ UNCHANGED Inv1070_val
+    /\ UNCHANGED Inv1071_val
+    /\ UNCHANGED Inv1072_val
+    /\ UNCHANGED Inv1073_val
+    /\ UNCHANGED Inv1074_val
+    /\ UNCHANGED Inv1075_val
+    /\ UNCHANGED Inv1076_val
+    /\ UNCHANGED Inv1077_val
+    /\ UNCHANGED Inv1078_val
+    /\ UNCHANGED Inv1079_val
+    /\ UNCHANGED Inv108_val
+    /\ UNCHANGED Inv1080_val
+    /\ UNCHANGED Inv1081_val
+    /\ UNCHANGED Inv1082_val
+    /\ UNCHANGED Inv1083_val
+    /\ UNCHANGED Inv1084_val
+    /\ UNCHANGED Inv1085_val
+    /\ UNCHANGED Inv1086_val
+    /\ UNCHANGED Inv1087_val
+    /\ UNCHANGED Inv1088_val
+    /\ UNCHANGED Inv1089_val
+    /\ UNCHANGED Inv109_val
+    /\ UNCHANGED Inv1090_val
+    /\ UNCHANGED Inv1091_val
+    /\ UNCHANGED Inv1092_val
+    /\ UNCHANGED Inv1093_val
+    /\ UNCHANGED Inv1094_val
+    /\ UNCHANGED Inv1095_val
+    /\ UNCHANGED Inv1096_val
+    /\ UNCHANGED Inv1097_val
+    /\ UNCHANGED Inv1098_val
+    /\ UNCHANGED Inv1099_val
+    /\ UNCHANGED Inv11_val
+    /\ UNCHANGED Inv110_val
+    /\ UNCHANGED Inv1100_val
+    /\ UNCHANGED Inv1101_val
+    /\ UNCHANGED Inv1102_val
+    /\ UNCHANGED Inv1103_val
+    /\ UNCHANGED Inv1104_val
+    /\ UNCHANGED Inv1105_val
+    /\ UNCHANGED Inv1106_val
+    /\ UNCHANGED Inv1107_val
+    /\ UNCHANGED Inv1108_val
+    /\ UNCHANGED Inv1109_val
+    /\ UNCHANGED Inv111_val
+    /\ UNCHANGED Inv1110_val
+    /\ UNCHANGED Inv1111_val
+    /\ UNCHANGED Inv1112_val
+    /\ UNCHANGED Inv1113_val
+    /\ UNCHANGED Inv1114_val
+    /\ UNCHANGED Inv1115_val
+    /\ UNCHANGED Inv1116_val
+    /\ UNCHANGED Inv1117_val
+    /\ UNCHANGED Inv1118_val
+    /\ UNCHANGED Inv1119_val
+    /\ UNCHANGED Inv112_val
+    /\ UNCHANGED Inv1120_val
+    /\ UNCHANGED Inv1121_val
+    /\ UNCHANGED Inv1122_val
+    /\ UNCHANGED Inv1123_val
+    /\ UNCHANGED Inv1124_val
+    /\ UNCHANGED Inv1125_val
+    /\ UNCHANGED Inv1126_val
+    /\ UNCHANGED Inv1127_val
+    /\ UNCHANGED Inv1128_val
+    /\ UNCHANGED Inv1129_val
+    /\ UNCHANGED Inv113_val
+    /\ UNCHANGED Inv1130_val
+    /\ UNCHANGED Inv1131_val
+    /\ UNCHANGED Inv1132_val
+    /\ UNCHANGED Inv1133_val
+    /\ UNCHANGED Inv1134_val
+    /\ UNCHANGED Inv1135_val
+    /\ UNCHANGED Inv1136_val
+    /\ UNCHANGED Inv1137_val
+    /\ UNCHANGED Inv1138_val
+    /\ UNCHANGED Inv1139_val
+    /\ UNCHANGED Inv114_val
+    /\ UNCHANGED Inv1140_val
+    /\ UNCHANGED Inv1141_val
+    /\ UNCHANGED Inv1142_val
+    /\ UNCHANGED Inv1143_val
+    /\ UNCHANGED Inv1144_val
+    /\ UNCHANGED Inv1145_val
+    /\ UNCHANGED Inv1146_val
+    /\ UNCHANGED Inv1147_val
+    /\ UNCHANGED Inv1148_val
+    /\ UNCHANGED Inv1149_val
+    /\ UNCHANGED Inv115_val
+    /\ UNCHANGED Inv1150_val
+    /\ UNCHANGED Inv1151_val
+    /\ UNCHANGED Inv1152_val
+    /\ UNCHANGED Inv1153_val
+    /\ UNCHANGED Inv1154_val
+    /\ UNCHANGED Inv1155_val
+    /\ UNCHANGED Inv1156_val
+    /\ UNCHANGED Inv1157_val
+    /\ UNCHANGED Inv1158_val
+    /\ UNCHANGED Inv1159_val
+    /\ UNCHANGED Inv116_val
+    /\ UNCHANGED Inv1160_val
+    /\ UNCHANGED Inv1161_val
+    /\ UNCHANGED Inv1162_val
+    /\ UNCHANGED Inv1163_val
+    /\ UNCHANGED Inv1164_val
+    /\ UNCHANGED Inv1165_val
+    /\ UNCHANGED Inv1166_val
+    /\ UNCHANGED Inv1167_val
+    /\ UNCHANGED Inv1168_val
+    /\ UNCHANGED Inv1169_val
+    /\ UNCHANGED Inv117_val
+    /\ UNCHANGED Inv1170_val
+    /\ UNCHANGED Inv1171_val
+    /\ UNCHANGED Inv1172_val
+    /\ UNCHANGED Inv1173_val
+    /\ UNCHANGED Inv1174_val
+    /\ UNCHANGED Inv1175_val
+    /\ UNCHANGED Inv1176_val
+    /\ UNCHANGED Inv1177_val
+    /\ UNCHANGED Inv1178_val
+    /\ UNCHANGED Inv1179_val
+    /\ UNCHANGED Inv118_val
+    /\ UNCHANGED Inv1180_val
+    /\ UNCHANGED Inv1181_val
+    /\ UNCHANGED Inv1182_val
+    /\ UNCHANGED Inv1183_val
+    /\ UNCHANGED Inv1184_val
+    /\ UNCHANGED Inv1185_val
+    /\ UNCHANGED Inv1186_val
+    /\ UNCHANGED Inv1187_val
+    /\ UNCHANGED Inv1188_val
+    /\ UNCHANGED Inv1189_val
+    /\ UNCHANGED Inv119_val
+    /\ UNCHANGED Inv1190_val
+    /\ UNCHANGED Inv1191_val
+    /\ UNCHANGED Inv1192_val
+    /\ UNCHANGED Inv1193_val
+    /\ UNCHANGED Inv1194_val
+    /\ UNCHANGED Inv1195_val
+    /\ UNCHANGED Inv1196_val
+    /\ UNCHANGED Inv1197_val
+    /\ UNCHANGED Inv1198_val
+    /\ UNCHANGED Inv1199_val
+    /\ UNCHANGED Inv12_val
+    /\ UNCHANGED Inv120_val
+    /\ UNCHANGED Inv1200_val
+    /\ UNCHANGED Inv1201_val
+    /\ UNCHANGED Inv1202_val
+    /\ UNCHANGED Inv1203_val
+    /\ UNCHANGED Inv1204_val
+    /\ UNCHANGED Inv1205_val
+    /\ UNCHANGED Inv1206_val
+    /\ UNCHANGED Inv1207_val
+    /\ UNCHANGED Inv1208_val
+    /\ UNCHANGED Inv1209_val
+    /\ UNCHANGED Inv121_val
+    /\ UNCHANGED Inv1210_val
+    /\ UNCHANGED Inv1211_val
+    /\ UNCHANGED Inv1212_val
+    /\ UNCHANGED Inv1213_val
+    /\ UNCHANGED Inv1214_val
+    /\ UNCHANGED Inv1215_val
+    /\ UNCHANGED Inv1216_val
+    /\ UNCHANGED Inv1217_val
+    /\ UNCHANGED Inv1218_val
+    /\ UNCHANGED Inv1219_val
+    /\ UNCHANGED Inv122_val
+    /\ UNCHANGED Inv1220_val
+    /\ UNCHANGED Inv1221_val
+    /\ UNCHANGED Inv1222_val
+    /\ UNCHANGED Inv1223_val
+    /\ UNCHANGED Inv1224_val
+    /\ UNCHANGED Inv1225_val
+    /\ UNCHANGED Inv1226_val
+    /\ UNCHANGED Inv1227_val
+    /\ UNCHANGED Inv1228_val
+    /\ UNCHANGED Inv1229_val
+    /\ UNCHANGED Inv123_val
+    /\ UNCHANGED Inv1230_val
+    /\ UNCHANGED Inv1231_val
+    /\ UNCHANGED Inv1232_val
+    /\ UNCHANGED Inv1233_val
+    /\ UNCHANGED Inv1234_val
+    /\ UNCHANGED Inv1235_val
+    /\ UNCHANGED Inv1236_val
+    /\ UNCHANGED Inv1237_val
+    /\ UNCHANGED Inv1238_val
+    /\ UNCHANGED Inv1239_val
+    /\ UNCHANGED Inv124_val
+    /\ UNCHANGED Inv1240_val
+    /\ UNCHANGED Inv1241_val
+    /\ UNCHANGED Inv1242_val
+    /\ UNCHANGED Inv1243_val
+    /\ UNCHANGED Inv1244_val
+    /\ UNCHANGED Inv1245_val
+    /\ UNCHANGED Inv1246_val
+    /\ UNCHANGED Inv1247_val
+    /\ UNCHANGED Inv1248_val
+    /\ UNCHANGED Inv1249_val
+    /\ UNCHANGED Inv125_val
+    /\ UNCHANGED Inv1250_val
+    /\ UNCHANGED Inv1251_val
+    /\ UNCHANGED Inv1252_val
+    /\ UNCHANGED Inv1253_val
+    /\ UNCHANGED Inv1254_val
+    /\ UNCHANGED Inv1255_val
+    /\ UNCHANGED Inv1256_val
+    /\ UNCHANGED Inv1257_val
+    /\ UNCHANGED Inv1258_val
+    /\ UNCHANGED Inv1259_val
+    /\ UNCHANGED Inv126_val
+    /\ UNCHANGED Inv1260_val
+    /\ UNCHANGED Inv1261_val
+    /\ UNCHANGED Inv1262_val
+    /\ UNCHANGED Inv1263_val
+    /\ UNCHANGED Inv1264_val
+    /\ UNCHANGED Inv1265_val
+    /\ UNCHANGED Inv1266_val
+    /\ UNCHANGED Inv1267_val
+    /\ UNCHANGED Inv1268_val
+    /\ UNCHANGED Inv1269_val
+    /\ UNCHANGED Inv127_val
+    /\ UNCHANGED Inv1270_val
+    /\ UNCHANGED Inv1271_val
+    /\ UNCHANGED Inv1272_val
+    /\ UNCHANGED Inv1273_val
+    /\ UNCHANGED Inv1274_val
+    /\ UNCHANGED Inv1275_val
+    /\ UNCHANGED Inv1276_val
+    /\ UNCHANGED Inv1277_val
+    /\ UNCHANGED Inv1278_val
+    /\ UNCHANGED Inv1279_val
+    /\ UNCHANGED Inv128_val
+    /\ UNCHANGED Inv1280_val
+    /\ UNCHANGED Inv1281_val
+    /\ UNCHANGED Inv1282_val
+    /\ UNCHANGED Inv1283_val
+    /\ UNCHANGED Inv1284_val
+    /\ UNCHANGED Inv1285_val
+    /\ UNCHANGED Inv1286_val
+    /\ UNCHANGED Inv1287_val
+    /\ UNCHANGED Inv1288_val
+    /\ UNCHANGED Inv1289_val
+    /\ UNCHANGED Inv129_val
+    /\ UNCHANGED Inv1290_val
+    /\ UNCHANGED Inv1291_val
+    /\ UNCHANGED Inv1292_val
+    /\ UNCHANGED Inv1293_val
+    /\ UNCHANGED Inv1294_val
+    /\ UNCHANGED Inv1295_val
+    /\ UNCHANGED Inv1296_val
+    /\ UNCHANGED Inv1297_val
+    /\ UNCHANGED Inv1298_val
+    /\ UNCHANGED Inv1299_val
+    /\ UNCHANGED Inv13_val
+    /\ UNCHANGED Inv130_val
+    /\ UNCHANGED Inv1300_val
+    /\ UNCHANGED Inv1301_val
+    /\ UNCHANGED Inv1302_val
+    /\ UNCHANGED Inv1303_val
+    /\ UNCHANGED Inv1304_val
+    /\ UNCHANGED Inv1305_val
+    /\ UNCHANGED Inv1306_val
+    /\ UNCHANGED Inv1307_val
+    /\ UNCHANGED Inv1308_val
+    /\ UNCHANGED Inv1309_val
+    /\ UNCHANGED Inv131_val
+    /\ UNCHANGED Inv1310_val
+    /\ UNCHANGED Inv1311_val
+    /\ UNCHANGED Inv1312_val
+    /\ UNCHANGED Inv1313_val
+    /\ UNCHANGED Inv1314_val
+    /\ UNCHANGED Inv1315_val
+    /\ UNCHANGED Inv1316_val
+    /\ UNCHANGED Inv1317_val
+    /\ UNCHANGED Inv1318_val
+    /\ UNCHANGED Inv1319_val
+    /\ UNCHANGED Inv132_val
+    /\ UNCHANGED Inv1320_val
+    /\ UNCHANGED Inv1321_val
+    /\ UNCHANGED Inv1322_val
+    /\ UNCHANGED Inv1323_val
+    /\ UNCHANGED Inv1324_val
+    /\ UNCHANGED Inv1325_val
+    /\ UNCHANGED Inv1326_val
+    /\ UNCHANGED Inv1327_val
+    /\ UNCHANGED Inv1328_val
+    /\ UNCHANGED Inv1329_val
+    /\ UNCHANGED Inv133_val
+    /\ UNCHANGED Inv1330_val
+    /\ UNCHANGED Inv1331_val
+    /\ UNCHANGED Inv1332_val
+    /\ UNCHANGED Inv1333_val
+    /\ UNCHANGED Inv1334_val
+    /\ UNCHANGED Inv1335_val
+    /\ UNCHANGED Inv1336_val
+    /\ UNCHANGED Inv1337_val
+    /\ UNCHANGED Inv1338_val
+    /\ UNCHANGED Inv1339_val
+    /\ UNCHANGED Inv134_val
+    /\ UNCHANGED Inv1340_val
+    /\ UNCHANGED Inv1341_val
+    /\ UNCHANGED Inv1342_val
+    /\ UNCHANGED Inv1343_val
+    /\ UNCHANGED Inv1344_val
+    /\ UNCHANGED Inv1345_val
+    /\ UNCHANGED Inv1346_val
+    /\ UNCHANGED Inv1347_val
+    /\ UNCHANGED Inv1348_val
+    /\ UNCHANGED Inv1349_val
+    /\ UNCHANGED Inv135_val
+    /\ UNCHANGED Inv1350_val
+    /\ UNCHANGED Inv1351_val
+    /\ UNCHANGED Inv1352_val
+    /\ UNCHANGED Inv1353_val
+    /\ UNCHANGED Inv1354_val
+    /\ UNCHANGED Inv1355_val
+    /\ UNCHANGED Inv1356_val
+    /\ UNCHANGED Inv1357_val
+    /\ UNCHANGED Inv1358_val
+    /\ UNCHANGED Inv1359_val
+    /\ UNCHANGED Inv136_val
+    /\ UNCHANGED Inv1360_val
+    /\ UNCHANGED Inv1361_val
+    /\ UNCHANGED Inv1362_val
+    /\ UNCHANGED Inv1363_val
+    /\ UNCHANGED Inv1364_val
+    /\ UNCHANGED Inv1365_val
+    /\ UNCHANGED Inv1366_val
+    /\ UNCHANGED Inv1367_val
+    /\ UNCHANGED Inv1368_val
+    /\ UNCHANGED Inv1369_val
+    /\ UNCHANGED Inv137_val
+    /\ UNCHANGED Inv1370_val
+    /\ UNCHANGED Inv1371_val
+    /\ UNCHANGED Inv1372_val
+    /\ UNCHANGED Inv1373_val
+    /\ UNCHANGED Inv1374_val
+    /\ UNCHANGED Inv1375_val
+    /\ UNCHANGED Inv1376_val
+    /\ UNCHANGED Inv1377_val
+    /\ UNCHANGED Inv1378_val
+    /\ UNCHANGED Inv1379_val
+    /\ UNCHANGED Inv138_val
+    /\ UNCHANGED Inv1380_val
+    /\ UNCHANGED Inv1381_val
+    /\ UNCHANGED Inv1382_val
+    /\ UNCHANGED Inv1383_val
+    /\ UNCHANGED Inv1384_val
+    /\ UNCHANGED Inv1385_val
+    /\ UNCHANGED Inv1386_val
+    /\ UNCHANGED Inv1387_val
+    /\ UNCHANGED Inv1388_val
+    /\ UNCHANGED Inv1389_val
+    /\ UNCHANGED Inv139_val
+    /\ UNCHANGED Inv1390_val
+    /\ UNCHANGED Inv1391_val
+    /\ UNCHANGED Inv1392_val
+    /\ UNCHANGED Inv1393_val
+    /\ UNCHANGED Inv1394_val
+    /\ UNCHANGED Inv1395_val
+    /\ UNCHANGED Inv1396_val
+    /\ UNCHANGED Inv1397_val
+    /\ UNCHANGED Inv1398_val
+    /\ UNCHANGED Inv1399_val
+    /\ UNCHANGED Inv14_val
+    /\ UNCHANGED Inv140_val
+    /\ UNCHANGED Inv1400_val
+    /\ UNCHANGED Inv1401_val
+    /\ UNCHANGED Inv1402_val
+    /\ UNCHANGED Inv1403_val
+    /\ UNCHANGED Inv1404_val
+    /\ UNCHANGED Inv1405_val
+    /\ UNCHANGED Inv1406_val
+    /\ UNCHANGED Inv1407_val
+    /\ UNCHANGED Inv1408_val
+    /\ UNCHANGED Inv1409_val
+    /\ UNCHANGED Inv141_val
+    /\ UNCHANGED Inv1410_val
+    /\ UNCHANGED Inv1411_val
+    /\ UNCHANGED Inv1412_val
+    /\ UNCHANGED Inv1413_val
+    /\ UNCHANGED Inv1414_val
+    /\ UNCHANGED Inv1415_val
+    /\ UNCHANGED Inv1416_val
+    /\ UNCHANGED Inv1417_val
+    /\ UNCHANGED Inv1418_val
+    /\ UNCHANGED Inv1419_val
+    /\ UNCHANGED Inv142_val
+    /\ UNCHANGED Inv1420_val
+    /\ UNCHANGED Inv1421_val
+    /\ UNCHANGED Inv1422_val
+    /\ UNCHANGED Inv1423_val
+    /\ UNCHANGED Inv1424_val
+    /\ UNCHANGED Inv1425_val
+    /\ UNCHANGED Inv1426_val
+    /\ UNCHANGED Inv1427_val
+    /\ UNCHANGED Inv1428_val
+    /\ UNCHANGED Inv1429_val
+    /\ UNCHANGED Inv143_val
+    /\ UNCHANGED Inv1430_val
+    /\ UNCHANGED Inv1431_val
+    /\ UNCHANGED Inv1432_val
+    /\ UNCHANGED Inv1433_val
+    /\ UNCHANGED Inv1434_val
+    /\ UNCHANGED Inv1435_val
+    /\ UNCHANGED Inv1436_val
+    /\ UNCHANGED Inv1437_val
+    /\ UNCHANGED Inv1438_val
+    /\ UNCHANGED Inv1439_val
+    /\ UNCHANGED Inv144_val
+    /\ UNCHANGED Inv1440_val
+    /\ UNCHANGED Inv1441_val
+    /\ UNCHANGED Inv1442_val
+    /\ UNCHANGED Inv1443_val
+    /\ UNCHANGED Inv1444_val
+    /\ UNCHANGED Inv1445_val
+    /\ UNCHANGED Inv1446_val
+    /\ UNCHANGED Inv1447_val
+    /\ UNCHANGED Inv1448_val
+    /\ UNCHANGED Inv1449_val
+    /\ UNCHANGED Inv145_val
+    /\ UNCHANGED Inv1450_val
+    /\ UNCHANGED Inv1451_val
+    /\ UNCHANGED Inv1452_val
+    /\ UNCHANGED Inv1453_val
+    /\ UNCHANGED Inv1454_val
+    /\ UNCHANGED Inv1455_val
+    /\ UNCHANGED Inv1456_val
+    /\ UNCHANGED Inv1457_val
+    /\ UNCHANGED Inv1458_val
+    /\ UNCHANGED Inv1459_val
+    /\ UNCHANGED Inv146_val
+    /\ UNCHANGED Inv1460_val
+    /\ UNCHANGED Inv1461_val
+    /\ UNCHANGED Inv1462_val
+    /\ UNCHANGED Inv1463_val
+    /\ UNCHANGED Inv1464_val
+    /\ UNCHANGED Inv1465_val
+    /\ UNCHANGED Inv1466_val
+    /\ UNCHANGED Inv1467_val
+    /\ UNCHANGED Inv1468_val
+    /\ UNCHANGED Inv1469_val
+    /\ UNCHANGED Inv147_val
+    /\ UNCHANGED Inv1470_val
+    /\ UNCHANGED Inv1471_val
+    /\ UNCHANGED Inv1472_val
+    /\ UNCHANGED Inv1473_val
+    /\ UNCHANGED Inv1474_val
+    /\ UNCHANGED Inv1475_val
+    /\ UNCHANGED Inv1476_val
+    /\ UNCHANGED Inv1477_val
+    /\ UNCHANGED Inv1478_val
+    /\ UNCHANGED Inv1479_val
+    /\ UNCHANGED Inv148_val
+    /\ UNCHANGED Inv1480_val
+    /\ UNCHANGED Inv1481_val
+    /\ UNCHANGED Inv1482_val
+    /\ UNCHANGED Inv1483_val
+    /\ UNCHANGED Inv1484_val
+    /\ UNCHANGED Inv1485_val
+    /\ UNCHANGED Inv1486_val
+    /\ UNCHANGED Inv1487_val
+    /\ UNCHANGED Inv1488_val
+    /\ UNCHANGED Inv1489_val
+    /\ UNCHANGED Inv149_val
+    /\ UNCHANGED Inv1490_val
+    /\ UNCHANGED Inv1491_val
+    /\ UNCHANGED Inv1492_val
+    /\ UNCHANGED Inv1493_val
+    /\ UNCHANGED Inv1494_val
+    /\ UNCHANGED Inv1495_val
+    /\ UNCHANGED Inv1496_val
+    /\ UNCHANGED Inv1497_val
+    /\ UNCHANGED Inv1498_val
+    /\ UNCHANGED Inv1499_val
+    /\ UNCHANGED Inv15_val
+    /\ UNCHANGED Inv150_val
+    /\ UNCHANGED Inv1500_val
+    /\ UNCHANGED Inv1501_val
+    /\ UNCHANGED Inv1502_val
+    /\ UNCHANGED Inv1503_val
+    /\ UNCHANGED Inv1504_val
+    /\ UNCHANGED Inv1505_val
+    /\ UNCHANGED Inv1506_val
+    /\ UNCHANGED Inv1507_val
+    /\ UNCHANGED Inv1508_val
+    /\ UNCHANGED Inv1509_val
+    /\ UNCHANGED Inv151_val
+    /\ UNCHANGED Inv1510_val
+    /\ UNCHANGED Inv1511_val
+    /\ UNCHANGED Inv1512_val
+    /\ UNCHANGED Inv1513_val
+    /\ UNCHANGED Inv1514_val
+    /\ UNCHANGED Inv1515_val
+    /\ UNCHANGED Inv1516_val
+    /\ UNCHANGED Inv1517_val
+    /\ UNCHANGED Inv1518_val
+    /\ UNCHANGED Inv1519_val
+    /\ UNCHANGED Inv152_val
+    /\ UNCHANGED Inv1520_val
+    /\ UNCHANGED Inv1521_val
+    /\ UNCHANGED Inv1522_val
+    /\ UNCHANGED Inv1523_val
+    /\ UNCHANGED Inv1524_val
+    /\ UNCHANGED Inv1525_val
+    /\ UNCHANGED Inv1526_val
+    /\ UNCHANGED Inv1527_val
+    /\ UNCHANGED Inv1528_val
+    /\ UNCHANGED Inv1529_val
+    /\ UNCHANGED Inv153_val
+    /\ UNCHANGED Inv1530_val
+    /\ UNCHANGED Inv1531_val
+    /\ UNCHANGED Inv1532_val
+    /\ UNCHANGED Inv1533_val
+    /\ UNCHANGED Inv1534_val
+    /\ UNCHANGED Inv1535_val
+    /\ UNCHANGED Inv1536_val
+    /\ UNCHANGED Inv1537_val
+    /\ UNCHANGED Inv1538_val
+    /\ UNCHANGED Inv1539_val
+    /\ UNCHANGED Inv154_val
+    /\ UNCHANGED Inv1540_val
+    /\ UNCHANGED Inv1541_val
+    /\ UNCHANGED Inv1542_val
+    /\ UNCHANGED Inv1543_val
+    /\ UNCHANGED Inv1544_val
+    /\ UNCHANGED Inv1545_val
+    /\ UNCHANGED Inv1546_val
+    /\ UNCHANGED Inv1547_val
+    /\ UNCHANGED Inv1548_val
+    /\ UNCHANGED Inv1549_val
+    /\ UNCHANGED Inv155_val
+    /\ UNCHANGED Inv1550_val
+    /\ UNCHANGED Inv1551_val
+    /\ UNCHANGED Inv1552_val
+    /\ UNCHANGED Inv1553_val
+    /\ UNCHANGED Inv1554_val
+    /\ UNCHANGED Inv1555_val
+    /\ UNCHANGED Inv1556_val
+    /\ UNCHANGED Inv1557_val
+    /\ UNCHANGED Inv1558_val
+    /\ UNCHANGED Inv1559_val
+    /\ UNCHANGED Inv156_val
+    /\ UNCHANGED Inv1560_val
+    /\ UNCHANGED Inv1561_val
+    /\ UNCHANGED Inv1562_val
+    /\ UNCHANGED Inv1563_val
+    /\ UNCHANGED Inv1564_val
+    /\ UNCHANGED Inv1565_val
+    /\ UNCHANGED Inv1566_val
+    /\ UNCHANGED Inv1567_val
+    /\ UNCHANGED Inv1568_val
+    /\ UNCHANGED Inv1569_val
+    /\ UNCHANGED Inv157_val
+    /\ UNCHANGED Inv1570_val
+    /\ UNCHANGED Inv1571_val
+    /\ UNCHANGED Inv1572_val
+    /\ UNCHANGED Inv1573_val
+    /\ UNCHANGED Inv1574_val
+    /\ UNCHANGED Inv1575_val
+    /\ UNCHANGED Inv1576_val
+    /\ UNCHANGED Inv1577_val
+    /\ UNCHANGED Inv1578_val
+    /\ UNCHANGED Inv1579_val
+    /\ UNCHANGED Inv158_val
+    /\ UNCHANGED Inv1580_val
+    /\ UNCHANGED Inv1581_val
+    /\ UNCHANGED Inv1582_val
+    /\ UNCHANGED Inv1583_val
+    /\ UNCHANGED Inv1584_val
+    /\ UNCHANGED Inv1585_val
+    /\ UNCHANGED Inv1586_val
+    /\ UNCHANGED Inv1587_val
+    /\ UNCHANGED Inv1588_val
+    /\ UNCHANGED Inv1589_val
+    /\ UNCHANGED Inv159_val
+    /\ UNCHANGED Inv1590_val
+    /\ UNCHANGED Inv1591_val
+    /\ UNCHANGED Inv1592_val
+    /\ UNCHANGED Inv1593_val
+    /\ UNCHANGED Inv1594_val
+    /\ UNCHANGED Inv1595_val
+    /\ UNCHANGED Inv1596_val
+    /\ UNCHANGED Inv1597_val
+    /\ UNCHANGED Inv1598_val
+    /\ UNCHANGED Inv1599_val
+    /\ UNCHANGED Inv16_val
+    /\ UNCHANGED Inv160_val
+    /\ UNCHANGED Inv1600_val
+    /\ UNCHANGED Inv1601_val
+    /\ UNCHANGED Inv1602_val
+    /\ UNCHANGED Inv1603_val
+    /\ UNCHANGED Inv1604_val
+    /\ UNCHANGED Inv1605_val
+    /\ UNCHANGED Inv1606_val
+    /\ UNCHANGED Inv1607_val
+    /\ UNCHANGED Inv1608_val
+    /\ UNCHANGED Inv1609_val
+    /\ UNCHANGED Inv161_val
+    /\ UNCHANGED Inv1610_val
+    /\ UNCHANGED Inv1611_val
+    /\ UNCHANGED Inv1612_val
+    /\ UNCHANGED Inv1613_val
+    /\ UNCHANGED Inv1614_val
+    /\ UNCHANGED Inv1615_val
+    /\ UNCHANGED Inv1616_val
+    /\ UNCHANGED Inv1617_val
+    /\ UNCHANGED Inv1618_val
+    /\ UNCHANGED Inv1619_val
+    /\ UNCHANGED Inv162_val
+    /\ UNCHANGED Inv1620_val
+    /\ UNCHANGED Inv1621_val
+    /\ UNCHANGED Inv1622_val
+    /\ UNCHANGED Inv1623_val
+    /\ UNCHANGED Inv1624_val
+    /\ UNCHANGED Inv1625_val
+    /\ UNCHANGED Inv1626_val
+    /\ UNCHANGED Inv1627_val
+    /\ UNCHANGED Inv1628_val
+    /\ UNCHANGED Inv1629_val
+    /\ UNCHANGED Inv163_val
+    /\ UNCHANGED Inv1630_val
+    /\ UNCHANGED Inv1631_val
+    /\ UNCHANGED Inv1632_val
+    /\ UNCHANGED Inv1633_val
+    /\ UNCHANGED Inv1634_val
+    /\ UNCHANGED Inv1635_val
+    /\ UNCHANGED Inv1636_val
+    /\ UNCHANGED Inv1637_val
+    /\ UNCHANGED Inv1638_val
+    /\ UNCHANGED Inv1639_val
+    /\ UNCHANGED Inv164_val
+    /\ UNCHANGED Inv1640_val
+    /\ UNCHANGED Inv1641_val
+    /\ UNCHANGED Inv1642_val
+    /\ UNCHANGED Inv1643_val
+    /\ UNCHANGED Inv1644_val
+    /\ UNCHANGED Inv1645_val
+    /\ UNCHANGED Inv1646_val
+    /\ UNCHANGED Inv1647_val
+    /\ UNCHANGED Inv1648_val
+    /\ UNCHANGED Inv1649_val
+    /\ UNCHANGED Inv165_val
+    /\ UNCHANGED Inv1650_val
+    /\ UNCHANGED Inv1651_val
+    /\ UNCHANGED Inv1652_val
+    /\ UNCHANGED Inv1653_val
+    /\ UNCHANGED Inv1654_val
+    /\ UNCHANGED Inv1655_val
+    /\ UNCHANGED Inv1656_val
+    /\ UNCHANGED Inv1657_val
+    /\ UNCHANGED Inv1658_val
+    /\ UNCHANGED Inv1659_val
+    /\ UNCHANGED Inv166_val
+    /\ UNCHANGED Inv1660_val
+    /\ UNCHANGED Inv1661_val
+    /\ UNCHANGED Inv1662_val
+    /\ UNCHANGED Inv1663_val
+    /\ UNCHANGED Inv1664_val
+    /\ UNCHANGED Inv1665_val
+    /\ UNCHANGED Inv1666_val
+    /\ UNCHANGED Inv1667_val
+    /\ UNCHANGED Inv1668_val
+    /\ UNCHANGED Inv1669_val
+    /\ UNCHANGED Inv167_val
+    /\ UNCHANGED Inv1670_val
+    /\ UNCHANGED Inv1671_val
+    /\ UNCHANGED Inv1672_val
+    /\ UNCHANGED Inv1673_val
+    /\ UNCHANGED Inv1674_val
+    /\ UNCHANGED Inv1675_val
+    /\ UNCHANGED Inv1676_val
+    /\ UNCHANGED Inv1677_val
+    /\ UNCHANGED Inv1678_val
+    /\ UNCHANGED Inv1679_val
+    /\ UNCHANGED Inv168_val
+    /\ UNCHANGED Inv1680_val
+    /\ UNCHANGED Inv1681_val
+    /\ UNCHANGED Inv1682_val
+    /\ UNCHANGED Inv1683_val
+    /\ UNCHANGED Inv1684_val
+    /\ UNCHANGED Inv1685_val
+    /\ UNCHANGED Inv1686_val
+    /\ UNCHANGED Inv1687_val
+    /\ UNCHANGED Inv1688_val
+    /\ UNCHANGED Inv1689_val
+    /\ UNCHANGED Inv169_val
+    /\ UNCHANGED Inv1690_val
+    /\ UNCHANGED Inv1691_val
+    /\ UNCHANGED Inv1692_val
+    /\ UNCHANGED Inv1693_val
+    /\ UNCHANGED Inv1694_val
+    /\ UNCHANGED Inv1695_val
+    /\ UNCHANGED Inv1696_val
+    /\ UNCHANGED Inv1697_val
+    /\ UNCHANGED Inv1698_val
+    /\ UNCHANGED Inv1699_val
+    /\ UNCHANGED Inv17_val
+    /\ UNCHANGED Inv170_val
+    /\ UNCHANGED Inv1700_val
+    /\ UNCHANGED Inv1701_val
+    /\ UNCHANGED Inv1702_val
+    /\ UNCHANGED Inv1703_val
+    /\ UNCHANGED Inv1704_val
+    /\ UNCHANGED Inv1705_val
+    /\ UNCHANGED Inv1706_val
+    /\ UNCHANGED Inv1707_val
+    /\ UNCHANGED Inv1708_val
+    /\ UNCHANGED Inv1709_val
+    /\ UNCHANGED Inv171_val
+    /\ UNCHANGED Inv1710_val
+    /\ UNCHANGED Inv1711_val
+    /\ UNCHANGED Inv1712_val
+    /\ UNCHANGED Inv1713_val
+    /\ UNCHANGED Inv1714_val
+    /\ UNCHANGED Inv1715_val
+    /\ UNCHANGED Inv1716_val
+    /\ UNCHANGED Inv1717_val
+    /\ UNCHANGED Inv1718_val
+    /\ UNCHANGED Inv1719_val
+    /\ UNCHANGED Inv172_val
+    /\ UNCHANGED Inv1720_val
+    /\ UNCHANGED Inv1721_val
+    /\ UNCHANGED Inv1722_val
+    /\ UNCHANGED Inv1723_val
+    /\ UNCHANGED Inv1724_val
+    /\ UNCHANGED Inv1725_val
+    /\ UNCHANGED Inv1726_val
+    /\ UNCHANGED Inv1727_val
+    /\ UNCHANGED Inv1728_val
+    /\ UNCHANGED Inv1729_val
+    /\ UNCHANGED Inv173_val
+    /\ UNCHANGED Inv1730_val
+    /\ UNCHANGED Inv1731_val
+    /\ UNCHANGED Inv1732_val
+    /\ UNCHANGED Inv1733_val
+    /\ UNCHANGED Inv1734_val
+    /\ UNCHANGED Inv1735_val
+    /\ UNCHANGED Inv1736_val
+    /\ UNCHANGED Inv1737_val
+    /\ UNCHANGED Inv1738_val
+    /\ UNCHANGED Inv1739_val
+    /\ UNCHANGED Inv174_val
+    /\ UNCHANGED Inv1740_val
+    /\ UNCHANGED Inv1741_val
+    /\ UNCHANGED Inv1742_val
+    /\ UNCHANGED Inv1743_val
+    /\ UNCHANGED Inv1744_val
+    /\ UNCHANGED Inv1745_val
+    /\ UNCHANGED Inv1746_val
+    /\ UNCHANGED Inv1747_val
+    /\ UNCHANGED Inv1748_val
+    /\ UNCHANGED Inv1749_val
+    /\ UNCHANGED Inv175_val
+    /\ UNCHANGED Inv1750_val
+    /\ UNCHANGED Inv1751_val
+    /\ UNCHANGED Inv1752_val
+    /\ UNCHANGED Inv1753_val
+    /\ UNCHANGED Inv1754_val
+    /\ UNCHANGED Inv1755_val
+    /\ UNCHANGED Inv1756_val
+    /\ UNCHANGED Inv1757_val
+    /\ UNCHANGED Inv1758_val
+    /\ UNCHANGED Inv1759_val
+    /\ UNCHANGED Inv176_val
+    /\ UNCHANGED Inv1760_val
+    /\ UNCHANGED Inv1761_val
+    /\ UNCHANGED Inv1762_val
+    /\ UNCHANGED Inv1763_val
+    /\ UNCHANGED Inv1764_val
+    /\ UNCHANGED Inv1765_val
+    /\ UNCHANGED Inv1766_val
+    /\ UNCHANGED Inv1767_val
+    /\ UNCHANGED Inv1768_val
+    /\ UNCHANGED Inv1769_val
+    /\ UNCHANGED Inv177_val
+    /\ UNCHANGED Inv1770_val
+    /\ UNCHANGED Inv1771_val
+    /\ UNCHANGED Inv1772_val
+    /\ UNCHANGED Inv1773_val
+    /\ UNCHANGED Inv1774_val
+    /\ UNCHANGED Inv1775_val
+    /\ UNCHANGED Inv1776_val
+    /\ UNCHANGED Inv1777_val
+    /\ UNCHANGED Inv1778_val
+    /\ UNCHANGED Inv1779_val
+    /\ UNCHANGED Inv178_val
+    /\ UNCHANGED Inv1780_val
+    /\ UNCHANGED Inv1781_val
+    /\ UNCHANGED Inv1782_val
+    /\ UNCHANGED Inv1783_val
+    /\ UNCHANGED Inv1784_val
+    /\ UNCHANGED Inv1785_val
+    /\ UNCHANGED Inv1786_val
+    /\ UNCHANGED Inv1787_val
+    /\ UNCHANGED Inv1788_val
+    /\ UNCHANGED Inv1789_val
+    /\ UNCHANGED Inv179_val
+    /\ UNCHANGED Inv1790_val
+    /\ UNCHANGED Inv1791_val
+    /\ UNCHANGED Inv1792_val
+    /\ UNCHANGED Inv1793_val
+    /\ UNCHANGED Inv1794_val
+    /\ UNCHANGED Inv1795_val
+    /\ UNCHANGED Inv1796_val
+    /\ UNCHANGED Inv1797_val
+    /\ UNCHANGED Inv1798_val
+    /\ UNCHANGED Inv1799_val
+    /\ UNCHANGED Inv18_val
+    /\ UNCHANGED Inv180_val
+    /\ UNCHANGED Inv1800_val
+    /\ UNCHANGED Inv1801_val
+    /\ UNCHANGED Inv1802_val
+    /\ UNCHANGED Inv1803_val
+    /\ UNCHANGED Inv1804_val
+    /\ UNCHANGED Inv1805_val
+    /\ UNCHANGED Inv1806_val
+    /\ UNCHANGED Inv1807_val
+    /\ UNCHANGED Inv1808_val
+    /\ UNCHANGED Inv1809_val
+    /\ UNCHANGED Inv181_val
+    /\ UNCHANGED Inv1810_val
+    /\ UNCHANGED Inv1811_val
+    /\ UNCHANGED Inv1812_val
+    /\ UNCHANGED Inv1813_val
+    /\ UNCHANGED Inv1814_val
+    /\ UNCHANGED Inv1815_val
+    /\ UNCHANGED Inv1816_val
+    /\ UNCHANGED Inv1817_val
+    /\ UNCHANGED Inv1818_val
+    /\ UNCHANGED Inv1819_val
+    /\ UNCHANGED Inv182_val
+    /\ UNCHANGED Inv1820_val
+    /\ UNCHANGED Inv1821_val
+    /\ UNCHANGED Inv1822_val
+    /\ UNCHANGED Inv1823_val
+    /\ UNCHANGED Inv1824_val
+    /\ UNCHANGED Inv1825_val
+    /\ UNCHANGED Inv1826_val
+    /\ UNCHANGED Inv1827_val
+    /\ UNCHANGED Inv1828_val
+    /\ UNCHANGED Inv1829_val
+    /\ UNCHANGED Inv183_val
+    /\ UNCHANGED Inv1830_val
+    /\ UNCHANGED Inv1831_val
+    /\ UNCHANGED Inv1832_val
+    /\ UNCHANGED Inv1833_val
+    /\ UNCHANGED Inv1834_val
+    /\ UNCHANGED Inv1835_val
+    /\ UNCHANGED Inv1836_val
+    /\ UNCHANGED Inv1837_val
+    /\ UNCHANGED Inv1838_val
+    /\ UNCHANGED Inv1839_val
+    /\ UNCHANGED Inv184_val
+    /\ UNCHANGED Inv1840_val
+    /\ UNCHANGED Inv1841_val
+    /\ UNCHANGED Inv1842_val
+    /\ UNCHANGED Inv1843_val
+    /\ UNCHANGED Inv1844_val
+    /\ UNCHANGED Inv1845_val
+    /\ UNCHANGED Inv1846_val
+    /\ UNCHANGED Inv1847_val
+    /\ UNCHANGED Inv1848_val
+    /\ UNCHANGED Inv1849_val
+    /\ UNCHANGED Inv185_val
+    /\ UNCHANGED Inv1850_val
+    /\ UNCHANGED Inv1851_val
+    /\ UNCHANGED Inv1852_val
+    /\ UNCHANGED Inv1853_val
+    /\ UNCHANGED Inv1854_val
+    /\ UNCHANGED Inv1855_val
+    /\ UNCHANGED Inv1856_val
+    /\ UNCHANGED Inv1857_val
+    /\ UNCHANGED Inv1858_val
+    /\ UNCHANGED Inv1859_val
+    /\ UNCHANGED Inv186_val
+    /\ UNCHANGED Inv1860_val
+    /\ UNCHANGED Inv1861_val
+    /\ UNCHANGED Inv1862_val
+    /\ UNCHANGED Inv1863_val
+    /\ UNCHANGED Inv1864_val
+    /\ UNCHANGED Inv1865_val
+    /\ UNCHANGED Inv1866_val
+    /\ UNCHANGED Inv1867_val
+    /\ UNCHANGED Inv1868_val
+    /\ UNCHANGED Inv1869_val
+    /\ UNCHANGED Inv187_val
+    /\ UNCHANGED Inv1870_val
+    /\ UNCHANGED Inv1871_val
+    /\ UNCHANGED Inv1872_val
+    /\ UNCHANGED Inv1873_val
+    /\ UNCHANGED Inv1874_val
+    /\ UNCHANGED Inv1875_val
+    /\ UNCHANGED Inv1876_val
+    /\ UNCHANGED Inv1877_val
+    /\ UNCHANGED Inv1878_val
+    /\ UNCHANGED Inv1879_val
+    /\ UNCHANGED Inv188_val
+    /\ UNCHANGED Inv1880_val
+    /\ UNCHANGED Inv1881_val
+    /\ UNCHANGED Inv1882_val
+    /\ UNCHANGED Inv1883_val
+    /\ UNCHANGED Inv1884_val
+    /\ UNCHANGED Inv1885_val
+    /\ UNCHANGED Inv1886_val
+    /\ UNCHANGED Inv1887_val
+    /\ UNCHANGED Inv1888_val
+    /\ UNCHANGED Inv1889_val
+    /\ UNCHANGED Inv189_val
+    /\ UNCHANGED Inv1890_val
+    /\ UNCHANGED Inv1891_val
+    /\ UNCHANGED Inv1892_val
+    /\ UNCHANGED Inv1893_val
+    /\ UNCHANGED Inv1894_val
+    /\ UNCHANGED Inv1895_val
+    /\ UNCHANGED Inv1896_val
+    /\ UNCHANGED Inv1897_val
+    /\ UNCHANGED Inv1898_val
+====

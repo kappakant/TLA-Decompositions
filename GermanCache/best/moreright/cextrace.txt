@@ -1,16 +1,16 @@
 TLC2 Version 2.20 of Day Month 20?? (rev: db191cc)
 Warning: Please run the Java VM, which executes TLC with a throughput optimized garbage collector, by passing the "-XX:+UseParallelGC" property.
 (Use the -nowarning option to disable this warning.)
-Running breadth-first search Model-Checking with fp 61 and seed -7759905377015570807 with 8 workers on 8 cores with 4096MB heap and 64MB offheap memory [pid: 18782] (Mac OS X 15.5 aarch64, Oracle Corporation 22.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Running breadth-first search Model-Checking with fp 36 and seed 6756456015367702051 with 8 workers on 8 cores with 4096MB heap and 64MB offheap memory [pid: 98174] (Mac OS X 15.5 aarch64, Oracle Corporation 22.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
 Parsing file /Users/johnnguyen/Desktop/TLA/endive/GermanCache/best/moreright/b_hist.tla
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/Naturals.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/Integers.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/Sequences.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/FiniteSets.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/TLC.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/Randomization.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Randomization.tla)
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/_TLCTrace.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
-Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-2645691202090475948/TLCExt.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/Naturals.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/Integers.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/Sequences.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/FiniteSets.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/TLC.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/Randomization.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/Randomization.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/_TLCTrace.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/td/ccnr1wd11sz8476v426_q7tc0000gp/T/tlc-9827588473259571679/TLCExt.tla (jar:file:/Users/johnnguyen/bin/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
 Semantic processing of module Naturals
 Semantic processing of module Integers
 Semantic processing of module Sequences
@@ -20,44 +20,57 @@ Semantic processing of module Randomization
 Semantic processing of module TLCExt
 Semantic processing of module _TLCTrace
 Semantic processing of module b_hist
-Starting... (2025-07-29 08:49:52)
+Starting... (2025-08-06 13:01:34)
 Computing initial states...
-Finished computing initial states: 1 distinct state generated at 2025-07-29 08:49:52.
+Finished computing initial states: 1 distinct state generated at 2025-08-06 13:01:34.
 Error: Invariant CandSep is violated.
 Error: The behavior up to this point is:
 State 1: <Initial predicate>
+/\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
 /\ CurCmd = "Empty"
 /\ CurPtr = 1
 /\ InvSet = <<FALSE, FALSE, FALSE>>
+/\ Fluent38_0 = <<FALSE, FALSE, FALSE>>
 /\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-/\ Fluent1_0 = <<FALSE, FALSE, FALSE>>
 /\ ShrSet = <<FALSE, FALSE, FALSE>>
 
-State 2: <SendReqS(1) line 48, col 1 to line 51, col 25 of module b_hist>
+State 2: <SendReqS(2) line 49, col 1 to line 53, col 26 of module b_hist>
+/\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
 /\ CurCmd = "Empty"
 /\ CurPtr = 1
 /\ InvSet = <<FALSE, FALSE, FALSE>>
-/\ Chan1 = <<<<"ReqS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-/\ Fluent1_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent38_0 = <<FALSE, TRUE, FALSE>>
+/\ Chan1 = <<<<"Empty", 1>>, <<"ReqS", 1>>, <<"Empty", 1>>>>
 /\ ShrSet = <<FALSE, FALSE, FALSE>>
 
-State 3: <RecvReqS(1) line 71, col 1 to line 78, col 25 of module b_hist>
+State 3: <SendReqS(1) line 49, col 1 to line 53, col 26 of module b_hist>
+/\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
+/\ CurCmd = "Empty"
+/\ CurPtr = 1
+/\ InvSet = <<FALSE, FALSE, FALSE>>
+/\ Fluent38_0 = <<TRUE, TRUE, FALSE>>
+/\ Chan1 = <<<<"ReqS", 1>>, <<"ReqS", 1>>, <<"Empty", 1>>>>
+/\ ShrSet = <<FALSE, FALSE, FALSE>>
+
+State 4: <RecvReqS(2) line 73, col 1 to line 80, col 38 of module b_hist>
+/\ Fluent39_0 = <<FALSE, FALSE, FALSE>>
 /\ CurCmd = "ReqS"
-/\ CurPtr = 1
+/\ CurPtr = 2
 /\ InvSet = <<FALSE, FALSE, FALSE>>
-/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-/\ Fluent1_0 = <<FALSE, FALSE, FALSE>>
+/\ Fluent38_0 = <<TRUE, TRUE, FALSE>>
+/\ Chan1 = <<<<"ReqS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
 /\ ShrSet = <<FALSE, FALSE, FALSE>>
 
-State 4: <SendGntS(1) line 117, col 1 to line 123, col 16 of module b_hist>
+State 5: <SendGntS(2) line 119, col 1 to line 125, col 26 of module b_hist>
+/\ Fluent39_0 = <<TRUE, FALSE, TRUE>>
 /\ CurCmd = "Empty"
-/\ CurPtr = 1
+/\ CurPtr = 2
 /\ InvSet = <<FALSE, FALSE, FALSE>>
-/\ Chan1 = <<<<"Empty", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
-/\ Fluent1_0 = <<TRUE, FALSE, FALSE>>
-/\ ShrSet = <<TRUE, FALSE, FALSE>>
+/\ Fluent38_0 = <<TRUE, TRUE, FALSE>>
+/\ Chan1 = <<<<"ReqS", 1>>, <<"Empty", 1>>, <<"Empty", 1>>>>
+/\ ShrSet = <<FALSE, TRUE, FALSE>>
 
-287 states generated, 119 distinct states found, 72 states left on queue.
-The depth of the complete state graph search is 5.
-Finished in 00s at (2025-07-29 08:49:52)
-Trace exploration spec path: ./b_hist_TTrace_1753793392.tla
+1125 states generated, 252 distinct states found, 133 states left on queue.
+The depth of the complete state graph search is 6.
+Finished in 00s at (2025-08-06 13:01:34)
+Trace exploration spec path: ./b_hist_TTrace_1754499694.tla

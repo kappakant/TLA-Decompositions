@@ -3,12 +3,12 @@ EXTENDS Naturals, Integers, Sequences, FiniteSets, TLC, Randomization
 
 CONSTANTS NODE, DATA
 
-VARIABLES Chan2, ExGntd, Chan3, MemData, AuxData, Cache
+VARIABLES Chan2, ExGntd, Chan3, Fluent9_0, MemData, Fluent8_0, AuxData, Cache
 
-vars == <<Chan2, ExGntd, Chan3, MemData, AuxData, Cache>>
+vars == <<Chan2, ExGntd, Chan3, Fluent9_0, MemData, Fluent8_0, AuxData, Cache>>
 
 CandSep ==
-TRUE
+\A var0 \in DATA : (Fluent8_0[var0]) => (Fluent9_0[var0])
 
 CACHE_STATE == {"I","S","E"}
 
@@ -25,6 +25,8 @@ Init ==
 /\ ExGntd = FALSE
 /\ MemData = 1
 /\ AuxData = 1
+/\ Fluent9_0 = [ x0 \in NODE |-> FALSE]
+/\ Fluent8_0 = [ x0 \in NODE |-> FALSE]
 
 TypeOK ==
 /\ (Cache \in [NODE -> CACHE])
@@ -49,26 +51,28 @@ Symmetry == Permutations(NODE)
 SendReqS(i) ==
 /\ Cache[i][1] = "I"
 /\ UNCHANGED <<Cache,Chan2,Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 SendReqEA(i) ==
 /\ Cache[i][1] = "I"
 /\ UNCHANGED <<Cache,Chan2,Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ Fluent9_0' = [Fluent9_0 EXCEPT ![i] = TRUE]
+/\ UNCHANGED<<Fluent8_0>>
 /\ CandSep'
 
 SendReqEB(i) ==
 /\ Cache[i][1] = "S"
 /\ UNCHANGED <<Cache,Chan2,Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ Fluent9_0' = [Fluent9_0 EXCEPT ![i] = TRUE]
+/\ UNCHANGED<<Fluent8_0>>
 /\ CandSep'
 
 SendInvA(i) ==
 /\ Chan2[i][1] = "Empty"
 /\ Chan2' = [Chan2 EXCEPT![i] = <<"Inv",Chan2[i][2]>>]
 /\ UNCHANGED <<Cache,Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 SendInvB(i) ==
@@ -76,7 +80,7 @@ SendInvB(i) ==
 /\ ExGntd = TRUE
 /\ Chan2' = [Chan2 EXCEPT![i] = <<"Inv",Chan2[i][2]>>]
 /\ UNCHANGED <<Cache,Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 SendInvAckA(i) ==
@@ -87,7 +91,7 @@ SendInvAckA(i) ==
 /\ Chan3' = [Chan3 EXCEPT![i] = <<"InvAck",Cache[i][2]>>]
 /\ Cache' = [Cache EXCEPT![i] = <<"I",Cache[i][2]>>]
 /\ UNCHANGED <<ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 SendInvAckB(i) ==
@@ -97,7 +101,7 @@ SendInvAckB(i) ==
 /\ Chan2' = [Chan2 EXCEPT![i] = <<"Empty",Chan2[i][2]>>]
 /\ Chan3' = [Chan3 EXCEPT![i] = <<"InvAck",Chan3[i][2]>>]
 /\ UNCHANGED <<Cache,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 RecvInvAckA(i) ==
@@ -107,7 +111,7 @@ RecvInvAckA(i) ==
 /\ ExGntd' = FALSE
 /\ MemData' = Chan3[i][2]
 /\ UNCHANGED <<Cache,Chan2,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 RecvInvAckB(i) ==
@@ -115,7 +119,7 @@ RecvInvAckB(i) ==
 /\ Chan3' = [Chan3 EXCEPT![i] = <<"Empty",Chan3[i][2]>>]
 /\ ExGntd = FALSE
 /\ UNCHANGED <<Cache,Chan2,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 SendGntS(i) ==
@@ -123,7 +127,7 @@ SendGntS(i) ==
 /\ ExGntd = FALSE
 /\ Chan2' = [Chan2 EXCEPT![i] = <<"GntS",MemData>>]
 /\ UNCHANGED <<Cache,Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 SendGntE(i) ==
@@ -132,7 +136,8 @@ SendGntE(i) ==
 /\ Chan2' = [Chan2 EXCEPT![i] = <<"GntE",MemData>>]
 /\ ExGntd' = TRUE
 /\ UNCHANGED <<Cache,Chan3,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ Fluent8_0' = [Fluent8_0 EXCEPT ![i] = TRUE]
+/\ UNCHANGED<<Fluent9_0>>
 /\ CandSep'
 
 RecvGntS(i) ==
@@ -140,7 +145,7 @@ RecvGntS(i) ==
 /\ Cache' = [Cache EXCEPT![i] = <<"S",Chan2[i][2]>>]
 /\ Chan2' = [Chan2 EXCEPT![i] = <<"Empty",Chan2[i][2]>>]
 /\ UNCHANGED <<Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 RecvGntE(i) ==
@@ -148,7 +153,7 @@ RecvGntE(i) ==
 /\ Cache' = [Cache EXCEPT![i] = <<"E",Chan2[i][2]>>]
 /\ Chan2' = [Chan2 EXCEPT![i] = <<"Empty",Chan2[i][2]>>]
 /\ UNCHANGED <<Chan3,ExGntd,MemData,AuxData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 Store(i,d) ==
@@ -156,7 +161,7 @@ Store(i,d) ==
 /\ Cache' = [Cache EXCEPT![i] = <<Cache[i][1],d>>]
 /\ AuxData' = d
 /\ UNCHANGED <<Chan2,Chan3,ExGntd,MemData>>
-/\ UNCHANGED<<>>
+/\ UNCHANGED<<Fluent9_0, Fluent8_0>>
 /\ CandSep'
 
 Next ==

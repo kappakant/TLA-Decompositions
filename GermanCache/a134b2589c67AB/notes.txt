@@ -1,0 +1,5 @@
+cache+chan2+chan3,
+chan1+CurCmd+CurPtr+InvSet,
+ExGntd+MemData+AuxData+ShrSet
+
+

@@ -1,4 +1,4 @@
-//1
+//40
 //0
 open util/boolean
 open util/ordering[Idx] as IdxOrder
@@ -376,6 +376,9 @@ one sig SendGntS extends BaseName {} {
 	paramIdxs = P0
 	paramTypes = P0->NODE
 }
+one sig SendGntSNUM3 extends Act {} {
+	params = (P0->NUM3)
+}
 one sig SendGntSNUM1 extends Act {} {
 	params = (P0->NUM1)
 }
@@ -396,21 +399,28 @@ one sig SendReqS extends BaseName {} {
 	paramIdxs = P0
 	paramTypes = P0->NODE
 }
-one sig SendReqSNUM2 extends Act {} {
-	params = (P0->NUM2)
+one sig SendReqSNUM3 extends Act {} {
+	params = (P0->NUM3)
+}
+one sig SendReqSNUM1 extends Act {} {
+	params = (P0->NUM1)
 }
 
 one sig SendGntE extends BaseName {} {
 	paramIdxs = P0
 	paramTypes = P0->NODE
 }
-
+one sig SendGntENUM1 extends Act {} {
+	params = (P0->NUM1)
+}
 
 one sig RecvInvAckB extends BaseName {} {
 	paramIdxs = P0
 	paramTypes = P0->NODE
 }
-
+one sig RecvInvAckBNUM3 extends Act {} {
+	params = (P0->NUM3)
+}
 
 one sig RecvInvAckA extends BaseName {} {
 	paramIdxs = P0
@@ -428,15 +438,17 @@ one sig SendReqEA extends BaseName {} {
 	paramIdxs = P0
 	paramTypes = P0->NODE
 }
+one sig SendReqEANUM1 extends Act {} {
+	params = (P0->NUM1)
+}
 
 
-
-one sig T0 extends Idx {}
+one sig T0, T1, T2, T3, T4 extends Idx {}
 
 fact {
 	IdxOrder/first = T0
-	IdxOrder/next = none->none
-	SendGntS in FlSymAction.baseName // the final base name in the neg trace must appear in the sep formula
+	IdxOrder/next = T0->T1 + T1->T2 + T2->T3 + T3->T4
+	SendGntE in FlSymAction.baseName // the final base name in the neg trace must appear in the sep formula
 }
 
 
@@ -445,7 +457,7 @@ fun envVarTypes : set(Var->Sort) {
 }
 
 
-one sig var2, var1, var0 extends Var {} {}
+one sig var0, var1, var2 extends Var {} {}
 
 
 one sig var0toNUM3var1toNUM2 extends Env {} {}
@@ -490,10 +502,10 @@ one sig var0toNUM3var1toNUM3var2toNUM3 extends Env {} {}
 
 
 fact PartialInstance {
-	lastIdx = (EmptyTrace->T0) + (PT1->T0) + (NT1->T0)
+	lastIdx = (EmptyTrace->T0) + (PT1->T4) + (NT1->T4)
 
-	path = (PT1 -> (T0->SendReqSNUM2)) +
-		(NT1 -> (T0->SendGntSNUM1))
+	path = (PT1 -> (T0->SendReqSNUM1 + T1->SendReqEANUM1 + T2->SendReqSNUM3 + T3->SendGntSNUM1 + T4->RecvInvAckBNUM3)) +
+		(NT1 -> (T0->SendReqSNUM1 + T1->SendReqEANUM1 + T2->SendReqSNUM3 + T3->SendGntSNUM3 + T4->SendGntENUM1))
 
 	maps = var0toNUM3var1toNUM2->(var0->NUM3 + var1->NUM2) +
 		var1toNUM3var0toNUM2->(var1->NUM3 + var0->NUM2) +
@@ -535,7 +547,12 @@ fact PartialInstance {
 		var0toNUM1var1toNUM1var2toNUM1->(var0->NUM1 + var1->NUM1 + var2->NUM1) +
 		var0toNUM3var1toNUM3var2toNUM3->(var0->NUM3 + var1->NUM3 + var2->NUM3)
 
-	baseName = SendReqSNUM2->SendReqS +
+	baseName = SendReqEANUM1->SendReqEA +
+		SendReqSNUM1->SendReqS +
+		SendReqSNUM3->SendReqS +
+		RecvInvAckBNUM3->RecvInvAckB +
+		SendGntENUM1->SendGntE +
+		SendGntSNUM3->SendGntS +
 		SendGntSNUM1->SendGntS
 }
 

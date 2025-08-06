@@ -3,12 +3,12 @@ EXTENDS Naturals, Integers, Sequences, FiniteSets, TLC, Randomization
 
 CONSTANTS NODE, DATA
 
-VARIABLES CurCmd, CurPtr, ShrSet, InvSet, Fluent1_0, Chan1
+VARIABLES CurCmd, Fluent38_0, Fluent39_0, CurPtr, ShrSet, InvSet, Chan1
 
-vars == <<CurCmd, CurPtr, ShrSet, InvSet, Fluent1_0, Chan1>>
+vars == <<CurCmd, Fluent38_0, Fluent39_0, CurPtr, ShrSet, InvSet, Chan1>>
 
 CandSep ==
-\A var0 \in DATA : \A var1 \in DATA : (Fluent1_0[var1]) => (~(var1 <= var0))
+\A var0 \in NODE : \A var1 \in DATA : (Fluent38_0[var0]) => ((Fluent39_0[var0]) => (var1 <= var0))
 
 CACHE_STATE == {"I","S","E"}
 
@@ -24,7 +24,8 @@ Init ==
 /\ ShrSet = [i \in NODE |-> FALSE]
 /\ CurCmd = "Empty"
 /\ CurPtr = 1
-/\ Fluent1_0 = [ x0 \in NODE |-> FALSE]
+/\ Fluent38_0 = [ x0 \in NODE |-> FALSE]
+/\ Fluent39_0 = [ x0 \in NODE |-> FALSE]
 
 TypeOK ==
 /\ (Chan1 \in [NODE -> MSG])
@@ -48,7 +49,8 @@ SendReqS(i) ==
 /\ Chan1[i][1] = "Empty"
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"ReqS",Chan1[i][2]>>]
 /\ UNCHANGED <<InvSet,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ Fluent38_0' = [Fluent38_0 EXCEPT ![i] = TRUE]
+/\ UNCHANGED<<Fluent39_0>>
 
 SendReqE(i) ==
 /\ Chan1[i][1] = "Empty"
@@ -59,13 +61,13 @@ SendReqEA(i) ==
 /\ Chan1[i][1] = "Empty"
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"ReqE",Chan1[i][2]>>]
 /\ UNCHANGED <<InvSet,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 SendReqEB(i) ==
 /\ Chan1[i][1] = "Empty"
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"ReqE",Chan1[i][2]>>]
 /\ UNCHANGED <<InvSet,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 RecvReqS(i) ==
 /\ CurCmd = "Empty"
@@ -75,7 +77,7 @@ RecvReqS(i) ==
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"Empty",Chan1[i][2]>>]
 /\ InvSet' = [j \in NODE |-> ShrSet[j]]
 /\ UNCHANGED <<ShrSet>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 RecvReqE(i) ==
 /\ CurCmd = "Empty"
@@ -85,33 +87,33 @@ RecvReqE(i) ==
 /\ Chan1' = [Chan1 EXCEPT![i] = <<"Empty",Chan1[i][2]>>]
 /\ InvSet' = [j \in NODE |-> ShrSet[j]]
 /\ UNCHANGED <<ShrSet>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 SendInvA(i) ==
 /\ InvSet[i] = TRUE
 /\ CurCmd = "ReqE"
 /\ InvSet' = [InvSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 SendInvB(i) ==
 /\ InvSet[i] = TRUE
 /\ CurCmd = "ReqS"
 /\ InvSet' = [InvSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,ShrSet,CurCmd,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 RecvInvAckA(i) ==
 /\ CurCmd /= "Empty"
 /\ ShrSet' = [ShrSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,InvSet,CurCmd,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 RecvInvAckB(i) ==
 /\ CurCmd /= "Empty"
 /\ ShrSet' = [ShrSet EXCEPT![i] = FALSE]
 /\ UNCHANGED <<Chan1,InvSet,CurCmd,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 SendGntS(i) ==
 /\ CurCmd = "ReqS"
@@ -119,8 +121,8 @@ SendGntS(i) ==
 /\ ShrSet' = [ShrSet EXCEPT![i] = TRUE]
 /\ CurCmd' = "Empty"
 /\ UNCHANGED <<Chan1,InvSet,CurPtr>>
-/\ Fluent1_0' = [Fluent1_0 EXCEPT ![i] = TRUE]
-/\ UNCHANGED<<>>
+/\ Fluent39_0' = [[x0 \in NODE |-> TRUE] EXCEPT ![i] = FALSE]
+/\ UNCHANGED<<Fluent38_0>>
 
 SendGntE(i) ==
 /\ CurCmd = "ReqE"
@@ -129,7 +131,7 @@ SendGntE(i) ==
 /\ ShrSet' = [ShrSet EXCEPT![i] = TRUE]
 /\ CurCmd' = "Empty"
 /\ UNCHANGED <<Chan1,InvSet,CurPtr>>
-/\ UNCHANGED<<Fluent1_0>>
+/\ UNCHANGED<<Fluent38_0, Fluent39_0>>
 
 Next ==
 \E i \in NODE :
